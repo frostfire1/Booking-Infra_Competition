@@ -1,0 +1,55 @@
+#!/sbin/openrc-run
+# OpenRC service script for Next.js application
+# Save to: /etc/init.d/nextjs
+# Usage: rc-service nextjs start|stop|restart|status
+
+name="nextjs"
+description="Next.js Intra Booking Application"
+
+command="/usr/bin/node"
+command_args="/app/server.js"
+command_user="nodejs:nodejs"
+command_background="yes"
+pidfile="/var/run/nextjs.pid"
+directory="/app"
+
+# Output logs
+output_log="/var/log/nextjs.log"
+error_log="/var/log/nextjs.log"
+
+depend() {
+    need net
+    after sshd
+}
+
+start_pre() {
+    # Ensure log directory exists
+    mkdir -p /var/log /var/run
+    touch "$output_log"
+    chown nodejs:nodejs "$output_log"
+    
+    # Run database migration
+    einfo "Running database migration..."
+    cd /app
+    npx prisma generate 2>&1 | tee -a "$output_log"
+    npx prisma db push --skip-generate --accept-data-loss 2>&1 | tee -a "$output_log"
+    
+    # Check admin user
+    einfo "Checking admin user..."
+    node node_modules/tsx/dist/cli.mjs scripts/check-admin.ts 2>&1 | tee -a "$output_log"
+}
+
+start_post() {
+    einfo "Next.js application started with PID $(cat $pidfile)"
+    einfo "View logs: tail -f $output_log"
+}
+
+stop_post() {
+    einfo "Next.js application stopped"
+}
+
+reload() {
+    ebegin "Reloading Next.js application"
+    start-stop-daemon --signal HUP --pidfile "$pidfile"
+    eend $?
+}

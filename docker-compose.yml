@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Next.js Application (Database is external)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: intra-booking-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"    # Next.js application
+      - "22:22"    # SSH server
+    
+    # Option 1: Environment variables directly in docker-compose.yml
+    # environment:
+    #   DATABASE_URL: "mysql://infra:password@host.docker.internal:3306/intra_booking"
+    #   NEXTAUTH_URL: "http://localhost:3000"
+    #   NEXTAUTH_SECRET: "your-secret-key-change-this-in-production"
+    #   GOOGLE_CLIENT_ID: ""
+    #   GOOGLE_CLIENT_SECRET: ""
+    #   NODE_ENV: production
+    
+    # Option 2: Use .env.docker file (RECOMMENDED for easy editing)
+    env_file:
+      - .env.docker
+    
+    # Use host network mode to access localhost database
+    # Or use extra_hosts for custom host mapping
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
