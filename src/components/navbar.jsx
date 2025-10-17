@@ -37,14 +37,17 @@ export const Navbar = () => {
   const navigationItems = [
     { id: "fasilitas", label: "Fasilitas" },
     { id: "jadwal", label: "Jadwal" },
-    { id: "galeri", label: "Galeri" },
+    { id: "galeri", label: "Galeri", href: "/galeri" },
     { id: "faq", label: "FAQ" },
     { id: "kontak", label: "Kontak" },
   ];
 
-  const handleNavClick = (itemId) => {
+  const handleNavClick = (itemId, href) => {
     setActiveNavItem(itemId);
     setIsMobileMenuOpen(false);
+    if (href) {
+      router.push(href);
+    }
   };
 
   const handleLoginClick = () => {
@@ -133,18 +136,18 @@ export const Navbar = () => {
         role="navigation"
         aria-label="Main navigation"
       >
-        {navigationItems.map((item) => (
-          <button
-            key={item.id}
-            className={`relative px-2 py-1 text-[#1F1F1F] font-medium text-sm hover:text-[#E04E4E] focus:text-[#E04E4E] focus:outline-none transition-colors duration-200 whitespace-nowrap ${
-              activeNavItem === item.id ? "text-[#E04E4E]" : ""
-            }`}
-            onClick={() => handleNavClick(item.id)}
-            aria-current={activeNavItem === item.id ? "page" : undefined}
-          >
-            {item.label}
-          </button>
-        ))}
+           {navigationItems.map((item) => (
+             <button
+               key={item.id}
+               className={`relative px-2 py-1 text-[#1F1F1F] font-medium text-sm hover:text-[#E04E4E] focus:text-[#E04E4E] focus:outline-none transition-colors duration-200 whitespace-nowrap ${
+                 activeNavItem === item.id ? "text-[#E04E4E]" : ""
+               }`}
+               onClick={() => handleNavClick(item.id, item.href)}
+               aria-current={activeNavItem === item.id ? "page" : undefined}
+             >
+               {item.label}
+             </button>
+           ))}
       </nav>
 
       {/* Navigation - Mobile */}
@@ -154,20 +157,20 @@ export const Navbar = () => {
           role="navigation"
           aria-label="Mobile navigation"
         >
-          {navigationItems.map((item) => (
-            <button
-              key={item.id}
-              className={`w-full text-left py-3 px-4 rounded-lg transition-colors duration-200 ${
-                activeNavItem === item.id
-                  ? "bg-[#FFF0F0] text-[#E04E4E] font-semibold"
-                  : "text-primitive-neutral-700 hover:bg-gray-100"
-              }`}
-              onClick={() => handleNavClick(item.id)}
-              aria-current={activeNavItem === item.id ? "page" : undefined}
-            >
-              {item.label}
-            </button>
-          ))}
+             {navigationItems.map((item) => (
+               <button
+                 key={item.id}
+                 className={`w-full text-left py-3 px-4 rounded-lg transition-colors duration-200 ${
+                   activeNavItem === item.id
+                     ? "bg-[#FFF0F0] text-[#E04E4E] font-semibold"
+                     : "text-primitive-neutral-700 hover:bg-gray-100"
+                 }`}
+                 onClick={() => handleNavClick(item.id, item.href)}
+                 aria-current={activeNavItem === item.id ? "page" : undefined}
+               >
+                 {item.label}
+               </button>
+             ))}
           
           {/* Auth buttons in mobile menu */}
           <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-gray-200">
