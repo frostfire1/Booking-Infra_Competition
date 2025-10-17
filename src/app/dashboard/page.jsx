@@ -114,7 +114,7 @@ export default function DashboardPage() {
           <div className="max-w-4xl mx-auto">
             {/* Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-3 px-4">
-              Hai, <span className="text-[#E04E4E]">Mau Booking Apa?</span>
+              <span className="text-black">Hai,</span> <span className="text-[#E04E4E]">Mau Booking Apa?</span>
           </h1>
 
             {/* Subtitle */}
