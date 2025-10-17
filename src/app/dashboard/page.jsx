@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import BookingStats from "@/components/dashboard/BookingStats";
 import { Navbar } from "@/components/navbar";
+import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
@@ -467,6 +468,9 @@ export default function DashboardPage() {
           </div>
         </div>
       </main>
+
+      {/* Chatbot Widget */}
+      <ChatbotWidget />
     </div>
   );
 }

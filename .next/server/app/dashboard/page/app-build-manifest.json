@@ -1,17 +1,24 @@
 {
   "pages": {
     "/dashboard/page": [
-      "static/chunks/ff1a16fafef87110.js",
-      "static/chunks/7dd66bdf8a7e5707.js",
-      "static/chunks/105d2cf856265ca5.css",
-      "static/chunks/9edec8736061900f.js",
-      "static/chunks/36304bdbdc270fbe.js",
-      "static/chunks/330d61191f6f308e.js",
-      "static/chunks/91adb7bdb9870c6a.js",
-      "static/chunks/50f9503f16d44625.js",
-      "static/chunks/0656f51f27ce398d.js",
-      "static/chunks/8de370c3cbabf345.js",
-      "static/chunks/turbopack-d417a8e7a1fff4ce.js"
+      "static/chunks/4d566_next_dist_d73b8321._.js",
+      "static/chunks/0b5ea_JHIC-2025_Booking-Infra_Competition_src_app_favicon_ico_mjs_0fc58f6b._.js",
+      "static/chunks/[root-of-the-server]__dd4d170c._.css",
+      "static/chunks/Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_1210b40e._.js",
+      "static/chunks/80b94_CodingProject_JHIC-2025_Booking-Infra_Competition_src_app_layout_tsx_a9c5476e._.js",
+      "static/chunks/4d566_next_dist_client_components_builtin_global-error_80df77f7.js",
+      "static/chunks/Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_src_a14d74a4._.js",
+      "static/chunks/4d566_next_navigation_7a6070f4.js",
+      "static/chunks/0b5ea_JHIC-2025_Booking-Infra_Competition_src_app_dashboard_page_jsx_80df77f7._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_80a042d1._.js",
+      "static/chunks/4d566_next_dist_compiled_react-dom_6d427fe6._.js",
+      "static/chunks/4d566_next_dist_compiled_next-devtools_index_d1293593.js",
+      "static/chunks/4d566_next_dist_compiled_b9eb46c1._.js",
+      "static/chunks/4d566_next_dist_client_bf5b1998._.js",
+      "static/chunks/4d566_next_dist_fcb6ca19._.js",
+      "static/chunks/4d566_@swc_helpers_cjs_f9a2cc50._.js",
+      "static/chunks/Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_a0ff3932._.js",
+      "static/chunks/turbopack-Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_f22227ec._.js"
     ]
   }
 }

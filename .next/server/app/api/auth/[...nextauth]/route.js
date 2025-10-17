@@ -1,8 +1,10 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/auth/[...nextauth]/route.js")
-R.c("server/chunks/[root-of-the-server]__680f7593._.js")
-R.c("server/chunks/[root-of-the-server]__af199918._.js")
-R.c("server/chunks/[root-of-the-server]__772525df._.js")
-R.c("server/chunks/[root-of-the-server]__d481c793._.js")
-R.m(43433)
-R.m(3413)
-module.exports=R.m(3413).exports
+R.c("server/chunks/4d566_next_831c1f09._.js")
+R.c("server/chunks/4d566_next-auth_d3afce7d._.js")
+R.c("server/chunks/4d566_openid-client_470a9eef._.js")
+R.c("server/chunks/4d566_jose_dist_node_cjs_ac9ff17b._.js")
+R.c("server/chunks/4d566_8fe1cb84._.js")
+R.c("server/chunks/[root-of-the-server]__fd2e47a6._.js")
+R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/.next-internal/server/app/api/auth/[...nextauth]/route/actions.js [app-rsc] (server actions loader, ecmascript)")
+R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/api/auth/[...nextauth]/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/api/auth/[...nextauth]/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports

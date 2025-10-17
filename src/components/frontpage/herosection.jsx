@@ -33,13 +33,27 @@ export const HeroSecton = () => {
 
       {/* Left Icon - Home Bubble */}
       <div className="absolute left-6 md:left-12 top-32 md:top-40 z-20">
-        <Image
-          src="/home_bubble.png"
-          alt="Home Bubble Decoration"
-          width={120}
-          height={120}
-          className="w-20 h-20 md:w-28 md:h-28 opacity-80"
-        />
+        <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFF0F0] border-2 border-[#E04E4E] flex items-center justify-center shadow-sm">
+          <svg
+            className="w-10 h-10 md:w-14 md:h-14 text-[#E04E4E]"
+            viewBox="0 0 120 120"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {/* House structure */}
+            <path d="M30 50L60 25L90 50V85H30V50Z" />
+            {/* Chimney */}
+            <rect x="70" y="35" width="8" height="15" rx="2" />
+            {/* Windows */}
+            <rect x="40" y="60" width="8" height="8" rx="1" />
+            <rect x="72" y="60" width="8" height="8" rx="1" />
+            {/* Door */}
+            <path d="M52 85V70C52 68 54 66 56 66H64C66 66 68 68 68 70V85" />
+          </svg>
+        </div>
       </div>
 
       {/* Right Icon - Cube Bubble */}
@@ -137,13 +151,27 @@ export const HeroSecton = () => {
 
       {/* Bottom Decoration - Home Bubble */}
       <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-15">
-        <Image
-          src="/home_bubble.png"
-          alt="Home Bubble Bottom Decoration"
-          width={80}
-          height={80}
-          className="w-16 h-16 md:w-20 md:h-20 opacity-60"
-        />
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#FFF0F0] border-2 border-[#E04E4E] flex items-center justify-center shadow-sm opacity-60">
+          <svg
+            className="w-8 h-8 md:w-10 md:h-10 text-[#E04E4E]"
+            viewBox="0 0 120 120"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {/* House structure */}
+            <path d="M30 50L60 25L90 50V85H30V50Z" />
+            {/* Chimney */}
+            <rect x="70" y="35" width="8" height="15" rx="2" />
+            {/* Windows */}
+            <rect x="40" y="60" width="8" height="8" rx="1" />
+            <rect x="72" y="60" width="8" height="8" rx="1" />
+            {/* Door */}
+            <path d="M52 85V70C52 68 54 66 56 66H64C66 66 68 68 68 70V85" />
+          </svg>
+        </div>
       </div>
 
       {/* Cloud Background - Bottom */}
