@@ -873,6 +873,29 @@ export default (props) => {
         {/* Ask Question Section */}
         <AskQuestionSection />
         
+        {/* Footer Images Section */}
+        <div className="flex flex-col items-center self-stretch bg-gray-50 py-12 md:py-16 px-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-8 lg:gap-16">
+            {/* Footer Image 1 */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/Footer1.jpg"
+                alt="Footer Sponsor 1"
+                className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+            </div>
+            
+            {/* Footer Image 2 */}
+            <div className="flex items-center justify-center">
+              <img
+                src="/Footer2.jpg"
+                alt="Footer Sponsor 2"
+                className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              />
+            </div>
+          </div>
+        </div>
+        
         <div className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
           <div className="flex flex-col items-start w-full lg:w-auto">
             <div className="flex flex-col items-start mb-12 lg:mb-32 gap-3">
