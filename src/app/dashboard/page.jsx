@@ -178,8 +178,8 @@ export default function DashboardPage() {
                 strokeLinejoin="round"
                 strokeWidth={2}
                           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                      </svg>
+              />
+            </svg>
                       Cek Ketersediaan
                     </button>
                   </div>
@@ -251,7 +251,7 @@ export default function DashboardPage() {
                               {booking.status === 'APPROVED' ? 'Disetujui' :
                                booking.status === 'PENDING' ? 'Menunggu' :
                                booking.status === 'REJECTED' ? 'Ditolak' : 'Unknown'}
-                            </span>
+            </span>
                           </div>
                         </div>
                       ))}
@@ -265,8 +265,8 @@ export default function DashboardPage() {
                       </div>
                       <h3 className="text-lg font-semibold text-[#1F1F1F] mb-2">Belum ada booking</h3>
                       <p className="text-[#7A7A7A] mb-4">Mulai buat booking pertama Anda</p>
-          <button
-            onClick={() => router.push("/dashboard/bookings/new")}
+                      <button
+                        onClick={() => router.push("/dashboard/bookings/new")}
                         className="bg-[#E04E4E] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#c93e3e] transition-colors"
                       >
                         Buat Booking
@@ -274,77 +274,9 @@ export default function DashboardPage() {
                     </div>
                   )}
                 </div>
-              </div>
 
-              {/* Quick Actions */}
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Aksi Cepat</h2>
-                  <div className="space-y-3">
-                    <button
-                      onClick={() => router.push("/dashboard/bookings/new")}
-                      className="w-full flex items-center gap-3 p-4 bg-[#FFF0F0] hover:bg-[#FFE5E5] rounded-xl transition-colors group"
-                    >
-                      <div className="w-10 h-10 bg-[#E04E4E] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-                      </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-[#1F1F1F]">Buat Booking Baru</p>
-                        <p className="text-sm text-[#7A7A7A]">Pesan fasilitas baru</p>
-                      </div>
-          </button>
-
-          <button
-            onClick={() => router.push("/dashboard/bookings")}
-                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
-                    >
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                      </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-[#1F1F1F]">Riwayat Booking</p>
-                        <p className="text-sm text-[#7A7A7A]">Lihat semua booking</p>
-                      </div>
-                    </button>
-
-                    <button
-                      onClick={() => router.push("/dashboard/journal")}
-                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
-                    >
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-                      </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-[#1F1F1F]">Jurnal</p>
-                        <p className="text-sm text-[#7A7A7A]">Catatan aktivitas</p>
-                      </div>
-          </button>
-
-          <button
-            onClick={() => router.push("/dashboard/documentation")}
-                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
-                    >
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-                      </div>
-                      <div className="text-left">
-                        <p className="font-semibold text-[#1F1F1F]">Dokumentasi</p>
-                        <p className="text-sm text-[#7A7A7A]">Panduan sistem</p>
-                      </div>
-          </button>
-        </div>
-      </div>
-
-                {/* Calendar Widget */}
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                {/* Calendar Widget - Full Width Below Booking Terbaru */}
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mt-8">
                   <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Jadwal Penggunaan Fasilitas</h2>
                   
                   <div className="flex gap-4">
@@ -412,6 +344,74 @@ export default function DashboardPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Aksi Cepat</h2>
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => router.push("/dashboard/bookings/new")}
+                      className="w-full flex items-center gap-3 p-4 bg-[#FFF0F0] hover:bg-[#FFE5E5] rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-[#E04E4E] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Buat Booking Baru</p>
+                        <p className="text-sm text-[#7A7A7A]">Pesan fasilitas baru</p>
+                      </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/dashboard/bookings")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Riwayat Booking</p>
+                        <p className="text-sm text-[#7A7A7A]">Lihat semua booking</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => router.push("/dashboard/journal")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Jurnal</p>
+                        <p className="text-sm text-[#7A7A7A]">Catatan aktivitas</p>
+                      </div>
+          </button>
+
+          <button
+            onClick={() => router.push("/dashboard/documentation")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Dokumentasi</p>
+                        <p className="text-sm text-[#7A7A7A]">Panduan sistem</p>
+                      </div>
+          </button>
+        </div>
+      </div>
               </div>
             </div>
           </div>
