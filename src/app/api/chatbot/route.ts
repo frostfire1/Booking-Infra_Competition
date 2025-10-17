@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '', {
+  apiVersion: 'v1'
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,66 +17,44 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get or create chat history from session/cookie
-    const chatHistory = getChatHistory(request);
-    
-    // Add user message to history
-    chatHistory.push({
-      role: 'user',
-      parts: [{ text: message }]
-    });
+    // Check if API key is available
+    if (!process.env.GEMINI_API_KEY) {
+      console.error('GEMINI_API_KEY not found in environment variables');
+      return NextResponse.json(
+        { error: 'API key not configured' },
+        { status: 500 }
+      );
+    }
 
-    // System prompt for booking assistant
-    const systemPrompt = `You are a helpful customer service assistant for SMK Telkom Malang Booking System. 
-Your name is Lily and you're here to assist students and staff with their inquiries about facility bookings, scheduling, and account issues.
+    // For now, return a simple response to test the endpoint
+    const responses = {
+      'halo': 'Halo! Saya Lily, asisten virtual untuk sistem booking SMK Telkom Malang. Ada yang bisa saya bantu?',
+      'hello': 'Halo! Saya Lily, asisten virtual untuk sistem booking SMK Telkom Malang. Ada yang bisa saya bantu?',
+      'booking': 'Untuk melakukan booking, silakan klik tombol "Buat Booking" di dashboard atau akses menu booking. Saya bisa membantu menjelaskan prosedur booking jika diperlukan.',
+      'fasilitas': 'Fasilitas yang tersedia meliputi ruang kelas, laboratorium, aula, lapangan olahraga, dan ruang meeting. Silakan pilih fasilitas yang sesuai dengan kebutuhan Anda.',
+      'default': 'Terima kasih atas pertanyaan Anda. Saya Lily, asisten virtual untuk sistem booking SMK Telkom Malang. Saya bisa membantu dengan informasi tentang booking fasilitas, jadwal, dan prosedur administrasi. Ada yang spesifik yang ingin Anda tanyakan?'
+    };
 
-Be professional, friendly, and helpful. You can help with:
-- Facility booking procedures
-- Available facilities and their features
-- Booking status and history
-- Scheduling conflicts
-- Account management
-- Technical support for the booking system
+    const lowerMessage = message.toLowerCase();
+    let response = responses.default;
 
-If you don't know something, politely let the user know and offer to escalate to a human administrator.
-
-Always respond in Indonesian language.`;
-
-    // Prepare messages for Gemini
-    const messages = [
-      {
-        role: 'user',
-        parts: [{ text: systemPrompt }]
-      },
-      ...chatHistory
-    ];
-
-    // Get Gemini model
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-
-    // Generate response
-    const result = await model.generateContent(messages);
-    const response = await result.response;
-    const text = response.text();
-
-    // Add assistant response to history
-    chatHistory.push({
-      role: 'model',
-      parts: [{ text }]
-    });
-
-    // Save updated chat history
-    saveChatHistory(request, chatHistory);
+    if (lowerMessage.includes('halo') || lowerMessage.includes('hello')) {
+      response = responses.halo;
+    } else if (lowerMessage.includes('booking')) {
+      response = responses.booking;
+    } else if (lowerMessage.includes('fasilitas') || lowerMessage.includes('ruang')) {
+      response = responses.fasilitas;
+    }
 
     return NextResponse.json({ 
-      response: text,
+      response: response,
       timestamp: new Date().toISOString()
     });
 
   } catch (error) {
     console.error('Chatbot error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', details: error.message },
       { status: 500 }
     );
   }

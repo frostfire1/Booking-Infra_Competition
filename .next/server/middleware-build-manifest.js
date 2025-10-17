@@ -1,51 +1,12 @@
 globalThis.__BUILD_MANIFEST = {
   "pages": {
-    "/_app": [
-      "static/chunks/4d566_next_dist_compiled_next-devtools_index_20c1879a.js",
-      "static/chunks/4d566_next_dist_compiled_5ee26c41._.js",
-      "static/chunks/4d566_next_dist_shared_lib_7c629daf._.js",
-      "static/chunks/4d566_next_dist_client_f74593ee._.js",
-      "static/chunks/4d566_next_dist_683ef0f2._.js",
-      "static/chunks/4d566_next_app_92e44edd.js",
-      "static/chunks/[next]_entry_page-loader_ts_3b747bb7._.js",
-      "static/chunks/4d566_react-dom_d4b60f85._.js",
-      "static/chunks/4d566_7f82a744._.js",
-      "static/chunks/[root-of-the-server]__6f0cf0eb._.js",
-      "static/chunks/Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_pages__app_2da965e7._.js",
-      "static/chunks/358b3_CodingProject_JHIC-2025_Booking-Infra_Competition_pages__app_46a68a5b._.js"
-    ],
-    "/_error": [
-      "static/chunks/4d566_next_dist_compiled_next-devtools_index_20c1879a.js",
-      "static/chunks/4d566_next_dist_compiled_5ee26c41._.js",
-      "static/chunks/4d566_next_dist_shared_lib_be8febd3._.js",
-      "static/chunks/4d566_next_dist_client_f74593ee._.js",
-      "static/chunks/4d566_next_dist_5e69e4ba._.js",
-      "static/chunks/4d566_next_error_7abeeac1.js",
-      "static/chunks/[next]_entry_page-loader_ts_85b2f1bc._.js",
-      "static/chunks/4d566_react-dom_d4b60f85._.js",
-      "static/chunks/4d566_7f82a744._.js",
-      "static/chunks/[root-of-the-server]__da9e99c7._.js",
-      "static/chunks/80b94_CodingProject_JHIC-2025_Booking-Infra_Competition_pages__error_2da965e7._.js",
-      "static/chunks/358b3_CodingProject_JHIC-2025_Booking-Infra_Competition_pages__error_7a8d62ad._.js"
-    ]
+    "/_app": []
   },
   "devFiles": [],
   "ampDevFiles": [],
-  "polyfillFiles": [
-    "static/chunks/4d566_next_dist_build_polyfills_polyfill-nomodule.js"
-  ],
+  "polyfillFiles": [],
   "lowPriorityFiles": [],
-  "rootMainFiles": [
-    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_80a042d1._.js",
-    "static/chunks/4d566_next_dist_compiled_react-dom_6d427fe6._.js",
-    "static/chunks/4d566_next_dist_compiled_next-devtools_index_d1293593.js",
-    "static/chunks/4d566_next_dist_compiled_b9eb46c1._.js",
-    "static/chunks/4d566_next_dist_client_bf5b1998._.js",
-    "static/chunks/4d566_next_dist_fcb6ca19._.js",
-    "static/chunks/4d566_@swc_helpers_cjs_f9a2cc50._.js",
-    "static/chunks/Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_a0ff3932._.js",
-    "static/chunks/turbopack-Documents_CodingProject_JHIC-2025_Booking-Infra_Competition_f22227ec._.js"
-  ],
+  "rootMainFiles": [],
   "ampFirstPages": []
 };
 globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
