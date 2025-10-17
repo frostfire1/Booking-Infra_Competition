@@ -690,103 +690,181 @@ export default (props) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center self-stretch mb-12 px-4 md:px-32 gap-2.5">
-          <span className="text-[#1F1F1F] text-[42px] font-bold">
-            {"Galeri Kegiatan"}
-          </span>
-          <span className="text-[#7A7A7A] text-sm md:text-base text-center">
-            {
-              "Dari workshop teknologi hingga acara besar, semua kegiatan bisa kalian lihat disini untuk inspirasi dan referensi acara kalian sendiri."
-            }
-          </span>
+        {/* Galeri Kegiatan Section */}
+        <div className="flex flex-col items-center self-stretch mb-12 px-4 md:px-32 gap-8">
+          <div className="text-center max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1F1F1F] mb-6 animate-fade-in-up">
+              Galeri Kegiatan
+            </h2>
+            <p className="text-lg md:text-xl text-[#7A7A7A] leading-relaxed animate-fade-in-up animation-delay-200">
+              Dari workshop teknologi hingga acara besar, semua kegiatan bisa kalian lihat disini untuk inspirasi dan referensi acara kalian sendiri.
+            </p>
+            <div className="flex justify-center mt-6">
+              <div className="w-24 h-1 bg-gradient-to-r from-[#E04E4E] to-[#FF6767] rounded-full animate-fade-in-up animation-delay-400"></div>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 self-stretch mb-12 md:mb-24 px-4 md:px-12">
-          <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12 gap-5">
-            <img
-              src={
-                "/edufair.png"
-              }
-              className="w-full h-60   object-cover rounded-lg flex-shrink-0"
-              loading="lazy"
-            />
-            <span className="text-[#1F1F1F] text-2xl font-bold">
-              {"Jobfair & Edufair"}
-            </span>
-          </div>
-          <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12">
-            <img
-              src={
-                "/kickoff.png"
-              }
-              className="w-[319px] h-[193px] mb-5 object-fill"
-            />
-            <span className="text-[#1F1F1F] text-2xl font-bold mb-2">
-              {"Kick-Off Cyber Heroes"}
-            </span>
-            <span className="text-[#5C5C5C] text-sm mb-2">
-              {"24 Januari 2023"}
-            </span>
-            <button
-              className="flex flex-col items-start bg-[#FFF0F0] text-left py-1 px-3 rounded-[9999px] border-0"
-              onClick={() => alert("Pressed!")}
-            >
-              <span className="text-[#E04E4E] text-base">{"Lab7"}</span>
-            </button>
-          </div>
-          <div className="flex flex-1 flex-col mr-3 gap-5">
-            <img
-              src={
-                "/kurikulum.png"
-              }
-              className="self-stretch h-[279px] object-fill"
-            />
-            <div className="flex flex-col items-center self-stretch mx-[70px] gap-2">
-              <span className="text-[#1F1F1F] text-[32px] font-bold">
-                {"Sosialisasi Kurikulum"}
-              </span>
-              <span className="text-[#5C5C5C] text-base mx-[101px]">
-                {"24 Januari 2023"}
-              </span>
-              <button
-                className="flex flex-col items-start bg-[#FFF0F0] text-left py-1 px-3 rounded-[9999px] border-0"
-                onClick={() => alert("Pressed!")}
-              >
-                <span className="text-[#E04E4E] text-base">{"Aula"}</span>
-              </button>
+        
+        {/* Gallery Cards with Modern Design */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 self-stretch mb-12 md:mb-24 px-4 md:px-12">
+          {/* Jobfair & Edufair Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/edufair.png"
+                alt="Jobfair & Edufair"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-[#E04E4E] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Career
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Jobfair & Edufair
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Acara pameran kerja dan pendidikan yang menghubungkan siswa dengan perusahaan terkemuka
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>15 Maret 2024</span>
+                <span>Aula</span>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12 gap-5">
-            <img
-              src={
-                "/pakonno.png"
-              }
-              className="w-[319px] h-[193px] object-fill"
-            />
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-[#1F1F1F] text-2xl font-bold">
-                {"Kunjungan Pak Onno"}
-              </span>
-              <span className="text-[#5C5C5C] text-sm">
-                {"10 Februari 2023"}
-              </span>
-              <button
-                className="flex flex-col items-start bg-[#FFF0F0] text-left py-1 px-3 rounded-[9999px] border-0"
-                onClick={() => alert("Pressed!")}
-              >
-                <span className="text-[#E04E4E] text-base">{"Aula"}</span>
-              </button>
+
+          {/* Kick-Off Cyber Heroes Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-200">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/kickoff.png"
+                alt="Kick-Off Cyber Heroes"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Technology
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Kick-Off Cyber Heroes
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Peluncuran program cyber security untuk membentuk generasi digital yang aman
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>24 Januari 2023</span>
+                <span>Lab 7</span>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col shrink-0 items-start mt-[50px] gap-5">
-            <img
-              src={
-                "/roblox.png"
-              }
-              className="w-[319px] h-[193px] object-fill"
-            />
-            <span className="text-[#1F1F1F] text-2xl font-bold ml-[45px]">
-              {"Roblox Competition"}
-            </span>
+
+          {/* Sosialisasi Kurikulum Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-400">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/kurikulum.png"
+                alt="Sosialisasi Kurikulum"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Education
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Sosialisasi Kurikulum
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Presentasi kurikulum terbaru untuk mempersiapkan siswa menghadapi era digital
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>24 Januari 2023</span>
+                <span>Aula</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Kunjungan Pak Onno Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-600">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/pakonno.png"
+                alt="Kunjungan Pak Onno"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Inspiration
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Kunjungan Pak Onno
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Kunjungan tokoh teknologi Indonesia untuk berbagi inspirasi dan motivasi
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>10 Februari 2023</span>
+                <span>Aula</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Roblox Competition Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-800">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/roblox.png"
+                alt="Roblox Competition"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Competition
+                </span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Roblox Competition
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Kompetisi game development menggunakan platform Roblox Studio
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>5 April 2024</span>
+                <span>Lab 5</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col items-center self-stretch bg-[#E04E4E] py-12 md:py-[67px] px-4">
