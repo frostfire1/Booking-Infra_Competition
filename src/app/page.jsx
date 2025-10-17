@@ -231,67 +231,67 @@ export default (props) => {
               }
             </span>
           </div>
-          <div className="flex items-start overflow-x-auto max-w-7xl mx-auto gap-3 md:gap-[18px] px-4 pb-2 scrollbar-hide">
+          <div className="flex items-start overflow-x-auto w-full gap-3 md:gap-[18px] px-4 pb-2 scrollbar-hide flex-nowrap">
             <button
-              className="flex shrink-0 items-center bg-[#E04E4E] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
+              className="flex shrink-0 items-center bg-[#E04E4E] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
               <img
                 src={
                   "/Villa_Home_Icon_UIA_white.png"
                 }
-                className="w-6 h-6 rounded-xl object-fill"
+                className="w-6 h-6 rounded-xl object-fill flex-shrink-0"
               />
-              <span className="text-white text-sm md:text-base">{"Aula"}</span>
+              <span className="text-white text-sm md:text-base flex-shrink-0">{"Aula"}</span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
               <img
                 src={
                   "/Villa_Home_Icon_UIA.png"
                 }
-                className="w-6 h-6 rounded-xl object-fill"
+                className="w-6 h-6 rounded-xl object-fill flex-shrink-0"
               />
-              <span className="text-[#5C5C5C] text-base">
+              <span className="text-[#5C5C5C] text-base flex-shrink-0">
                 {"Lab Cyber, Cloud & ITNSA (Lab 1)"}
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
               <img
                 src={
                   "/Villa_Home_Icon_UIA.png"
                 }
-                className="w-6 h-6 rounded-xl object-fill"
+                className="w-6 h-6 rounded-xl object-fill flex-shrink-0"
               />
-              <span className="text-[#5C5C5C] text-base">
+              <span className="text-[#5C5C5C] text-base flex-shrink-0">
                 {"Lab Podcast dan Rapat (Lab 2)"}
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
               <img
                 src={
                   "/Villa_Home_Icon_UIA.png"
                 }
-                className="w-6 h-6 rounded-xl object-fill"
+                className="w-6 h-6 rounded-xl object-fill flex-shrink-0"
               />
-              <span className="text-[#5C5C5C] text-base">
+              <span className="text-[#5C5C5C] text-base flex-shrink-0">
                 {"Lab Robotik (Lab 5)"}
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
               <img
                 src={
                   "/Villa_Home_Icon_UIA.png"
                 }
-                className="w-6 h-6 rounded-xl object-fill"
+                className="w-6 h-6 rounded-xl object-fill flex-shrink-0"
               />
-              <span className="text-[#5C5C5C] text-base">
+              <span className="text-[#5C5C5C] text-base flex-shrink-0">
                 {"Ruang Gabungan (34-36)"}
               </span>
             </button>
