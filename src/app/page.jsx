@@ -875,6 +875,9 @@ export default (props) => {
         
         {/* Footer Images Section */}
         <div className="flex flex-col items-center self-stretch bg-gray-50 py-12 md:py-16 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1F1F1F] mb-8 text-center">
+            Powered by
+          </h2>
           <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-8 lg:gap-16">
             {/* Footer Image 1 */}
             <div className="flex items-center justify-center">
