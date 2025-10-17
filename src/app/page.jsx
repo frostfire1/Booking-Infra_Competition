@@ -495,7 +495,7 @@ export default (props) => {
                 <div className="flex flex-col shrink-0 items-center gap-2.5">
                   <img
                     src={
-                      "/mic.png"
+                      "/Mic.png"
                     }
                     className="w-[200px] md:w-[257px] h-[200px] md:h-[260px] object-cover rounded-lg flex-shrink-0"
                   />
@@ -513,7 +513,7 @@ export default (props) => {
                   </div>
                   <img
                     src={
-                      "/speaker.png"
+                      "/Microphone.png"
                     }
                     className="w-[257px] h-[260px] object-fill"
                   />
