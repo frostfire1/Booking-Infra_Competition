@@ -7,6 +7,7 @@ BRANCH="deploy"
 APP_DIR="/app"
 LOG_FILE="/var/log/auto-deploy.log"
 LOCK_FILE="/var/run/auto-deploy.lock"
+GIT_TOKEN_VAR_NAME="GIT_TOKEN"
 
 # Colors for logging (if terminal supports it)
 RED='\033[0;31m'
@@ -70,7 +71,14 @@ if [ ! -d ".git" ]; then
 else
     # Fetch latest changes from remote
     log_info "Fetching from remote: $REPO_URL"
-    git fetch origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+        # If GIT_TOKEN is provided in the environment, use it for authenticated fetch/pull via extraHeader
+        if [ -n "${GIT_TOKEN:-}" ]; then
+            log_info "Using provided GIT_TOKEN for authenticated fetch"
+            # Use a temporary git config override to pass the Authorization header
+            git -c http.extraHeader="AUTHORIZATION: bearer ${GIT_TOKEN}" fetch origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+        else
+            git fetch origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+        fi
     
     # Get current local commit
     LOCAL_COMMIT=$(git rev-parse HEAD)
@@ -97,7 +105,12 @@ if [ "$NEED_DEPLOY" = true ]; then
     
     # Pull latest changes
     log_info "Pulling latest changes..."
-    git pull origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+    if [ -n "${GIT_TOKEN:-}" ]; then
+        log_info "Using provided GIT_TOKEN for authenticated pull"
+        git -c http.extraHeader="AUTHORIZATION: bearer ${GIT_TOKEN}" pull origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+    else
+        git pull origin "$BRANCH" 2>&1 | tee -a "$LOG_FILE"
+    fi
     
     if [ $? -ne 0 ]; then
         log_error "Git pull failed!"
@@ -108,7 +121,15 @@ if [ "$NEED_DEPLOY" = true ]; then
     
     # Always update dependencies to ensure everything is in sync
     log_info "📦 Updating npm dependencies..."
-    npm install --production 2>&1 | tee -a "$LOG_FILE"
+    # Prefer bun if available for faster installs; fall back to npm
+    if command -v bun >/dev/null 2>&1; then
+        log_info "bun detected: using bun install"
+        bun install --production 2>&1 | tee -a "$LOG_FILE"
+        NPM_INSTALL_EXIT=${PIPESTATUS[0]:-0}
+    else
+        npm install --production 2>&1 | tee -a "$LOG_FILE"
+        NPM_INSTALL_EXIT=${PIPESTATUS[0]:-0}
+    fi
     
     if [ $? -eq 0 ]; then
         log_success "Dependencies updated successfully"
@@ -119,6 +140,7 @@ if [ "$NEED_DEPLOY" = true ]; then
     
     # Always regenerate Prisma client to ensure compatibility
     log_info "🔧 Regenerating Prisma client..."
+    # Generate Prisma client. Use npx (node) path so it's available whether bun or node is used.
     npx prisma generate 2>&1 | tee -a "$LOG_FILE"
     
     if [ $? -eq 0 ]; then
@@ -140,7 +162,15 @@ if [ "$NEED_DEPLOY" = true ]; then
     
     # Build Next.js application
     log_info "Building Next.js application..."
-    npm run build 2>&1 | tee -a "$LOG_FILE"
+    # Build Next.js application. If bun is available and app supports bun, prefer bun exec.
+    if command -v bun >/dev/null 2>&1; then
+        log_info "bun detected: running build with bun"
+        bun run build 2>&1 | tee -a "$LOG_FILE"
+        BUILD_EXIT=${PIPESTATUS[0]:-0}
+    else
+        npm run build 2>&1 | tee -a "$LOG_FILE"
+        BUILD_EXIT=${PIPESTATUS[0]:-0}
+    fi
     
     if [ $? -ne 0 ]; then
         log_error "Build failed!"
@@ -158,19 +188,31 @@ if [ "$NEED_DEPLOY" = true ]; then
     log_info "Starting new application..."
     if [ -f "server.js" ]; then
         # Standalone build
-        nohup node server.js > /var/log/nextjs.log 2>&1 &
+        if command -v bun >/dev/null 2>&1; then
+            nohup bun run start -- node server.js > /var/log/nextjs.log 2>&1 &
+        else
+            nohup node server.js > /var/log/nextjs.log 2>&1 &
+        fi
         NEW_PID=$!
         echo "$NEW_PID" > /var/run/nextjs.pid
     elif [ -f ".next/standalone/server.js" ]; then
         # Standalone in .next
         cd .next/standalone
-        nohup node server.js > /var/log/nextjs.log 2>&1 &
+        if command -v bun >/dev/null 2>&1; then
+            nohup bun run start -- node server.js > /var/log/nextjs.log 2>&1 &
+        else
+            nohup node server.js > /var/log/nextjs.log 2>&1 &
+        fi
         NEW_PID=$!
         echo "$NEW_PID" > /var/run/nextjs.pid
         cd "$APP_DIR"
     else
         # Regular Next.js
-        nohup npm start > /var/log/nextjs.log 2>&1 &
+        if command -v bun >/dev/null 2>&1; then
+            nohup bun run start > /var/log/nextjs.log 2>&1 &
+        else
+            nohup npm start > /var/log/nextjs.log 2>&1 &
+        fi
         NEW_PID=$!
         echo "$NEW_PID" > /var/run/nextjs.pid
     fi

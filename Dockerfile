@@ -65,7 +65,9 @@ RUN apk add --no-cache openssh-server openssh tzdata && \
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 --ingroup nodejs --shell /bin/sh nodejs && \
     # Set default password (will be overridden by ENV at runtime)
-    echo "nodejs:docker123" | chpasswd
+    echo "nodejs:docker123" | chpasswd && \
+    # Configure sudo: allow nodejs user to run commands as root without password
+    echo "nodejs ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Copy necessary files
 COPY --from=builder /app/public ./public
@@ -76,9 +78,14 @@ COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/.env.example ./.env.example
+COPY manual-start.sh /app/manual-start.sh
+COPY intra-booking.initd /app/intra-booking.initd
+COPY setup-services.sh /app/setup-services.sh
+COPY quick-restart.sh /app/quick-restart.sh
 
-# Install cronie, curl, and git for health checks, monitoring, and auto-deploy
-RUN apk add --no-cache cronie curl git
+# Install cronie, curl, git, and sudo for health checks, monitoring, auto-deploy, and user privileges
+RUN apk add --no-cache cronie curl git sudo
 
 # Create startup script (runs as root, then switches to nodejs)
 RUN echo '#!/bin/sh' > /app/startup.sh && \
@@ -121,22 +128,49 @@ RUN echo '#!/bin/sh' > /app/startup.sh && \
     echo 'echo "✅ Auto-deploy enabled (checks every 5 minutes)"' >> /app/startup.sh && \
     echo 'echo ""' >> /app/startup.sh && \
     echo '' >> /app/startup.sh && \
-    echo '# Run database and admin checks' >> /app/startup.sh && \
-    echo 'echo "📦 Checking database connection..."' >> /app/startup.sh && \
-    echo 'npx prisma db push --skip-generate --accept-data-loss || echo "⚠️  Database sync skipped"' >> /app/startup.sh && \
-    echo 'echo ""' >> /app/startup.sh && \
-    echo 'echo "👤 Checking admin user..."' >> /app/startup.sh && \
-    echo 'node node_modules/tsx/dist/cli.mjs scripts/check-admin.ts || echo "⚠️  Admin check skipped"' >> /app/startup.sh && \
+    echo '# Check if environment variables are set' >> /app/startup.sh && \
+    echo 'echo "🔍 Checking environment variables..."' >> /app/startup.sh && \
+    echo 'if [ -z "$DATABASE_URL" ]; then' >> /app/startup.sh && \
+    echo '  echo "⚠️  WARNING: DATABASE_URL not set! Using .env.example as fallback"' >> /app/startup.sh && \
+    echo '  if [ -f /app/.env.example ]; then' >> /app/startup.sh && \
+    echo '    export $(cat /app/.env.example | grep -v "^#" | xargs)' >> /app/startup.sh && \
+    echo '  fi' >> /app/startup.sh && \
+    echo 'else' >> /app/startup.sh && \
+    echo '  echo "✅ Environment variables configured"' >> /app/startup.sh && \
+    echo 'fi' >> /app/startup.sh && \
     echo 'echo ""' >> /app/startup.sh && \
     echo '' >> /app/startup.sh && \
-    echo '# Start Next.js server in background with PID tracking' >> /app/startup.sh && \
+    echo '# Run database and admin checks' >> /app/startup.sh && \
+    echo 'echo "📦 Checking database connection..."' >> /app/startup.sh && \
+    echo 'if npx prisma db push --skip-generate --accept-data-loss 2>&1 | tee -a /var/log/prisma.log; then' >> /app/startup.sh && \
+    echo '  echo "✅ Database connected and synced"' >> /app/startup.sh && \
+    echo '  echo ""' >> /app/startup.sh && \
+    echo '  echo "👤 Checking admin user..."' >> /app/startup.sh && \
+    echo '  node node_modules/tsx/dist/cli.mjs scripts/check-admin.ts 2>&1 | tee -a /var/log/admin-check.log || echo "⚠️  Admin check skipped"' >> /app/startup.sh && \
+    echo 'else' >> /app/startup.sh && \
+    echo '  echo "⚠️  Database connection failed! App may not work properly."' >> /app/startup.sh && \
+    echo '  echo "📊 Check logs: tail -f /var/log/prisma.log"' >> /app/startup.sh && \
+    echo 'fi' >> /app/startup.sh && \
+    echo 'echo ""' >> /app/startup.sh && \
+    echo '' >> /app/startup.sh && \
+    echo '# Start Next.js server in background with proper environment' >> /app/startup.sh && \
     echo 'echo "✅ Starting Next.js server..."' >> /app/startup.sh && \
     echo 'mkdir -p /var/run /var/log' >> /app/startup.sh && \
-    echo 'su -s /bin/sh nodejs -c "cd /app && nohup node server.js > /var/log/nextjs.log 2>&1 &"' >> /app/startup.sh && \
-    echo 'sleep 2' >> /app/startup.sh && \
-    echo 'echo "✅ Next.js server started"' >> /app/startup.sh && \
-    echo 'echo "📊 Logs: tail -f /var/log/nextjs.log"' >> /app/startup.sh && \
-    echo 'echo "📊 Monitor: tail -f /var/log/app-monitor.log"' >> /app/startup.sh && \
+    echo 'cd /app' >> /app/startup.sh && \
+    echo 'chown nodejs:nodejs /var/log/nextjs.log 2>/dev/null || true' >> /app/startup.sh && \
+    echo 'su -s /bin/sh nodejs -c "cd /app && PORT=3000 HOSTNAME=0.0.0.0 nohup node server.js > /var/log/nextjs.log 2>&1 &"' >> /app/startup.sh && \
+    echo 'sleep 3' >> /app/startup.sh && \
+    echo '' >> /app/startup.sh && \
+    echo '# Verify app is running' >> /app/startup.sh && \
+    echo 'if pgrep -f "node server.js" > /dev/null; then' >> /app/startup.sh && \
+    echo '  echo "✅ Next.js server started successfully!"' >> /app/startup.sh && \
+    echo '  echo "📊 Logs: tail -f /var/log/nextjs.log"' >> /app/startup.sh && \
+    echo '  echo "📊 Monitor: tail -f /var/log/app-monitor.log"' >> /app/startup.sh && \
+    echo 'else' >> /app/startup.sh && \
+    echo '  echo "❌ ERROR: Next.js server failed to start!"' >> /app/startup.sh && \
+    echo '  echo "📊 Check logs: tail -f /var/log/nextjs.log"' >> /app/startup.sh && \
+    echo '  cat /var/log/nextjs.log' >> /app/startup.sh && \
+    echo 'fi' >> /app/startup.sh && \
     echo 'echo ""' >> /app/startup.sh && \
     echo '' >> /app/startup.sh && \
     echo '# Keep container running and monitor both SSH and app' >> /app/startup.sh && \
@@ -164,7 +198,11 @@ RUN echo '#!/bin/sh' > /app/startup.sh && \
     chmod +x /app/startup.sh
 
 # Make scripts executable
-RUN chmod +x /app/scripts/*.sh 2>/dev/null || true
+RUN chmod +x /app/scripts/*.sh 2>/dev/null || true && \
+    chmod +x /app/manual-start.sh && \
+    chmod +x /app/setup-services.sh && \
+    chmod +x /app/intra-booking.initd && \
+    chmod +x /app/quick-restart.sh
 
 # Set the correct permission for prerender cache
 RUN mkdir -p .next

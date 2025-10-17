@@ -102,10 +102,8 @@ export default (props) => {
         </div>
         <div className="flex flex-col items-center self-stretch bg-[url('/cloud.png')] bg-cover bg-center pt-8 sm:pt-12 md:pt-[71px] pb-12 md:pb-[58px] px-2 sm:px-4 overflow-x-hidden">
           <div className="flex flex-col lg:flex-row items-center lg:items-start mb-12 md:mb-[284px] gap-6 lg:gap-0 w-full max-w-7xl overflow-x-hidden">
-            <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center hidden xl:block xl:mt-[35px] xl:mr-[132px] flex-shrink-0">
-              <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
+            <div className="w-20 h-20  flex items-center justify-center hidden xl:block xl:mt-[35px] xl:mr-[132px] flex-shrink-0">
+              <img src ={"/cube_bubble.png"}/>
             </div>
             <div className="flex flex-col items-center gap-6 md:gap-9 w-full lg:w-auto">
               <div className="flex flex-col items-center gap-3 text-center">
@@ -179,7 +177,6 @@ export default (props) => {
                         className="text-[#5C5C5C] text-base flex-1 bg-transparent outline-none"
                         readOnly
                         onClick={() => {
-                          // Show date picker or redirect to booking page
                           if (!session) {
                             router.push("/auth/signin?callbackUrl=/dashboard/bookings/new");
                           } else {
@@ -211,16 +208,14 @@ export default (props) => {
                 </div>
               </form>
             </div>
-            <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center hidden xl:block flex-shrink-0">
-              <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-              </svg>
+            <div className="w-20 h-20 flex items-center justify-center hidden xl:block flex-shrink-0">
+              <img src ={"/home_bubble.png"}/>
             </div>
           </div>
           <div className="flex flex-col items-center self-stretch">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/pngtu9qt_expires_30_days.png"
+                "/Primary-Button.png"
               }
               className="w-[52px] h-[52px] object-fill"
             />
@@ -240,11 +235,10 @@ export default (props) => {
           <div className="flex items-start overflow-x-auto max-w-7xl mx-auto gap-3 md:gap-[18px] px-4 pb-2 scrollbar-hide">
             <button
               className="flex shrink-0 items-center bg-[#E04E4E] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
-              onClick={() => alert("Pressed!")}
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/a4k44sdc_expires_30_days.png"
+                  "/Villa_Home_Icon_UIA_white.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -252,11 +246,10 @@ export default (props) => {
             </button>
             <button
               className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
-              onClick={() => alert("Pressed!")}
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/y897qdz8_expires_30_days.png"
+                  "/Villa_Home_Icon_UIA.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -266,11 +259,10 @@ export default (props) => {
             </button>
             <button
               className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
-              onClick={() => alert("Pressed!")}
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/wwn84hrf_expires_30_days.png"
+                  "/Villa_Home_Icon_UIA.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -280,11 +272,11 @@ export default (props) => {
             </button>
             <button
               className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
-              onClick={() => alert("Pressed!")}
+
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/ayti04qm_expires_30_days.png"
+                  "/Villa_Home_Icon_UIA.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -294,11 +286,10 @@ export default (props) => {
             </button>
             <button
               className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
-              onClick={() => alert("Pressed!")}
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/7xy85rye_expires_30_days.png"
+                  "/Villa_Home_Icon_UIA.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -313,11 +304,10 @@ export default (props) => {
             </span>
             <button
               className="flex shrink-0 items-center bg-white text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border border-solid border-[#E04E4E]"
-              onClick={() => alert("Pressed!")}
             >
               <img
                 src={
-                  "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/6lqyugt6_expires_30_days.png"
+                  "/3d-cube-scan.png"
                 }
                 className="w-6 h-6 rounded-xl object-fill"
               />
@@ -342,7 +332,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/j1a1et3d_expires_30_days.png"
+                    "/Right-Icon.png"
                   }
                   className="w-10 h-10 md:w-[52px] md:h-[52px] object-contain flex-shrink-0"
                 />
@@ -361,7 +351,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/dpwg4k68_expires_30_days.png"
+                    "/Right-Icon1.png"
                   }
                   className="w-10 h-10 md:w-[52px] md:h-[52px] object-fill"
                 />
@@ -380,7 +370,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/qdgsrs4l_expires_30_days.png"
+                    "/Right-Icon2.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />
@@ -399,7 +389,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/xhue71fc_expires_30_days.png"
+                    "/Right-Icon3.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />
@@ -420,7 +410,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/bwxiku31_expires_30_days.png"
+                    "/Right-Icon4.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />
@@ -439,7 +429,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/39sgmga4_expires_30_days.png"
+                    "/Right-Icon5.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />
@@ -460,7 +450,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/l6aujw9g_expires_30_days.png"
+                    "/Right-Icon6.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />
@@ -479,7 +469,7 @@ export default (props) => {
                 </div>
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/k5eior8v_expires_30_days.png"
+                    "/Right-Icon7.png"
                   }
                   className="w-[52px] h-[52px] object-fill"
                 />

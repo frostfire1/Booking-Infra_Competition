@@ -1,0 +1,93 @@
+#!/sbin/openrc-run
+# OpenRC service script for Next.js Intra Booking app
+
+name="intra-booking"
+description="Next.js Intra Booking System"
+
+command="/usr/bin/node"
+command_args="server.js"
+command_background="yes"
+pidfile="/var/run/${name}.pid"
+directory="/app"
+
+output_log="/var/log/nextjs.log"
+error_log="/var/log/nextjs.log"
+
+# Run as root (run the Node process as root)
+command_user="root"
+
+# Function: load missing variables from an env file without overwriting runtime envs
+load_env_if_missing() {
+    local file="$1"
+    [ -f "$file" ] || return 0
+    while IFS='=' read -r name val; do
+        # skip comments and empty lines
+        case "$name" in
+            \#*|"") continue;;
+        esac
+        # trim whitespace
+        name=$(echo "$name" | xargs)
+        # remove surrounding quotes from value
+        val=$(echo "$val" | sed -e 's/^"//' -e 's/"$//' | xargs)
+        if [ -z "${!name}" ] && [ -n "$val" ]; then
+            export "$name"="$val"
+        fi
+    done < "$file"
+}
+
+# Ensure environment variables are loaded
+start_pre() {
+    # Create log directory if it doesn't exist
+    mkdir -p /var/log
+    touch ${output_log}
+    chown root:root ${output_log}
+    
+    # Load missing environment variables from /app/.env and then from .env.example
+    einfo "Loading missing environment variables (will NOT override runtime envs)..."
+    load_env_if_missing /app/.env
+    load_env_if_missing /app/.env.example
+    
+    # Export environment for child process
+    export DATABASE_URL
+    export NEXTAUTH_URL
+    export NEXTAUTH_SECRET
+    export GOOGLE_CLIENT_ID
+    export GOOGLE_CLIENT_SECRET
+    export TRIPAY_API_KEY
+    export TRIPAY_PRIVATE_KEY
+    export TRIPAY_MERCHANT_CODE
+    export TRIPAY_MODE
+    export NODE_ENV
+    export PORT=3000
+    export HOSTNAME=0.0.0.0
+    
+    # Run database migration
+    einfo "Running database migration..."
+    cd /app
+    npx prisma db push --skip-generate --accept-data-loss 2>&1 | tee /var/log/prisma.log || true
+    
+    # Check admin user
+    einfo "Checking admin user..."
+    node node_modules/tsx/dist/cli.mjs scripts/check-admin.ts 2>&1 | tee /var/log/admin-check.log || true
+    
+    einfo "Starting ${name}..."
+}
+
+start_post() {
+    einfo "${name} started successfully"
+    einfo "View logs: tail -f ${output_log}"
+}
+
+stop_pre() {
+    einfo "Stopping ${name}..."
+}
+
+stop_post() {
+    einfo "${name} stopped"
+}
+
+depend() {
+    need net
+    use logger
+    after sshd
+}
