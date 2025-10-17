@@ -37,7 +37,7 @@ export const Navbar = () => {
   const navigationItems = [
     { id: "fasilitas", label: "Fasilitas", href: "#fasilitas" },
     { id: "jadwal", label: "Jadwal", href: "#jadwal" },
-    { id: "galeri", label: "Galeri", href: "/galeri" },
+    { id: "galeri", label: "Galeri", href: "#galeri" },
     { id: "faq", label: "FAQ", href: "#faq" },
     { id: "kontak", label: "Kontak", href: "#kontak" },
   ];

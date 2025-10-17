@@ -690,7 +690,7 @@ export default (props) => {
           </div>
         </div>
         {/* Galeri Kegiatan Section */}
-        <div className="flex flex-col items-center self-stretch mb-12 px-4 md:px-32 gap-8">
+        <div id="galeri" className="flex flex-col items-center self-stretch mb-12 px-4 md:px-32 gap-8">
           <div className="text-center max-w-4xl">
             <h2 className="text-4xl md:text-5xl font-bold text-[#1F1F1F] mb-6 animate-fade-in-up">
               Galeri Kegiatan
