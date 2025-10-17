@@ -1,12 +1,14 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BookingStats from "@/components/dashboard/BookingStats";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [recentBookings, setRecentBookings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Temporary: Skip authentication for testing
   // useEffect(() => {
@@ -33,6 +35,24 @@ export default function DashboardPage() {
   //     </div>
   //   );
   // }
+
+  useEffect(() => {
+    fetchRecentBookings();
+  }, []);
+
+  const fetchRecentBookings = async () => {
+    try {
+      const response = await fetch("/api/bookings?limit=5");
+      if (response.ok) {
+        const bookings = await response.json();
+        setRecentBookings(bookings);
+      }
+    } catch (error) {
+      console.error("Error fetching recent bookings:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -118,52 +138,36 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <main className="relative z-10">
-        {/* Hero Section */}
-        <div className="text-center py-16 px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* Decorative Icons */}
-            <div className="flex justify-center items-center mb-8">
-              <div className="w-16 h-16 border-2 border-pink-300 rounded-lg flex items-center justify-center mr-8">
-                <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+        {/* Welcome Section */}
+        <div className="bg-gradient-to-r from-[#E04E4E] to-[#c93e3e] text-white py-12 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-between">
+              <div className="text-center lg:text-left mb-8 lg:mb-0">
+                <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                  Selamat Datang, {session?.user?.name || "User"}! 👋
+                </h1>
+                <p className="text-xl opacity-90">
+                  Kelola booking fasilitas dengan mudah dan efisien
+                </p>
               </div>
-              <h1 className="text-5xl font-bold text-[#1F1F1F]">
-                Hai, <span className="text-[#E04E4E]">Mau Booking Apa?</span>
-              </h1>
-              <div className="w-16 h-16 border-2 border-pink-300 rounded-lg flex items-center justify-center ml-8">
-                <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-            </div>
-            
-            <p className="text-xl text-[#7A7A7A] mb-12">
-              Temukan Ruangan dan Tempat yang Cocok Untuk Acaramu!
-            </p>
-
-            {/* Quick Actions */}
-            <div className="bg-[#FFF0F0] border border-[#E04E4E] rounded-2xl p-8 max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-[#1F1F1F] mb-6">Aksi Cepat</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-4">
                 <button
                   onClick={() => router.push("/dashboard/bookings/new")}
-                  className="flex items-center justify-center gap-3 bg-white border-2 border-[#E04E4E] rounded-xl p-4 hover:bg-[#FFE5E5] transition-colors"
+                  className="bg-white text-[#E04E4E] px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2"
                 >
-                  <svg className="w-6 h-6 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
-                  <span className="font-medium text-[#E04E4E]">Buat Booking Baru</span>
+                  Booking Baru
                 </button>
-                
                 <button
                   onClick={() => router.push("/dashboard/bookings")}
-                  className="flex items-center justify-center gap-3 bg-white border-2 border-[#E04E4E] rounded-xl p-4 hover:bg-[#FFE5E5] transition-colors"
+                  className="border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#E04E4E] transition-colors flex items-center gap-2"
                 >
-                  <svg className="w-6 h-6 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                   </svg>
-                  <span className="font-medium text-[#E04E4E]">Riwayat Booking</span>
+                  Lihat Semua
                 </button>
               </div>
             </div>
@@ -171,9 +175,176 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats Section */}
-        <div className="py-16 px-4">
+        <div className="py-12 px-4 -mt-8">
           <div className="max-w-7xl mx-auto">
             <BookingStats />
+          </div>
+        </div>
+
+        {/* Main Dashboard Content */}
+        <div className="py-8 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Recent Bookings */}
+              <div className="lg:col-span-2">
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-2xl font-bold text-[#1F1F1F]">Booking Terbaru</h2>
+                    <button
+                      onClick={() => router.push("/dashboard/bookings")}
+                      className="text-[#E04E4E] hover:text-[#c93e3e] font-medium flex items-center gap-1"
+                    >
+                      Lihat Semua
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  {loading ? (
+                    <div className="space-y-4">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="animate-pulse">
+                          <div className="h-16 bg-gray-200 rounded-lg"></div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : recentBookings.length > 0 ? (
+                    <div className="space-y-4">
+                      {recentBookings.map((booking, index) => (
+                        <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 bg-[#FFF0F0] rounded-lg flex items-center justify-center">
+                              <svg className="w-6 h-6 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h3 className="font-semibold text-[#1F1F1F]">{booking.facility || "Fasilitas"}</h3>
+                              <p className="text-sm text-[#7A7A7A]">
+                                {booking.startDate ? new Date(booking.startDate).toLocaleDateString('id-ID') : "Tanggal tidak tersedia"}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                              booking.status === 'APPROVED' ? 'bg-green-100 text-green-800' :
+                              booking.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                              booking.status === 'REJECTED' ? 'bg-red-100 text-red-800' :
+                              'bg-gray-100 text-gray-800'
+                            }`}>
+                              {booking.status === 'APPROVED' ? 'Disetujui' :
+                               booking.status === 'PENDING' ? 'Menunggu' :
+                               booking.status === 'REJECTED' ? 'Ditolak' : 'Unknown'}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12">
+                      <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                      </div>
+                      <h3 className="text-lg font-semibold text-[#1F1F1F] mb-2">Belum ada booking</h3>
+                      <p className="text-[#7A7A7A] mb-4">Mulai buat booking pertama Anda</p>
+                      <button
+                        onClick={() => router.push("/dashboard/bookings/new")}
+                        className="bg-[#E04E4E] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#c93e3e] transition-colors"
+                      >
+                        Buat Booking
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Aksi Cepat</h2>
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => router.push("/dashboard/bookings/new")}
+                      className="w-full flex items-center gap-3 p-4 bg-[#FFF0F0] hover:bg-[#FFE5E5] rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-[#E04E4E] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Buat Booking Baru</p>
+                        <p className="text-sm text-[#7A7A7A]">Pesan fasilitas baru</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => router.push("/dashboard/bookings")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Riwayat Booking</p>
+                        <p className="text-sm text-[#7A7A7A]">Lihat semua booking</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => router.push("/dashboard/journal")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Jurnal</p>
+                        <p className="text-sm text-[#7A7A7A]">Catatan aktivitas</p>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => router.push("/dashboard/documentation")}
+                      className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
+                    >
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <p className="font-semibold text-[#1F1F1F]">Dokumentasi</p>
+                        <p className="text-sm text-[#7A7A7A]">Panduan sistem</p>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Calendar Widget */}
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Kalender</h2>
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-[#FFF0F0] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <p className="text-[#7A7A7A] mb-4">Kalender akan segera hadir</p>
+                    <button className="text-[#E04E4E] hover:text-[#c93e3e] font-medium text-sm">
+                      Lihat Detail
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
