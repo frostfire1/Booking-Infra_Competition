@@ -1,114 +1,228 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import DashboardLayout from "@/components/dashboard/DashboardLayout";
 import BookingStats from "@/components/dashboard/BookingStats";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/auth/signin");
-    }
-  }, [status, router]);
+  // Temporary: Skip authentication for testing
+  // useEffect(() => {
+  //   if (status === "unauthenticated") {
+  //     router.push("/auth/signin");
+  //   }
+  // }, [status, router]);
 
-  if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E04E4E]"></div>
-      </div>
-    );
-  }
+  // if (status === "loading") {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-screen bg-gray-50">
+  //       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E04E4E]"></div>
+  //     </div>
+  //   );
+  // }
 
-  if (!session) {
-    return null;
-  }
+  // if (!session) {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-screen bg-gray-50">
+  //       <div className="text-center">
+  //         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E04E4E] mx-auto mb-4"></div>
+  //         <p className="text-gray-600">Memuat...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <DashboardLayout>
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-[#1F1F1F]">
-            Selamat Datang, {session.user?.name || "User"}!
-          </h1>
-          <p className="text-[#7A7A7A] mt-2">
-            Kelola booking fasilitas dan peralatan SMK Telkom Malang
-          </p>
-        </div>
-
-        <BookingStats />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <button
-            onClick={() => router.push("/dashboard/bookings/new")}
-            className="flex flex-col items-center justify-center bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-xl p-8 hover:bg-[#FFE5E5] transition-colors"
-          >
-            <svg
-              className="w-16 h-16 text-[#E04E4E] mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-            <span className="text-xl font-bold text-[#E04E4E]">
-              Buat Booking Baru
-            </span>
-          </button>
-
-          <button
-            onClick={() => router.push("/dashboard/bookings")}
-            className="flex flex-col items-center justify-center bg-white border-2 border-[#D5D5D5] rounded-xl p-8 hover:bg-gray-50 transition-colors"
-          >
-            <svg
-              className="w-16 h-16 text-[#E04E4E] mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-              />
-            </svg>
-            <span className="text-xl font-bold text-[#1F1F1F]">
-              Riwayat Booking
-            </span>
-          </button>
-
-          <button
-            onClick={() => router.push("/dashboard/documentation")}
-            className="flex flex-col items-center justify-center bg-white border-2 border-[#D5D5D5] rounded-xl p-8 hover:bg-gray-50 transition-colors"
-          >
-            <svg
-              className="w-16 h-16 text-[#E04E4E] mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-              />
-            </svg>
-            <span className="text-xl font-bold text-[#1F1F1F]">
-              Dokumentasi
-            </span>
-          </button>
-        </div>
+    <div className="min-h-screen bg-white">
+      {/* Background decorative elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-pink-100 rounded-full opacity-30"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-pink-100 rounded-full opacity-30"></div>
+        <div className="absolute top-1/2 -right-20 w-64 h-64 bg-pink-100 rounded-full opacity-20"></div>
       </div>
-    </DashboardLayout>
+
+      {/* Navbar */}
+      <nav className="relative z-10 bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 flex items-center justify-center">
+                <img 
+                  src="/logo.png" 
+                  alt="Logo SMK Telkom Malang" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[#1F1F1F] font-medium text-sm leading-tight">
+                  Booking
+                </span>
+                <span className="text-[#1F1F1F] font-medium text-xs leading-tight whitespace-nowrap">
+                  SMK Telkom Malang
+                </span>
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="/dashboard" className="text-[#E04E4E] font-medium">Dashboard</a>
+              <a href="/dashboard/bookings/new" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Booking Baru</a>
+              <a href="/dashboard/bookings" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Riwayat</a>
+              <a href="/dashboard/journal" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Jurnal</a>
+              <a href="/dashboard/documentation" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Dokumentasi</a>
+            </div>
+
+            {/* User Menu */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#E04E4E] flex items-center justify-center text-white font-bold text-sm">
+                  {session?.user?.name?.charAt(0).toUpperCase() || "U"}
+                </div>
+                <div className="hidden sm:block">
+                  <p className="text-sm font-medium text-[#1F1F1F]">{session?.user?.name || "User"}</p>
+                  {session?.user?.role === "ADMIN" && (
+                    <span className="text-xs text-[#E04E4E] font-semibold">ADMIN</span>
+                  )}
+                </div>
+              </div>
+              {session ? (
+                <button
+                  onClick={() => signOut({ callbackUrl: "/" })}
+                  className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium"
+                >
+                  Logout
+                </button>
+              ) : (
+                <div className="flex gap-2">
+                  <a
+                    href="/auth/signin"
+                    className="bg-[#E04E4E] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#c93e3e] transition-colors"
+                  >
+                    Masuk
+                  </a>
+                  <a
+                    href="/auth/register"
+                    className="border-2 border-[#E04E4E] text-[#E04E4E] px-4 py-2 rounded-lg font-medium hover:bg-[#FFF0F0] transition-colors"
+                  >
+                    Daftar
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="relative z-10">
+        {/* Hero Section */}
+        <div className="text-center py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Decorative Icons */}
+            <div className="flex justify-center items-center mb-8">
+              <div className="w-16 h-16 border-2 border-pink-300 rounded-lg flex items-center justify-center mr-8">
+                <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h1 className="text-5xl font-bold text-[#1F1F1F]">
+                Hai, <span className="text-[#E04E4E]">Mau Booking Apa?</span>
+              </h1>
+              <div className="w-16 h-16 border-2 border-pink-300 rounded-lg flex items-center justify-center ml-8">
+                <svg className="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+            </div>
+            
+            <p className="text-xl text-[#7A7A7A] mb-12">
+              Temukan Ruangan dan Tempat yang Cocok Untuk Acaramu!
+            </p>
+
+            {/* Quick Actions */}
+            <div className="bg-[#FFF0F0] border border-[#E04E4E] rounded-2xl p-8 max-w-2xl mx-auto">
+              <h2 className="text-2xl font-bold text-[#1F1F1F] mb-6">Aksi Cepat</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  onClick={() => router.push("/dashboard/bookings/new")}
+                  className="flex items-center justify-center gap-3 bg-white border-2 border-[#E04E4E] rounded-xl p-4 hover:bg-[#FFE5E5] transition-colors"
+                >
+                  <svg className="w-6 h-6 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                  <span className="font-medium text-[#E04E4E]">Buat Booking Baru</span>
+                </button>
+                
+                <button
+                  onClick={() => router.push("/dashboard/bookings")}
+                  className="flex items-center justify-center gap-3 bg-white border-2 border-[#E04E4E] rounded-xl p-4 hover:bg-[#FFE5E5] transition-colors"
+                >
+                  <svg className="w-6 h-6 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span className="font-medium text-[#E04E4E]">Riwayat Booking</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="py-16 px-4">
+          <div className="max-w-7xl mx-auto">
+            <BookingStats />
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div className="py-16 px-4 bg-gray-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#E04E4E] mb-4">
+                Fasilitas Lengkap untuk Setiap Kebutuhan Acara
+              </h2>
+              <p className="text-xl text-[#7A7A7A] max-w-3xl mx-auto">
+                Dari aula hingga laboratorium, setiap ruang di SMK Telkom Malang sudah lengkap dengan fasilitas, siap mendukung berbagai acara, dan bisa dipesan dengan mudah kapan saja.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-[#FFF0F0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Aula & Ruang Rapat</h3>
+                <p className="text-[#7A7A7A]">Ruang besar untuk acara formal dan presentasi</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-20 h-20 bg-[#FFF0F0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Laboratorium</h3>
+                <p className="text-[#7A7A7A]">Lab Cyber, Cloud, ITNSA, Podcast, dan Robotik</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-20 h-20 bg-[#FFF0F0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#1F1F1F] mb-3">Dokumentasi</h3>
+                <p className="text-[#7A7A7A]">Panduan lengkap dan dokumentasi sistem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }

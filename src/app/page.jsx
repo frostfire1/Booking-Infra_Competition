@@ -102,21 +102,22 @@ export default (props) => {
         </div>
         <div className="flex flex-col items-center self-stretch bg-[url('/cloud.png')] bg-cover bg-center pt-8 sm:pt-12 md:pt-[71px] pb-12 md:pb-[58px] px-2 sm:px-4 overflow-x-hidden">
           <div className="flex flex-col lg:flex-row items-center lg:items-start mb-12 md:mb-[284px] gap-6 lg:gap-0 w-full max-w-7xl overflow-x-hidden">
-            <img
-              src={"/cube_bubble.png"}
-              className="w-[83px] h-[83px] object-contain hidden xl:block xl:mt-[35px] xl:mr-[132px] flex-shrink-0"
-            />
+            <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center hidden xl:block xl:mt-[35px] xl:mr-[132px] flex-shrink-0">
+              <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
             <div className="flex flex-col items-center gap-6 md:gap-9 w-full lg:w-auto">
               <div className="flex flex-col items-center gap-3 text-center">
                 <span className="text-[#1F1F1F] text-2xl md:text-[42px] font-bold px-4">
-                  {"Hai, Mau Booking Apa?"}
+                  Hai, <span className="text-[#E04E4E]">Mau Booking Apa?</span>
                 </span>
                 <span className="text-[#7A7A7A] text-sm md:text-base px-4">
                   {"Temukan Ruangan dan Tempat yang Cocok Untuk Acaramu!"}
                 </span>
               </div>
               <form
-                className="flex flex-col lg:flex-row items-start bg-[#FFF0F0] py-3 sm:py-4 px-3 sm:px-5 gap-4 lg:gap-3 rounded-xl border border-solid border-[#E04E4E] w-full max-w-4xl overflow-x-hidden"
+                className="bg-[#FFF0F0] py-4 px-6 rounded-xl border border-solid border-[#E04E4E] w-full max-w-5xl mx-auto"
                 onSubmit={(e) => {
                   e.preventDefault();
                   
@@ -135,81 +136,86 @@ export default (props) => {
                   }
                 }}
               >
-                <div className="flex flex-col w-full lg:w-auto items-start gap-2.5">
-                  <span className="text-[#1F1F1F] text-lg">{"Fasilitas"}</span>
-                  <div className="flex items-center bg-white py-2 sm:py-3 px-3 sm:px-[18px] rounded-xl border border-solid border-[#D5D5D5] w-full lg:w-auto">
-                    <img
-                      src="/home_icon.png"
-                      className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-[18px] object-contain flex-shrink-0"
-                    />
-                    <select
-                      className="text-[#5C5C5C] text-sm sm:text-base flex-1 bg-transparent outline-none min-w-0 max-w-full"
-                      value={selectedFasilitas}
-                      onChange={(e) => {
-                        setSelectedFasilitas(e.target.value);
-                        setSelectedRange(undefined);
-                      }}
-                      required
-                    >
-                      <option value="" disabled>
-                        Pilih Fasilitas
-                      </option>
-                      {fasilitasList.map((f) => (
-                        <option key={f} value={f}>
-                          {f}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                {selectedFasilitas && (
-                  <div className="flex flex-col w-full lg:w-auto items-start gap-2.5 lg:ml-6">
-                    <span className="text-[#1F1F1F] text-base sm:text-lg">{"Waktu"}</span>
-                    <div className="beautiful-calendar bg-white py-2 sm:py-3 px-2 sm:px-[18px] rounded-xl border border-solid border-[#D5D5D5] w-full lg:w-auto overflow-x-auto">
-                      <DayPicker
-                        mode="range"
-                        selected={selectedRange}
-                        onSelect={setSelectedRange}
-                        className="!text-[#5C5C5C]"
-                        required
-                        modifiersClassNames={{
-                          selected: "bg-[#E04E4E]",
-                          range_start: "bg-[#E04E4E] text-white rounded-l-full",
-                          range_end: "bg-[#E04E4E] text-white rounded-r-full",
-                          range_middle: "bg-[#FFF0F0] text-[#E04E4E]",
-                          today: "text-black font-bold",
+                <div className="flex flex-col lg:flex-row items-center gap-4">
+                  <div className="flex flex-col w-full lg:w-auto items-start gap-2">
+                    <span className="text-[#1F1F1F] text-base font-medium">{"Fasilitas"}</span>
+                    <div className="flex items-center bg-white py-3 px-4 rounded-lg border border-solid border-[#E04E4E] w-full lg:w-auto min-w-[220px]">
+                      <svg className="w-5 h-5 mr-3 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      <select
+                        className="text-[#5C5C5C] text-base flex-1 bg-transparent outline-none"
+                        value={selectedFasilitas}
+                        onChange={(e) => {
+                          setSelectedFasilitas(e.target.value);
+                          setSelectedRange(undefined);
                         }}
-                      />
+                        required
+                      >
+                        <option value="" disabled>
+                          Apa yang ingin dipinjam?
+                        </option>
+                        {fasilitasList.map((f) => (
+                          <option key={f} value={f}>
+                            {f}
+                          </option>
+                        ))}
+                      </select>
+                      <svg className="w-5 h-5 text-[#5C5C5C] ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </div>
                   </div>
-                )}
-                <div className="flex flex-col w-full lg:w-auto items-center lg:pt-[30px] mt-2">
-                  <button
-                    className="flex items-center justify-center bg-[#E04E4E] py-3 sm:py-3.5 px-4 sm:px-6 gap-2 sm:gap-3 rounded-xl border-0 text-white w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c93e3e] transition-colors text-sm sm:text-base"
-                    type="submit"
-                    disabled={
-                      !selectedFasilitas ||
-                      !selectedRange?.from ||
-                      !selectedRange?.to
-                    }
-                  >
-                    <img
-                      src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/lkqxj5gn_expires_30_days.png"
-                      className="w-6 h-6 rounded-xl object-fill"
-                    />
-                    <span className="text-white text-base">
-                      {"Cek Ketersediaan"}
-                    </span>
-                  </button>
+                  
+                  <div className="flex flex-col w-full lg:w-auto items-start gap-2">
+                    <span className="text-[#1F1F1F] text-base font-medium">{"Waktu"}</span>
+                    <div className="flex items-center bg-white py-3 px-4 rounded-lg border border-solid border-[#E04E4E] w-full lg:w-auto min-w-[220px]">
+                      <svg className="w-5 h-5 mr-3 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <input
+                        type="text"
+                        placeholder="Kapan Mau Pinjam?"
+                        className="text-[#5C5C5C] text-base flex-1 bg-transparent outline-none"
+                        readOnly
+                        onClick={() => {
+                          // Show date picker or redirect to booking page
+                          if (!session) {
+                            router.push("/auth/signin?callbackUrl=/dashboard/bookings/new");
+                          } else {
+                            router.push("/dashboard/bookings/new");
+                          }
+                        }}
+                      />
+                      <svg className="w-5 h-5 text-[#5C5C5C] ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col w-full lg:w-auto items-start gap-2">
+                    <span className="text-[#1F1F1F] text-base font-medium opacity-0">{"Button"}</span>
+                    <button
+                      className="flex items-center justify-center bg-[#E04E4E] py-3 px-6 gap-3 rounded-lg border-0 text-white w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c93e3e] transition-colors text-base font-medium whitespace-nowrap"
+                      type="submit"
+                      disabled={!selectedFasilitas}
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      <span className="text-white text-base font-medium">
+                        Cek Ketersediaan
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
-            <img
-              src={
-                "/home_bubble.png"
-              }
-              className="w-[86px] h-[86px] object-contain hidden xl:block flex-shrink-0"
-            />
+            <div className="w-20 h-20 bg-pink-100 rounded-full flex items-center justify-center hidden xl:block flex-shrink-0">
+              <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
           </div>
           <div className="flex flex-col items-center self-stretch">
             <img

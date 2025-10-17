@@ -69,85 +69,81 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 xl:gap-[166px] px-3 sm:px-4 lg:px-8 xl:px-[46px] py-3 lg:py-[7px] bg-white rounded-xl lg:rounded-full shadow-lg border border-solid border-[#dcdcdc] text-neutral-700 fixed top-2 sm:top-4 lg:top-6 left-2 sm:left-4 lg:left-1/2 right-2 sm:right-4 lg:right-auto lg:-translate-x-1/2 z-50 transition-transform duration-300 lg:max-w-7xl lg:mx-auto ${
+      className={`flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0 px-6 lg:px-8 py-3 lg:py-4 bg-white rounded-full shadow-lg border border-solid border-[#E5E5E5] text-[#1F1F1F] fixed top-2 sm:top-4 lg:top-6 left-2 sm:left-4 lg:left-1/2 right-2 sm:right-4 lg:right-auto lg:-translate-x-1/2 z-50 transition-transform duration-300 lg:max-w-6xl lg:mx-auto w-full ${
         isVisible ? 'translate-y-0' : '-translate-y-[200%]'
       }`}
       role="banner"
     >
-      <div className="flex w-full lg:w-auto items-center justify-between">
-        <div className="flex items-center gap-2 lg:gap-3.5">
-          <img
-            className="relative w-8 h-8 lg:w-[39.5px] lg:h-[39.14px] aspect-[1.01]"
-            alt="SMK Telkom Malang Logo"
-            src="/logo.png"
+      {/* Logo Section */}
+      <div className="flex items-center gap-3">
+        {/* Logo sekolah SMK Telkom Malang */}
+        <div className="w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center">
+          <img 
+            src="/logo.png?v=2" 
+            alt="Logo SMK Telkom Malang" 
+            className="w-full h-full object-contain"
           />
-
-          <div className="relative w-fit font-extrabold text-primitive-neutral-700 text-sm lg:text-[16.3px] tracking-[-0.65px] leading-tight">
-            Booking
-            <br />
-            SMK Telkom Malang
-          </div>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-          aria-expanded={isMobileMenuOpen}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isMobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
+        
+        {/* Teks logo */}
+        <div className="flex flex-col">
+          <span className="text-[#1F1F1F] font-medium text-sm lg:text-base leading-tight">
+            Booking
+          </span>
+          <span className="text-[#1F1F1F] font-medium text-xs lg:text-sm leading-tight whitespace-nowrap">
+            SMK Telkom Malang
+          </span>
+        </div>
       </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle mobile menu"
+        aria-expanded={isMobileMenuOpen}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          {isMobileMenuOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          )}
+        </svg>
+      </button>
 
       {/* Navigation - Desktop */}
       <nav
-        className="hidden lg:flex gap-6 xl:gap-12 px-0 py-7 items-center relative flex-[0_0_auto]"
+        className="hidden lg:flex gap-2.5 px-0 py-2 items-center relative ml-[100px] mr-[100px]"
         role="navigation"
         aria-label="Main navigation"
       >
         {navigationItems.map((item) => (
-          <div
+          <button
             key={item.id}
-            className="flex-col justify-center gap-1.5 inline-flex items-center relative flex-[0_0_auto]"
+            className={`relative px-2 py-1 text-[#1F1F1F] font-medium text-sm hover:text-[#E04E4E] focus:text-[#E04E4E] focus:outline-none transition-colors duration-200 whitespace-nowrap ${
+              activeNavItem === item.id ? "text-[#E04E4E]" : ""
+            }`}
+            onClick={() => handleNavClick(item.id)}
+            aria-current={activeNavItem === item.id ? "page" : undefined}
           >
-            <button
-              className="relative w-fit mt-[-1.00px] font-body-regular-b2 font-[number:var(--body-regular-b2-font-weight)] text-primitive-neutral-700 text-[length:var(--body-regular-b2-font-size)] tracking-[var(--body-regular-b2-letter-spacing)] leading-[var(--body-regular-b2-line-height)] [font-style:var(--body-regular-b2-font-style)] hover:text-primitive-primary-400 focus:text-primitive-primary-400 focus:outline-none transition-colors duration-200 whitespace-nowrap"
-              onClick={() => handleNavClick(item.id)}
-              aria-current={activeNavItem === item.id ? "page" : undefined}
-            >
-              {item.label}
-            </button>
-
-            <div
-              className={`relative self-stretch w-full h-0.5 transition-colors duration-200 ${
-                activeNavItem === item.id
-                  ? "bg-primitive-primary-400"
-                  : "bg-transparent"
-              }`}
-            />
-          </div>
+            {item.label}
+          </button>
         ))}
       </nav>
 
@@ -239,13 +235,13 @@ export const Navbar = () => {
       )}
 
       {/* Auth buttons - Desktop only */}
-      <div className="hidden lg:flex gap-3.5 items-center">
+      <div className="hidden lg:flex gap-6 items-center">
         {status === "loading" ? (
           <div className="text-[#7A7A7A] text-sm">Loading...</div>
         ) : session ? (
           <>
             <button
-              className="bg-[#E04E4E] text-white py-2.5 px-5 rounded-xl font-medium cursor-pointer focus:outline-none hover:bg-[#c93e3e] transition-colors duration-200 whitespace-nowrap"
+              className="bg-[#E04E4E] text-white py-2 px-5 rounded-lg font-medium cursor-pointer focus:outline-none hover:bg-[#c93e3e] transition-colors duration-200 whitespace-nowrap text-sm"
               onClick={handleDashboardClick}
               type="button"
             >
@@ -254,7 +250,7 @@ export const Navbar = () => {
 
             <div className="relative group">
               <button
-                className="flex items-center gap-2 py-1.5 px-3 text-[#E04E4E] border-[#E04E4E] rounded-xl bg-white border border-solid hover:bg-[#FFF0F0] transition-colors duration-200 cursor-pointer focus:outline-none"
+                className="flex items-center gap-2 py-1.5 px-3 text-[#E04E4E] border-[#E04E4E] rounded-lg bg-white border border-solid hover:bg-[#FFF0F0] transition-colors duration-200 cursor-pointer focus:outline-none"
                 type="button"
               >
                 {session.user?.image && (
@@ -314,8 +310,9 @@ export const Navbar = () => {
           </>
         ) : (
           <>
+            {/* Tombol Masuk - sesuai desain Figma */}
             <button
-              className="bg-[#E04E4E] text-white py-2.5 px-5 rounded-xl font-body-regular-b2 font-[number:var(--body-regular-b2-font-weight)] text-[length:var(--body-regular-b2-font-size)] tracking-[var(--body-regular-b2-letter-spacing)] leading-[var(--body-regular-b2-line-height)] cursor-pointer focus:outline-none hover:bg-[#c93e3e] transition-colors duration-200 whitespace-nowrap"
+              className="bg-[#E04E4E] text-white py-2.5 px-6 rounded-lg font-medium cursor-pointer focus:outline-none hover:bg-[#c93e3e] transition-colors duration-200 whitespace-nowrap text-sm"
               onClick={handleLoginClick}
               type="button"
               aria-label="Login to your account"
@@ -323,8 +320,9 @@ export const Navbar = () => {
               Masuk
             </button>
 
+            {/* Tombol Daftar - sesuai desain Figma */}
             <button
-              className="py-2.5 px-5 text-[#E04E4E] border-[#E04E4E] rounded-xl bg-white border border-solid hover:bg-[#E04E4E] hover:text-white transition-colors duration-200 font-body-regular-b2 font-[number:var(--body-regular-b2-font-weight)] text-[length:var(--body-regular-b2-font-size)] tracking-[var(--body-regular-b2-letter-spacing)] leading-[var(--body-regular-b2-line-height)] cursor-pointer focus:outline-none whitespace-nowrap"
+              className="py-2.5 px-6 text-[#E04E4E] border-[#E04E4E] rounded-lg bg-white border border-solid hover:bg-[#E04E4E] hover:text-white transition-colors duration-200 font-medium cursor-pointer focus:outline-none whitespace-nowrap text-sm"
               onClick={handleRegisterClick}
               type="button"
               aria-label="Register for a new account"
