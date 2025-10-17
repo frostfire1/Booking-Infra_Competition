@@ -11,6 +11,11 @@ export default function DashboardPage() {
   const router = useRouter();
   const [recentBookings, setRecentBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Calendar state
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [calendarBookings, setCalendarBookings] = useState([]);
 
   // Temporary: Skip authentication for testing
   // useEffect(() => {
@@ -40,7 +45,149 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetchRecentBookings();
-  }, []);
+    fetchCalendarBookings();
+  }, [currentDate]);
+
+  // Fetch calendar bookings for the current month
+  const fetchCalendarBookings = async () => {
+    try {
+      const response = await fetch('/api/bookings');
+      if (response.ok) {
+        const bookings = await response.json();
+        setCalendarBookings(bookings);
+      } else {
+        // Fallback to dummy data for testing
+        const dummyBookings = [
+          {
+            id: 1,
+            title: "Seminar Teknologi",
+            description: "Seminar tentang perkembangan teknologi terbaru",
+            facility: { name: "Aula" },
+            startDate: new Date(2024, 9, 20, 9, 0).toISOString(),
+            endDate: new Date(2024, 9, 20, 12, 0).toISOString(),
+            status: "APPROVED"
+          },
+          {
+            id: 2,
+            title: "Workshop Robotik",
+            description: "Pelatihan dasar robotik untuk siswa",
+            facility: { name: "Lab Robotik (Lab 5)" },
+            startDate: new Date(2024, 9, 22, 14, 0).toISOString(),
+            endDate: new Date(2024, 9, 22, 17, 0).toISOString(),
+            status: "PENDING"
+          },
+          {
+            id: 3,
+            title: "Rapat Koordinasi",
+            description: "Rapat koordinasi tim pengajar",
+            facility: { name: "Lab Podcast dan Rapat (Lab 2)" },
+            startDate: new Date(2024, 9, 25, 10, 0).toISOString(),
+            endDate: new Date(2024, 9, 25, 11, 30).toISOString(),
+            status: "APPROVED"
+          },
+          {
+            id: 4,
+            title: "Ujian Praktikum",
+            description: "Ujian praktikum cyber security",
+            facility: { name: "Lab Cyber, Cloud & ITNSA (Lab 1)" },
+            startDate: new Date(2024, 9, 28, 8, 0).toISOString(),
+            endDate: new Date(2024, 9, 28, 10, 0).toISOString(),
+            status: "APPROVED"
+          }
+        ];
+        setCalendarBookings(dummyBookings);
+      }
+    } catch (error) {
+      console.error('Error fetching calendar bookings:', error);
+      // Fallback to dummy data
+      const dummyBookings = [
+        {
+          id: 1,
+          title: "Seminar Teknologi",
+          description: "Seminar tentang perkembangan teknologi terbaru",
+          facility: { name: "Aula" },
+          startDate: new Date(2024, 9, 20, 9, 0).toISOString(),
+          endDate: new Date(2024, 9, 20, 12, 0).toISOString(),
+          status: "APPROVED"
+        },
+        {
+          id: 2,
+          title: "Workshop Robotik",
+          description: "Pelatihan dasar robotik untuk siswa",
+          facility: { name: "Lab Robotik (Lab 5)" },
+          startDate: new Date(2024, 9, 22, 14, 0).toISOString(),
+          endDate: new Date(2024, 9, 22, 17, 0).toISOString(),
+          status: "PENDING"
+        },
+        {
+          id: 3,
+          title: "Rapat Koordinasi",
+          description: "Rapat koordinasi tim pengajar",
+          facility: { name: "Lab Podcast dan Rapat (Lab 2)" },
+          startDate: new Date(2024, 9, 25, 10, 0).toISOString(),
+          endDate: new Date(2024, 9, 25, 11, 30).toISOString(),
+          status: "APPROVED"
+        },
+        {
+          id: 4,
+          title: "Ujian Praktikum",
+          description: "Ujian praktikum cyber security",
+          facility: { name: "Lab Cyber, Cloud & ITNSA (Lab 1)" },
+          startDate: new Date(2024, 9, 28, 8, 0).toISOString(),
+          endDate: new Date(2024, 9, 28, 10, 0).toISOString(),
+          status: "APPROVED"
+        }
+      ];
+      setCalendarBookings(dummyBookings);
+    }
+  };
+
+  // Calendar navigation functions
+  const goToPreviousMonth = () => {
+    setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
+  };
+
+  const goToNextMonth = () => {
+    setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
+  };
+
+  // Get bookings for a specific date
+  const getBookingsForDate = (date) => {
+    return calendarBookings.filter(booking => {
+      const bookingDate = new Date(booking.startDate);
+      return bookingDate.toDateString() === date.toDateString();
+    });
+  };
+
+  // Check if a date has bookings
+  const hasBookings = (date) => {
+    return getBookingsForDate(date).length > 0;
+  };
+
+  // Generate calendar days
+  const generateCalendarDays = () => {
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const daysInMonth = lastDay.getDate();
+    const startingDayOfWeek = firstDay.getDay();
+
+    const days = [];
+    
+    // Empty cells for days before the first day of the month
+    for (let i = 0; i < startingDayOfWeek; i++) {
+      days.push(null);
+    }
+    
+    // Days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      days.push(date);
+    }
+    
+    return days;
+  };
 
   const fetchRecentBookings = async () => {
     try {
@@ -358,13 +505,21 @@ export default function DashboardPage() {
                 {/* Calendar */}
                 <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-8 flex-1">
                   <div className="flex items-center justify-between mb-8">
-                    <button className="text-[#E04E4E] hover:text-[#c93e3e] p-3">
+                    <button 
+                      onClick={goToPreviousMonth}
+                      className="text-[#E04E4E] hover:text-[#c93e3e] p-3 transition-colors"
+                    >
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
-                    <h3 className="text-2xl font-bold text-[#1F1F1F]">October 2025</h3>
-                    <button className="text-[#E04E4E] hover:text-[#c93e3e] p-3">
+                    <h3 className="text-2xl font-bold text-[#1F1F1F]">
+                      {currentDate.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}
+                    </h3>
+                    <button 
+                      onClick={goToNextMonth}
+                      className="text-[#E04E4E] hover:text-[#c93e3e] p-3 transition-colors"
+                    >
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -382,25 +537,31 @@ export default function DashboardPage() {
                   
                   {/* Calendar grid */}
                   <div className="grid grid-cols-7 gap-3">
-                    {/* Empty cells for start of month */}
-                    {Array.from({ length: 1 }, (_, i) => (
-                      <div key={`empty-${i}`} className="h-12"></div>
-                    ))}
-                    
-                    {/* Days */}
-                    {Array.from({ length: 31 }, (_, i) => {
-                      const day = i + 1;
-                      const isToday = day === 17; // Highlight day 17 as example
+                    {generateCalendarDays().map((date, index) => {
+                      if (!date) {
+                        return <div key={`empty-${index}`} className="h-12"></div>;
+                      }
+                      
+                      const isToday = date.toDateString() === new Date().toDateString();
+                      const isSelected = date.toDateString() === selectedDate.toDateString();
+                      const hasBooking = hasBookings(date);
+                      const dayNumber = date.getDate();
+                      
                       return (
                         <button
-                          key={day}
+                          key={date.toISOString()}
+                          onClick={() => setSelectedDate(date)}
                           className={`h-12 w-12 rounded-lg text-base font-medium transition-colors ${
-                            isToday
+                            isSelected
                               ? 'bg-[#E04E4E] text-white'
+                              : isToday
+                              ? 'bg-[#FFE5E5] text-[#E04E4E] border-2 border-[#E04E4E]'
+                              : hasBooking
+                              ? 'bg-[#FFF0F0] text-[#E04E4E] border border-[#E04E4E] hover:bg-[#FFE5E5]'
                               : 'text-[#1F1F1F] hover:bg-[#FFE5E5]'
                           }`}
                         >
-                          {day}
+                          {dayNumber}
                         </button>
                       );
                     })}
@@ -410,11 +571,72 @@ export default function DashboardPage() {
                 {/* Event Info */}
                 <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-8 flex-1">
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-[#1F1F1F] mb-6">Tidak ada acara</h3>
-                    <p className="text-lg text-[#7A7A7A] leading-relaxed">
-                      Tidak ada jadwal booking pada tanggal ini.<br />
-                      Silahkan untuk dapat memilih tanggal ini.
-                    </p>
+                    <h3 className="text-2xl font-bold text-[#1F1F1F] mb-6">
+                      {selectedDate.toLocaleDateString('id-ID', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
+                    </h3>
+                    
+                    {(() => {
+                      const selectedDateBookings = getBookingsForDate(selectedDate);
+                      
+                      if (selectedDateBookings.length === 0) {
+                        return (
+                          <div>
+                            <h4 className="text-lg font-semibold text-[#1F1F1F] mb-4">Tidak ada acara</h4>
+                            <p className="text-lg text-[#7A7A7A] leading-relaxed">
+                              Tidak ada jadwal booking pada tanggal ini.<br />
+                              Silahkan untuk dapat memilih tanggal ini.
+                            </p>
+                          </div>
+                        );
+                      }
+                      
+                      return (
+                        <div>
+                          <h4 className="text-lg font-semibold text-[#1F1F1F] mb-4">
+                            {selectedDateBookings.length} Jadwal Booking
+                          </h4>
+                          <div className="space-y-3">
+                            {selectedDateBookings.map((booking, index) => (
+                              <div key={index} className="bg-white rounded-lg p-4 text-left">
+                                <div className="flex items-center justify-between mb-2">
+                                  <h5 className="font-semibold text-[#1F1F1F]">{booking.title}</h5>
+                                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                    booking.status === 'APPROVED' ? 'bg-green-100 text-green-800' :
+                                    booking.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                                    booking.status === 'REJECTED' ? 'bg-red-100 text-red-800' :
+                                    'bg-gray-100 text-gray-800'
+                                  }`}>
+                                    {booking.status === 'APPROVED' ? 'Disetujui' :
+                                     booking.status === 'PENDING' ? 'Menunggu' :
+                                     booking.status === 'REJECTED' ? 'Ditolak' : 'Unknown'}
+                                  </span>
+                                </div>
+                                <p className="text-sm text-[#7A7A7A] mb-1">
+                                  {booking.facility?.name || 'Fasilitas tidak tersedia'}
+                                </p>
+                                <p className="text-sm text-[#7A7A7A]">
+                                  {new Date(booking.startDate).toLocaleTimeString('id-ID', { 
+                                    hour: '2-digit', 
+                                    minute: '2-digit' 
+                                  })} - {new Date(booking.endDate).toLocaleTimeString('id-ID', { 
+                                    hour: '2-digit', 
+                                    minute: '2-digit' 
+                                  })}
+                                </p>
+                                {booking.description && (
+                                  <p className="text-sm text-[#7A7A7A] mt-2">{booking.description}</p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
