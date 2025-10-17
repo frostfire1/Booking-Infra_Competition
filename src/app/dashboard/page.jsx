@@ -333,31 +333,85 @@ export default function DashboardPage() {
                       <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+            </svg>
                       </div>
                       <div className="text-left">
                         <p className="font-semibold text-[#1F1F1F]">Dokumentasi</p>
                         <p className="text-sm text-[#7A7A7A]">Panduan sistem</p>
                       </div>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Calendar Widget */}
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Kalender</h2>
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-[#FFF0F0] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-                    </div>
-                    <p className="text-[#7A7A7A] mb-4">Kalender akan segera hadir</p>
-                    <button className="text-[#E04E4E] hover:text-[#c93e3e] font-medium text-sm">
-                      Lihat Detail
           </button>
         </div>
       </div>
+
+                {/* Calendar Widget */}
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Jadwal Penggunaan Fasilitas</h2>
+                  
+                  <div className="flex gap-4">
+                    {/* Calendar */}
+                    <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-4 flex-1">
+                      <div className="flex items-center justify-between mb-4">
+                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <h3 className="text-lg font-bold text-[#1F1F1F]">October 2025</h3>
+                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </div>
+                      
+                      {/* Days of week */}
+                      <div className="grid grid-cols-7 gap-1 mb-2">
+                        {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
+                          <div key={day} className="text-center text-sm font-medium text-gray-600 py-2">
+                            {day}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Calendar grid */}
+                      <div className="grid grid-cols-7 gap-1">
+                        {/* Empty cells for start of month */}
+                        {Array.from({ length: 1 }, (_, i) => (
+                          <div key={`empty-${i}`} className="h-8"></div>
+                        ))}
+                        
+                        {/* Days */}
+                        {Array.from({ length: 31 }, (_, i) => {
+                          const day = i + 1;
+                          const isToday = day === 17; // Highlight day 17 as example
+                          return (
+                            <button
+                              key={day}
+                              className={`h-8 w-8 rounded-lg text-sm font-medium transition-colors ${
+                                isToday
+                                  ? 'bg-[#E04E4E] text-white'
+                                  : 'text-[#1F1F1F] hover:bg-[#FFE5E5]'
+                              }`}
+                            >
+                              {day}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Event Info */}
+                    <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-4 flex-1">
+                      <div className="text-center">
+                        <h3 className="text-lg font-bold text-[#1F1F1F] mb-2">Tidak ada acara</h3>
+                        <p className="text-sm text-[#7A7A7A] leading-relaxed">
+                          Tidak ada jadwal booking pada tanggal ini.<br />
+                          Silahkan untuk dapat memilih tanggal ini.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
