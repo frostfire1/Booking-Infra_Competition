@@ -9,17 +9,16 @@ const AskQuestionSection = () => {
       <div className="flex flex-col lg:flex-row items-center w-full max-w-7xl py-6 md:py-12 gap-8 lg:gap-[84px]">
         <div className="flex flex-col items-start bg-white py-[26px] gap-6 rounded-[20px] border border-solid border-[#D5D5D5] w-full lg:flex-1 order-2 lg:order-1">
           <div className="flex items-center ml-[22px] gap-[9px]">
-            <span className="text-[#1F1F1F] text-lg">{"Powered by"}</span>
-            <img
-              src="/logo.png"
-              alt="Booking SMK Telkom Malang"
-              className="w-[135px] h-[27px] object-contain"
-            />
+            <span className="text-[#1F1F1F] text-lg">{"Powered by AgentMoklet"}</span>
           </div>
           <div className="flex flex-col items-start self-stretch mx-[22px]">
             <div className="flex items-start mb-[198px] gap-4">
-              <div className="w-[52px] h-[52px] rounded-full bg-[#E04E4E] flex items-center justify-center">
-                <span className="text-white font-bold text-lg">A</span>
+              <div className="w-[52px] h-[52px] rounded-full bg-white border-2 border-[#E04E4E] flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="SMK Telkom Malang"
+                  className="w-8 h-8 object-contain"
+                />
               </div>
               <div className="flex flex-col shrink-0 items-start gap-1.5">
                 <span className="text-[#1F1F1F] text-sm font-semibold">
