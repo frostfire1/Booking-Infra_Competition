@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const FAQSection = () => {
-  const [openItems, setOpenItems] = useState(new Set());
+  const [openItems, setOpenItems] = useState(new Set([3, 4])); // Default open items 3 and 4
 
   const faqData = [
     {
@@ -63,18 +63,18 @@ const FAQSection = () => {
                   className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center space-x-4">
-                    <div className="w-8 h-8 rounded-full bg-[#E04E4E] flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#E04E4E] flex items-center justify-center flex-shrink-0 shadow-lg">
                       {openItems.has(item.id) ? (
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+                        <svg className="w-5 h-5 text-white font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                         </svg>
                       ) : (
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        <svg className="w-5 h-5 text-white font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                       )}
                     </div>
-                    <span className="text-[#1F1F1F] font-semibold text-lg">
+                    <span className="text-[#1F1F1F] font-bold text-lg">
                       {item.question}
                     </span>
                   </div>
