@@ -274,76 +274,6 @@ export default function DashboardPage() {
                     </div>
                   )}
                 </div>
-
-                {/* Calendar Widget - Full Width Below Booking Terbaru */}
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mt-12">
-                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-6">Jadwal Penggunaan Fasilitas</h2>
-                  
-                  <div className="flex gap-6">
-                    {/* Calendar */}
-                    <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-6 flex-1">
-                      <div className="flex items-center justify-between mb-6">
-                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-2">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </button>
-                        <h3 className="text-xl font-bold text-[#1F1F1F]">October 2025</h3>
-                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-2">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </div>
-                      
-                      {/* Days of week */}
-                      <div className="grid grid-cols-7 gap-2 mb-4">
-                        {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
-                          <div key={day} className="text-center text-sm font-medium text-gray-600 py-3">
-                            {day}
-                          </div>
-                        ))}
-                      </div>
-                      
-                      {/* Calendar grid */}
-                      <div className="grid grid-cols-7 gap-2">
-                        {/* Empty cells for start of month */}
-                        {Array.from({ length: 1 }, (_, i) => (
-                          <div key={`empty-${i}`} className="h-10"></div>
-                        ))}
-                        
-                        {/* Days */}
-                        {Array.from({ length: 31 }, (_, i) => {
-                          const day = i + 1;
-                          const isToday = day === 17; // Highlight day 17 as example
-                          return (
-                            <button
-                              key={day}
-                              className={`h-10 w-10 rounded-lg text-sm font-medium transition-colors ${
-                                isToday
-                                  ? 'bg-[#E04E4E] text-white'
-                                  : 'text-[#1F1F1F] hover:bg-[#FFE5E5]'
-                              }`}
-                            >
-                              {day}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Event Info */}
-                    <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-6 flex-1">
-                      <div className="text-center">
-                        <h3 className="text-xl font-bold text-[#1F1F1F] mb-4">Tidak ada acara</h3>
-                        <p className="text-base text-[#7A7A7A] leading-relaxed">
-                          Tidak ada jadwal booking pada tanggal ini.<br />
-                          Silahkan untuk dapat memilih tanggal ini.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Quick Actions */}
@@ -412,6 +342,80 @@ export default function DashboardPage() {
           </button>
         </div>
       </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Jadwal Section - Full Width */}
+        <div className="py-12 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h2 className="text-2xl font-bold text-[#1F1F1F] mb-8 text-center">Jadwal Penggunaan Fasilitas SMK Telkom Malang</h2>
+              
+              <div className="flex gap-8">
+                {/* Calendar */}
+                <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-8 flex-1">
+                  <div className="flex items-center justify-between mb-8">
+                    <button className="text-[#E04E4E] hover:text-[#c93e3e] p-3">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <h3 className="text-2xl font-bold text-[#1F1F1F]">October 2025</h3>
+                    <button className="text-[#E04E4E] hover:text-[#c93e3e] p-3">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  {/* Days of week */}
+                  <div className="grid grid-cols-7 gap-3 mb-6">
+                    {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
+                      <div key={day} className="text-center text-base font-medium text-gray-600 py-4">
+                        {day}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Calendar grid */}
+                  <div className="grid grid-cols-7 gap-3">
+                    {/* Empty cells for start of month */}
+                    {Array.from({ length: 1 }, (_, i) => (
+                      <div key={`empty-${i}`} className="h-12"></div>
+                    ))}
+                    
+                    {/* Days */}
+                    {Array.from({ length: 31 }, (_, i) => {
+                      const day = i + 1;
+                      const isToday = day === 17; // Highlight day 17 as example
+                      return (
+                        <button
+                          key={day}
+                          className={`h-12 w-12 rounded-lg text-base font-medium transition-colors ${
+                            isToday
+                              ? 'bg-[#E04E4E] text-white'
+                              : 'text-[#1F1F1F] hover:bg-[#FFE5E5]'
+                          }`}
+                        >
+                          {day}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Event Info */}
+                <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-8 flex-1">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-[#1F1F1F] mb-6">Tidak ada acara</h3>
+                    <p className="text-lg text-[#7A7A7A] leading-relaxed">
+                      Tidak ada jadwal booking pada tanggal ini.<br />
+                      Silahkan untuk dapat memilih tanggal ini.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
