@@ -6,6 +6,7 @@ import { Navbar } from "../components/navbar";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import "./calendar-styles.css";
+import FAQSection from "../components/faq/FAQSection";
 
 const fasilitasList = [
   "Aula",
@@ -1025,6 +1026,10 @@ export default (props) => {
             </div>
           </div>
         </div>
+        
+        {/* FAQ Section */}
+        <FAQSection />
+        
         <div className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
           <div className="flex flex-col items-start w-full lg:w-auto">
             <div className="flex flex-col items-start mb-12 lg:mb-32 gap-3">
