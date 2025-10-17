@@ -3,9 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import knowledgeBase from '@/data/chatbot-knowledge.json';
 
 // Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '', {
-  apiVersion: 'v1'
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function POST(request: NextRequest) {
   try {
@@ -38,7 +36,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Chatbot error:', error);
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }
@@ -198,5 +196,5 @@ function generateIntelligentResponse(message: string): string {
 
 // Helper function to remove think blocks (if any)
 function removeThinkBlock(content: string): string {
-  return content.replace(/<think>.*?<\/think>/gs, '').trim();
+  return content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 }
