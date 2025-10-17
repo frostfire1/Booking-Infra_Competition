@@ -3,6 +3,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import BookingStats from "@/components/dashboard/BookingStats";
+import Navbar from "@/components/navbar";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
@@ -54,7 +55,7 @@ export default function DashboardPage() {
     }
   };
 
-  return (
+    return (
     <div className="min-h-screen bg-white">
       {/* Background decorative elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -64,77 +65,10 @@ export default function DashboardPage() {
       </div>
 
       {/* Navbar */}
-      <nav className="relative z-10 bg-white shadow-lg rounded-full mx-4 mt-4">
-        <div className="max-w-6xl mx-auto px-6 py-3">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img 
-                  src="/logo.png?v=3" 
-                  alt="Logo SMK Telkom Malang" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[#1F1F1F] font-medium text-sm leading-tight">
-                  Booking
-                </span>
-                <span className="text-[#1F1F1F] font-medium text-xs leading-tight whitespace-nowrap">
-                  SMK Telkom Malang
-                </span>
-              </div>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="/dashboard" className="text-[#E04E4E] font-medium px-3 py-1 rounded-lg bg-[#FFF0F0]">Dashboard</a>
-              <a href="/dashboard/bookings/new" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Booking Baru</a>
-              <a href="/dashboard/bookings" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Riwayat</a>
-              <a href="/dashboard/journal" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Jurnal</a>
-              <a href="/dashboard/documentation" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Dokumentasi</a>
-            </div>
-
-            {/* User Menu */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-[#E04E4E] flex items-center justify-center text-white font-bold text-sm">
-                  {session?.user?.name?.charAt(0).toUpperCase() || "U"}
-                </div>
-                <div className="hidden sm:block">
-                  <p className="text-sm font-medium text-[#1F1F1F]">{session?.user?.name || "User"}</p>
-                </div>
-              </div>
-              {session ? (
-                <button
-                  onClick={() => signOut({ callbackUrl: "/" })}
-                  className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors"
-                >
-                  Logout
-                </button>
-              ) : (
-                <div className="flex gap-2">
-                  <a
-                    href="/auth/signin"
-                    className="bg-[#E04E4E] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#c93e3e] transition-colors"
-                  >
-                    Masuk
-                  </a>
-                  <a
-                    href="/auth/register"
-                    className="border-2 border-[#E04E4E] text-[#E04E4E] px-4 py-2 rounded-lg font-medium hover:bg-[#E04E4E] hover:text-white transition-colors"
-                  >
-                    Daftar
-                  </a>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-10 pt-20">
         {/* Welcome Section */}
         <div className="bg-gradient-to-r from-[#E04E4E] to-[#c93e3e] text-white py-12 px-4">
           <div className="max-w-7xl mx-auto">
@@ -142,7 +76,7 @@ export default function DashboardPage() {
               <div className="text-center lg:text-left mb-8 lg:mb-0">
                 <h1 className="text-4xl lg:text-5xl font-bold mb-4">
                   Selamat Datang, {session?.user?.name || "User"}! 👋
-                </h1>
+          </h1>
                 <p className="text-xl opacity-90">
                   Kelola booking fasilitas dengan mudah dan efisien
                 </p>
@@ -174,7 +108,7 @@ export default function DashboardPage() {
         {/* Stats Section */}
         <div className="py-12 px-4 -mt-8">
           <div className="max-w-7xl mx-auto">
-            <BookingStats />
+        <BookingStats />
           </div>
         </div>
 
@@ -247,8 +181,8 @@ export default function DashboardPage() {
                       </div>
                       <h3 className="text-lg font-semibold text-[#1F1F1F] mb-2">Belum ada booking</h3>
                       <p className="text-[#7A7A7A] mb-4">Mulai buat booking pertama Anda</p>
-                      <button
-                        onClick={() => router.push("/dashboard/bookings/new")}
+          <button
+            onClick={() => router.push("/dashboard/bookings/new")}
                         className="bg-[#E04E4E] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#c93e3e] transition-colors"
                       >
                         Buat Booking
@@ -270,16 +204,16 @@ export default function DashboardPage() {
                       <div className="w-10 h-10 bg-[#E04E4E] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                        </svg>
+            </svg>
                       </div>
                       <div className="text-left">
                         <p className="font-semibold text-[#1F1F1F]">Buat Booking Baru</p>
                         <p className="text-sm text-[#7A7A7A]">Pesan fasilitas baru</p>
                       </div>
-                    </button>
+          </button>
 
-                    <button
-                      onClick={() => router.push("/dashboard/bookings")}
+          <button
+            onClick={() => router.push("/dashboard/bookings")}
                       className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
                     >
                       <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -300,16 +234,16 @@ export default function DashboardPage() {
                       <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+            </svg>
                       </div>
                       <div className="text-left">
                         <p className="font-semibold text-[#1F1F1F]">Jurnal</p>
                         <p className="text-sm text-[#7A7A7A]">Catatan aktivitas</p>
                       </div>
-                    </button>
+          </button>
 
-                    <button
-                      onClick={() => router.push("/dashboard/documentation")}
+          <button
+            onClick={() => router.push("/dashboard/documentation")}
                       className="w-full flex items-center gap-3 p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors group"
                     >
                       <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -332,14 +266,14 @@ export default function DashboardPage() {
                     <div className="w-16 h-16 bg-[#FFF0F0] rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg className="w-8 h-8 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
+            </svg>
                     </div>
                     <p className="text-[#7A7A7A] mb-4">Kalender akan segera hadir</p>
                     <button className="text-[#E04E4E] hover:text-[#c93e3e] font-medium text-sm">
                       Lihat Detail
-                    </button>
-                  </div>
-                </div>
+          </button>
+        </div>
+      </div>
               </div>
             </div>
           </div>
