@@ -276,40 +276,40 @@ export default function DashboardPage() {
                 </div>
 
                 {/* Calendar Widget - Full Width Below Booking Terbaru */}
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mt-8">
-                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-4">Jadwal Penggunaan Fasilitas</h2>
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mt-12">
+                  <h2 className="text-xl font-bold text-[#1F1F1F] mb-6">Jadwal Penggunaan Fasilitas</h2>
                   
-                  <div className="flex gap-4">
+                  <div className="flex gap-6">
                     {/* Calendar */}
-                    <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-4 flex-1">
-                      <div className="flex items-center justify-between mb-4">
-                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-1">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-2xl p-6 flex-1">
+                      <div className="flex items-center justify-between mb-6">
+                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-2">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                           </svg>
                         </button>
-                        <h3 className="text-lg font-bold text-[#1F1F1F]">October 2025</h3>
-                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-1">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <h3 className="text-xl font-bold text-[#1F1F1F]">October 2025</h3>
+                        <button className="text-[#E04E4E] hover:text-[#c93e3e] p-2">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </button>
                       </div>
                       
                       {/* Days of week */}
-                      <div className="grid grid-cols-7 gap-1 mb-2">
+                      <div className="grid grid-cols-7 gap-2 mb-4">
                         {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
-                          <div key={day} className="text-center text-sm font-medium text-gray-600 py-2">
+                          <div key={day} className="text-center text-sm font-medium text-gray-600 py-3">
                             {day}
                           </div>
                         ))}
                       </div>
                       
                       {/* Calendar grid */}
-                      <div className="grid grid-cols-7 gap-1">
+                      <div className="grid grid-cols-7 gap-2">
                         {/* Empty cells for start of month */}
                         {Array.from({ length: 1 }, (_, i) => (
-                          <div key={`empty-${i}`} className="h-8"></div>
+                          <div key={`empty-${i}`} className="h-10"></div>
                         ))}
                         
                         {/* Days */}
@@ -319,7 +319,7 @@ export default function DashboardPage() {
                           return (
                             <button
                               key={day}
-                              className={`h-8 w-8 rounded-lg text-sm font-medium transition-colors ${
+                              className={`h-10 w-10 rounded-lg text-sm font-medium transition-colors ${
                                 isToday
                                   ? 'bg-[#E04E4E] text-white'
                                   : 'text-[#1F1F1F] hover:bg-[#FFE5E5]'
@@ -333,10 +333,10 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Event Info */}
-                    <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-4 flex-1">
+                    <div className="bg-[#FFF0F0] border-2 border-dashed border-[#E04E4E] rounded-2xl p-6 flex-1">
                       <div className="text-center">
-                        <h3 className="text-lg font-bold text-[#1F1F1F] mb-2">Tidak ada acara</h3>
-                        <p className="text-sm text-[#7A7A7A] leading-relaxed">
+                        <h3 className="text-xl font-bold text-[#1F1F1F] mb-4">Tidak ada acara</h3>
+                        <p className="text-base text-[#7A7A7A] leading-relaxed">
                           Tidak ada jadwal booking pada tanggal ini.<br />
                           Silahkan untuk dapat memilih tanggal ini.
                         </p>
