@@ -231,7 +231,7 @@ export default (props) => {
               }
             </span>
           </div>
-          <div className="flex items-start overflow-x-auto w-full gap-3 md:gap-[18px] px-4 pb-2 scrollbar-hide flex-nowrap">
+          <div className="flex items-start overflow-x-auto max-w-7xl mx-auto gap-3 md:gap-[18px] px-4 pb-2 scrollbar-hide flex-nowrap justify-start">
             <button
               className="flex shrink-0 items-center bg-[#E04E4E] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap min-w-0"
             >
