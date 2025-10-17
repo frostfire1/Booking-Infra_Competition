@@ -136,14 +136,14 @@ function generateIntelligentResponse(message) {
     for (const facility of __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].facilities){
         const facilityName = facility.name.toLowerCase();
         if (lowerMessage.includes(facilityName) || lowerMessage.includes('aula') && facilityName.includes('aula') || lowerMessage.includes('lab 1') && facilityName.includes('lab 1') || lowerMessage.includes('lab 2') && facilityName.includes('lab 2') || lowerMessage.includes('lab 5') && facilityName.includes('lab 5') || lowerMessage.includes('ruang gabungan') && facilityName.includes('ruang gabungan') || lowerMessage.includes('podcast') && facilityName.includes('podcast') || lowerMessage.includes('rapat') && facilityName.includes('rapat') || lowerMessage.includes('robotik') && facilityName.includes('robotik') || lowerMessage.includes('cyber') && facilityName.includes('cyber')) {
-            return `**${facility.name}**\n\n` + `📝 Deskripsi: ${facility.description}\n` + `👥 Kapasitas: ${facility.capacity} orang\n` + `✨ Fitur: ${facility.features.join(', ')}\n` + `🎯 Cocok untuk: ${facility.suitable_for.join(', ')}\n\n` + `Untuk booking fasilitas ini, silakan klik tombol "Buat Booking" di dashboard.`;
+            return `${facility.name}\n\n` + `📝 Deskripsi: ${facility.description}\n\n` + `👥 Kapasitas: ${facility.capacity} orang\n\n` + `✨ Fitur: ${facility.features.join(', ')}\n\n` + `🎯 Cocok untuk: ${facility.suitable_for.join(', ')}\n\n` + `Untuk booking fasilitas ini, silakan klik tombol "Buat Booking" di dashboard.`;
         }
     }
     // Facility information
     if (lowerMessage.includes('fasilitas') || lowerMessage.includes('ruang') || lowerMessage.includes('lab') || lowerMessage.includes('aula')) {
         let response = `Fasilitas yang tersedia di ${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].system_info.name}:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].facilities.forEach((facility, index)=>{
-            response += `${index + 1}. **${facility.name}**\n`;
+            response += `${index + 1}. ${facility.name}\n`;
             response += `   - Kapasitas: ${facility.capacity} orang\n`;
             response += `   - Deskripsi: ${facility.description}\n`;
             response += `   - Cocok untuk: ${facility.suitable_for.join(', ')}\n\n`;
@@ -155,7 +155,7 @@ function generateIntelligentResponse(message) {
     if (lowerMessage.includes('peralatan') || lowerMessage.includes('equipment') || lowerMessage.includes('alat')) {
         let response = `Peralatan yang tersedia:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].equipment.forEach((item, index)=>{
-            response += `${index + 1}. **${item.name}**\n`;
+            response += `${index + 1}. ${item.name}\n`;
             response += `   - Jumlah: ${item.quantity} unit\n`;
             response += `   - Tersedia: ${item.available} unit\n`;
             response += `   - Deskripsi: ${item.description}\n\n`;
@@ -166,7 +166,7 @@ function generateIntelligentResponse(message) {
     if (lowerMessage.includes('cara booking') || lowerMessage.includes('prosedur') || lowerMessage.includes('langkah')) {
         let response = `Cara melakukan booking di ${__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].system_info.name}:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].booking_procedures.forEach((step)=>{
-            response += `**Langkah ${step.step}: ${step.title}**\n`;
+            response += `Langkah ${step.step}: ${step.title}\n`;
             response += `${step.description}\n\n`;
         });
         return response;
@@ -175,7 +175,7 @@ function generateIntelligentResponse(message) {
     if (lowerMessage.includes('status') || lowerMessage.includes('cek booking')) {
         let response = `Status booking yang tersedia:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].booking_statuses.forEach((status)=>{
-            response += `**${status.status}**: ${status.description}\n`;
+            response += `${status.status}: ${status.description}\n`;
             response += `Tindakan: ${status.action}\n\n`;
         });
         return response;
@@ -184,7 +184,7 @@ function generateIntelligentResponse(message) {
     if (lowerMessage.includes('pembayaran') || lowerMessage.includes('bayar') || lowerMessage.includes('payment')) {
         let response = `Informasi pembayaran:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].payment_statuses.forEach((status)=>{
-            response += `**${status.status}**: ${status.description}\n`;
+            response += `${status.status}: ${status.description}\n`;
             response += `Tindakan: ${status.action}\n\n`;
         });
         return response;
@@ -193,7 +193,7 @@ function generateIntelligentResponse(message) {
     if (lowerMessage.includes('pertanyaan') || lowerMessage.includes('faq') || lowerMessage.includes('tanya')) {
         let response = `Pertanyaan yang sering diajukan:\n\n`;
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$src$2f$data$2f$chatbot$2d$knowledge$2e$json__$28$json$29$__["default"].faq.forEach((faq, index)=>{
-            response += `**${index + 1}. ${faq.question}**\n`;
+            response += `${index + 1}. ${faq.question}\n`;
             response += `${faq.answer}\n\n`;
         });
         return response;
