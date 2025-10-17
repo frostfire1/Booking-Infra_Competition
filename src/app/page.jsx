@@ -140,29 +140,29 @@ export default (props) => {
                       <svg className="w-5 h-5 mr-3 text-[#E04E4E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
-                      <select
+                    <select
                         className="text-[#5C5C5C] text-base flex-1 bg-transparent outline-none"
-                        value={selectedFasilitas}
-                        onChange={(e) => {
-                          setSelectedFasilitas(e.target.value);
-                          setSelectedRange(undefined);
-                        }}
-                        required
-                      >
-                        <option value="" disabled>
+                      value={selectedFasilitas}
+                      onChange={(e) => {
+                        setSelectedFasilitas(e.target.value);
+                        setSelectedRange(undefined);
+                      }}
+                      required
+                    >
+                      <option value="" disabled>
                           Apa yang ingin dipinjam?
+                      </option>
+                      {fasilitasList.map((f) => (
+                        <option key={f} value={f}>
+                          {f}
                         </option>
-                        {fasilitasList.map((f) => (
-                          <option key={f} value={f}>
-                            {f}
-                          </option>
-                        ))}
-                      </select>
+                      ))}
+                    </select>
                       <svg className="w-5 h-5 text-[#5C5C5C] ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </div>
                   </div>
+                </div>
                   
                   <div className="flex flex-col w-full lg:w-auto items-start gap-2">
                     <span className="text-[#1F1F1F] text-base font-medium">{"Waktu"}</span>
@@ -191,9 +191,9 @@ export default (props) => {
                   
                   <div className="flex flex-col w-full lg:w-auto items-start gap-2">
                     <span className="text-[#1F1F1F] text-base font-medium opacity-0">{"Button"}</span>
-                    <button
+                  <button
                       className="flex items-center justify-center bg-[#E04E4E] py-3 px-6 gap-3 rounded-lg border-0 text-white w-full lg:w-auto disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#c93e3e] transition-colors text-base font-medium whitespace-nowrap"
-                      type="submit"
+                    type="submit"
                       disabled={!selectedFasilitas}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,8 +201,8 @@ export default (props) => {
                       </svg>
                       <span className="text-white text-base font-medium">
                         Cek Ketersediaan
-                      </span>
-                    </button>
+                    </span>
+                  </button>
                   </div>
                 </div>
               </form>
@@ -220,7 +220,7 @@ export default (props) => {
             />
           </div>
         </div>
-        <div className="flex flex-col items-start self-stretch py-12 md:py-24 gap-8 md:gap-12 px-4">
+        <div id="fasilitas" className="flex flex-col items-start self-stretch py-12 md:py-24 gap-8 md:gap-12 px-4">
           <div className="flex flex-col lg:flex-row items-center lg:items-center self-stretch max-w-7xl mx-auto gap-6 lg:gap-[157px]">
             <span className="text-[#E04E4E] text-2xl md:text-[42px] font-bold w-full lg:w-[483px] text-center lg:text-left">
               {"Fasilitas Lengkap untuk Setiap Kebutuhan Acara"}
@@ -587,7 +587,7 @@ export default (props) => {
           </div>
         </div>
         <div className="flex flex-col items-center self-stretch py-12 mb-12 md:mb-24 px-4">
-          <div className="flex flex-col w-full max-w-7xl py-6 md:py-12 gap-8 md:gap-12">
+          <div id="jadwal" className="flex flex-col w-full max-w-7xl py-6 md:py-12 gap-8 md:gap-12">
             <div className="flex flex-col lg:flex-row items-center self-stretch gap-6 lg:gap-16">
               <span className="text-[#1F1F1F] text-2xl md:text-[42px] font-bold w-full lg:w-[570px] text-center lg:text-left">
                 {"Jadwal Penggunaan Fasilitas \nSMK Telkom Malang"}
@@ -700,7 +700,7 @@ export default (props) => {
             </p>
             <div className="flex justify-center mt-6">
               <div className="w-24 h-1 bg-gradient-to-r from-[#E04E4E] to-[#FF6767] rounded-full animate-fade-in-up animation-delay-400"></div>
-            </div>
+        </div>
           </div>
         </div>
         
@@ -721,8 +721,8 @@ export default (props) => {
               <div className="absolute top-3 right-3">
                 <span className="bg-[#E04E4E] text-white px-3 py-1 rounded-full text-xs font-semibold">
                   Career
-                </span>
-              </div>
+            </span>
+          </div>
             </div>
             <div className="p-4">
               <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
@@ -753,9 +753,9 @@ export default (props) => {
               <div className="absolute top-3 right-3">
                 <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
                   Technology
-                </span>
-              </div>
+              </span>
             </div>
+          </div>
             <div className="p-4">
               <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
                 Kick-Off Cyber Heroes
@@ -785,9 +785,9 @@ export default (props) => {
               <div className="absolute top-3 right-3">
                 <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
                   Education
-                </span>
-              </div>
+              </span>
             </div>
+          </div>
             <div className="p-4">
               <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
                 Sosialisasi Kurikulum
@@ -817,9 +817,9 @@ export default (props) => {
               <div className="absolute top-3 right-3">
                 <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
                   Inspiration
-                </span>
-              </div>
-            </div>
+            </span>
+          </div>
+        </div>
             <div className="p-4">
               <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
                 Kunjungan Pak Onno
@@ -830,9 +830,9 @@ export default (props) => {
               <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
                 <span>10 Februari 2023</span>
                 <span>Aula</span>
-              </div>
             </div>
-          </div>
+              </div>
+              </div>
 
           {/* Roblox Competition Card */}
           <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-800">
@@ -849,9 +849,9 @@ export default (props) => {
               <div className="absolute top-3 right-3">
                 <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold">
                   Competition
-                </span>
+                  </span>
+                </div>
               </div>
-            </div>
             <div className="p-4">
               <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
                 Roblox Competition
@@ -862,13 +862,15 @@ export default (props) => {
               <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
                 <span>5 April 2024</span>
                 <span>Lab 5</span>
-              </div>
             </div>
           </div>
         </div>
+              </div>
         
         {/* FAQ Section */}
-        <FAQSection />
+        <div id="faq">
+          <FAQSection />
+        </div>
         
         {/* Ask Question Section */}
         <AskQuestionSection />
@@ -886,7 +888,7 @@ export default (props) => {
                 alt="Footer Sponsor 1"
                 className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
-            </div>
+                  </div>
             
             {/* Footer Image 2 */}
             <div className="flex items-center justify-center">
@@ -894,12 +896,12 @@ export default (props) => {
                 src="/Footer2.jpg"
                 alt="Footer Sponsor 2"
                 className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-              />
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
         
-        <div className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
+        <div id="kontak" className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
           <div className="flex flex-col items-start w-full lg:w-auto">
             <div className="flex flex-col items-start mb-12 lg:mb-32 gap-3">
               <div className="flex items-center pr-[9px] gap-3.5">
@@ -914,7 +916,7 @@ export default (props) => {
                   </span>
                   <span className="text-[#1F1F1F] text-sm font-bold leading-tight">
                     {"SMK Telkom Malang"}
-                  </span>
+                </span>
                 </div>
               </div>
               <span className="text-[#989898] text-base w-[348px]">

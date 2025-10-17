@@ -35,18 +35,30 @@ export const Navbar = () => {
   }, [lastScrollY]);
 
   const navigationItems = [
-    { id: "fasilitas", label: "Fasilitas" },
-    { id: "jadwal", label: "Jadwal" },
+    { id: "fasilitas", label: "Fasilitas", href: "#fasilitas" },
+    { id: "jadwal", label: "Jadwal", href: "#jadwal" },
     { id: "galeri", label: "Galeri", href: "/galeri" },
-    { id: "faq", label: "FAQ" },
-    { id: "kontak", label: "Kontak" },
+    { id: "faq", label: "FAQ", href: "#faq" },
+    { id: "kontak", label: "Kontak", href: "#kontak" },
   ];
 
   const handleNavClick = (itemId, href) => {
     setActiveNavItem(itemId);
     setIsMobileMenuOpen(false);
     if (href) {
-      router.push(href);
+      if (href.startsWith('#')) {
+        // Handle anchor links - scroll to section
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      } else {
+        // Handle regular navigation
+        router.push(href);
+      }
     }
   };
 
