@@ -68,38 +68,122 @@ export default function DashboardPage() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10 pt-4">
-        {/* Welcome Section */}
-        <div className="bg-gradient-to-r from-[#E04E4E] to-[#c93e3e] text-white py-12 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center justify-between">
-              <div className="text-center lg:text-left mb-8 lg:mb-0">
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-                  Selamat Datang, {session?.user?.name || "User"}! 👋
+      <main className="relative z-10 pt-20">
+        {/* Hero Section */}
+        <div className="text-center py-16 px-4 relative">
+          {/* Decorative Icons */}
+          <div className="absolute left-6 md:left-12 top-32 md:top-40 z-20">
+            <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFF0F0] border-2 border-[#E04E4E] flex items-center justify-center shadow-sm">
+              <svg
+                className="w-10 h-10 md:w-14 md:h-14 text-[#E04E4E]"
+                viewBox="0 0 120 120"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M30 50L60 25L90 50V85H30V50Z" />
+                <rect x="70" y="35" width="8" height="15" rx="2" />
+                <rect x="40" y="60" width="8" height="8" rx="1" />
+                <rect x="72" y="60" width="8" height="8" rx="1" />
+                <path d="M52 85V70C52 68 54 66 56 66H64C66 66 68 68 68 70V85" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="absolute right-6 md:right-12 top-24 md:top-32 z-20">
+            <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFF0F0] border-2 border-[#E04E4E] flex items-center justify-center shadow-sm">
+              <svg
+                className="w-10 h-10 md:w-14 md:h-14 text-[#E04E4E]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {/* Heading */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-3 px-4">
+              Hai, <span className="text-[#E04E4E]">Mau Booking Apa?</span>
           </h1>
-                <p className="text-xl opacity-90">
-                  Kelola booking fasilitas dengan mudah dan efisien
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <button
-                  onClick={() => router.push("/dashboard/bookings/new")}
-                  className="bg-white text-[#E04E4E] px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors flex items-center gap-2"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                  Booking Baru
-                </button>
-                <button
-                  onClick={() => router.push("/dashboard/bookings")}
-                  className="border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#E04E4E] transition-colors flex items-center gap-2"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                  Lihat Semua
-                </button>
+
+            {/* Subtitle */}
+            <p className="text-sm md:text-base text-gray-600 text-center mb-12 px-4 max-w-2xl mx-auto">
+              Temukan Ruangan dan Tempat yang Cocok Untuk Acara Anda!
+            </p>
+
+            {/* Booking Form */}
+            <div className="w-full max-w-4xl px-4 mx-auto">
+              <div className="bg-[#FFF0F0] border-2 border-[#E04E4E] rounded-3xl p-8 md:p-10 shadow-md">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Fasilitas Dropdown */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-800 mb-3">
+                      Fasilitas
+                    </label>
+                    <div className="relative">
+                      <svg className="absolute left-3 top-3.5 w-5 h-5 text-[#E04E4E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 3h-2a2 2 0 0 0-2 2v2"></path><path d="M10 3H8a2 2 0 0 0-2 2v2"></path></svg>
+                      <select
+                        className="w-full pl-10 pr-4 py-3 border-2 border-[#E04E4E] rounded-xl focus:outline-none focus:border-[#E04E4E] text-gray-700 appearance-none bg-white"
+                        onChange={() => router.push("/dashboard/bookings/new")}
+                      >
+                        <option value="">Apa yang ingin dipinjam?</option>
+                        <option value="aula">Aula</option>
+                        <option value="lab">Laboratorium</option>
+                        <option value="ruang-rapat">Ruang Rapat</option>
+                      </select>
+                      <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+        </div>
+
+                  {/* Waktu Input */}
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-800 mb-3">
+                      Waktu
+                    </label>
+                    <div className="relative">
+                      <svg className="absolute left-3 top-3.5 w-5 h-5 text-[#E04E4E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      <input
+                        type="date"
+                        className="w-full pl-10 pr-4 py-3 border-2 border-[#E04E4E] rounded-xl focus:outline-none focus:border-[#E04E4E] text-gray-700"
+                        onClick={() => router.push("/dashboard/bookings/new")}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Button */}
+                  <div className="flex items-end">
+          <button
+            onClick={() => router.push("/dashboard/bookings/new")}
+                      className="w-full bg-[#E04E4E] hover:bg-[#d93d3d] text-white font-semibold py-3 px-6 rounded-xl transition duration-200 flex items-center justify-center gap-2"
+          >
+            <svg
+                        className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                      Cek Ketersediaan
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
