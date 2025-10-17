@@ -64,14 +64,14 @@ export default function DashboardPage() {
       </div>
 
       {/* Navbar */}
-      <nav className="relative z-10 bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="relative z-10 bg-white shadow-lg rounded-full mx-4 mt-4">
+        <div className="max-w-6xl mx-auto px-6 py-3">
+          <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 flex items-center justify-center">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.png?v=3" 
                   alt="Logo SMK Telkom Malang" 
                   className="w-full h-full object-contain"
                 />
@@ -87,31 +87,28 @@ export default function DashboardPage() {
             </div>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="/dashboard" className="text-[#E04E4E] font-medium">Dashboard</a>
-              <a href="/dashboard/bookings/new" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Booking Baru</a>
-              <a href="/dashboard/bookings" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Riwayat</a>
-              <a href="/dashboard/journal" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Jurnal</a>
-              <a href="/dashboard/documentation" className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium">Dokumentasi</a>
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="/dashboard" className="text-[#E04E4E] font-medium px-3 py-1 rounded-lg bg-[#FFF0F0]">Dashboard</a>
+              <a href="/dashboard/bookings/new" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Booking Baru</a>
+              <a href="/dashboard/bookings" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Riwayat</a>
+              <a href="/dashboard/journal" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Jurnal</a>
+              <a href="/dashboard/documentation" className="text-[#1F1F1F] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors">Dokumentasi</a>
             </div>
 
             {/* User Menu */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-[#E04E4E] flex items-center justify-center text-white font-bold text-sm">
                   {session?.user?.name?.charAt(0).toUpperCase() || "U"}
                 </div>
                 <div className="hidden sm:block">
                   <p className="text-sm font-medium text-[#1F1F1F]">{session?.user?.name || "User"}</p>
-                  {session?.user?.role === "ADMIN" && (
-                    <span className="text-xs text-[#E04E4E] font-semibold">ADMIN</span>
-                  )}
                 </div>
               </div>
               {session ? (
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium"
+                  className="text-[#7A7A7A] hover:text-[#E04E4E] font-medium px-3 py-1 rounded-lg hover:bg-[#FFF0F0] transition-colors"
                 >
                   Logout
                 </button>
@@ -125,7 +122,7 @@ export default function DashboardPage() {
                   </a>
                   <a
                     href="/auth/register"
-                    className="border-2 border-[#E04E4E] text-[#E04E4E] px-4 py-2 rounded-lg font-medium hover:bg-[#FFF0F0] transition-colors"
+                    className="border-2 border-[#E04E4E] text-[#E04E4E] px-4 py-2 rounded-lg font-medium hover:bg-[#E04E4E] hover:text-white transition-colors"
                   >
                     Daftar
                   </a>
