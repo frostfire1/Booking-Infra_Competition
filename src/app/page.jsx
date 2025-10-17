@@ -494,25 +494,25 @@ export default (props) => {
                 <div className="flex flex-col shrink-0 items-center gap-2.5">
                   <img
                     src={
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/moijxyov_expires_30_days.png"
+                      "/mic.png"
                     }
                     className="w-[200px] md:w-[257px] h-[200px] md:h-[260px] object-cover rounded-lg flex-shrink-0"
                   />
-                  <div className="flex flex-col items-start bg-[url('https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/d370p2x8_expires_30_days.png')] bg-cover bg-center py-[47px] px-[59px]">
-                    <span className="text-white text-2xl font-bold">
+                  <div className="flex flex-col items-start">
+                    <span className="text-white text-2xl font-bold bg-[#FF6767] py-6 px-14 rounded-b-lg">
                       {"Microphone"}
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col shrink-0 items-center gap-2.5">
-                  <div className="flex flex-col items-start bg-[url('https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/j8qz4du3_expires_30_days.png')] bg-cover bg-center py-[47px] px-[81px]">
-                    <span className="text-white text-2xl font-bold">
+                  <div className="flex flex-col items-start bg-cover bg-center">
+                    <span className="text-white text-2xl font-bold bg-[#FF6767] py-8 px-20 rounded-b-lg ">
                       {"Speaker"}
                     </span>
                   </div>
                   <img
                     src={
-                      "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/uh34d89h_expires_30_days.png"
+                      "/speaker.png"
                     }
                     className="w-[257px] h-[260px] object-fill"
                   />
@@ -523,7 +523,7 @@ export default (props) => {
               <div className="flex items-start py-2 px-3 gap-3.5">
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/qot682tt_expires_30_days.png"
+                    "/Mic-Icon.png"
                   }
                   className="w-[58px] h-[58px] object-fill"
                 />
@@ -539,7 +539,7 @@ export default (props) => {
               <div className="flex shrink-0 items-start gap-[13px]">
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/joz5takd_expires_30_days.png"
+                    "/Right-Icon2.png"
                   }
                   className="w-[58px] h-[58px] object-fill"
                 />
@@ -555,7 +555,7 @@ export default (props) => {
               <div className="flex shrink-0 items-start gap-[13px]">
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/jxy6msv0_expires_30_days.png"
+                    "/Right-Icon.png"
                   }
                   className="w-[58px] h-[58px] object-fill"
                 />
@@ -571,7 +571,7 @@ export default (props) => {
               <div className="flex shrink-0 items-start gap-3.5">
                 <img
                   src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/in73w3wn_expires_30_days.png"
+                    "/Right-Icon.png"
                   }
                   className="w-[58px] h-[58px] object-fill"
                 />
@@ -704,9 +704,9 @@ export default (props) => {
           <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12 gap-5">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/e3ts3kzf_expires_30_days.png"
+                "/edufair.png"
               }
-              className="w-full h-[193px] object-cover rounded-lg flex-shrink-0"
+              className="w-full h-60   object-cover rounded-lg flex-shrink-0"
               loading="lazy"
             />
             <span className="text-[#1F1F1F] text-2xl font-bold">
@@ -716,7 +716,7 @@ export default (props) => {
           <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/sv9nf7cu_expires_30_days.png"
+                "/kickoff.png"
               }
               className="w-[319px] h-[193px] mb-5 object-fill"
             />
@@ -736,7 +736,7 @@ export default (props) => {
           <div className="flex flex-1 flex-col mr-3 gap-5">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/7nwpn1me_expires_30_days.png"
+                "/kurikulum.png"
               }
               className="self-stretch h-[279px] object-fill"
             />
@@ -758,7 +758,7 @@ export default (props) => {
           <div className="flex flex-col shrink-0 items-center mt-[50px] mr-12 gap-5">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/ktuklsbd_expires_30_days.png"
+                "/pakonno.png"
               }
               className="w-[319px] h-[193px] object-fill"
             />
@@ -780,7 +780,7 @@ export default (props) => {
           <div className="flex flex-col shrink-0 items-start mt-[50px] gap-5">
             <img
               src={
-                "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/61uhmts7_expires_30_days.png"
+                "/roblox.png"
               }
               className="w-[319px] h-[193px] object-fill"
             />
