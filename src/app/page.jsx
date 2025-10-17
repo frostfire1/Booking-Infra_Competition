@@ -257,7 +257,7 @@ export default (props) => {
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
             >
               <img
                 src={
@@ -270,8 +270,7 @@ export default (props) => {
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
-
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
             >
               <img
                 src={
@@ -284,7 +283,7 @@ export default (props) => {
               </span>
             </button>
             <button
-              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-6 gap-2 rounded-xl border-0"
+              className="flex shrink-0 items-center bg-[#F3F3F3] text-left py-3.5 px-4 md:px-6 gap-2 rounded-xl border-0 whitespace-nowrap"
             >
               <img
                 src={
