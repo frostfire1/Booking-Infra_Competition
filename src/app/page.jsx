@@ -711,7 +711,7 @@ export default (props) => {
           <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up">
             <div className="relative h-48 overflow-hidden">
               <img
-                src="/edufair.png"
+                src="/JobFair.png"
                 alt="Jobfair & Edufair"
                 className="gallery-image w-full h-full object-cover"
                 onError={(e) => {

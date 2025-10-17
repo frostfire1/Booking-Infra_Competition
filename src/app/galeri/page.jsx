@@ -9,7 +9,7 @@ const galleryData = [
     id: 1,
     title: "Jobfair & Edufair",
     description: "Acara pameran kerja dan pendidikan yang menghubungkan siswa dengan perusahaan terkemuka",
-    image: "/edufair.png",
+    image: "/JobFair.png",
     date: "15 Maret 2024",
     location: "Aula",
     category: "Career",
