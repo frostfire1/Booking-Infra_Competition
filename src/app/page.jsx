@@ -7,6 +7,7 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import "./calendar-styles.css";
 import FAQSection from "../components/faq/FAQSection";
+import AskQuestionSection from "../components/chat/AskQuestionSection";
 
 const fasilitasList = [
   "Aula",
@@ -869,19 +870,26 @@ export default (props) => {
         {/* FAQ Section */}
         <FAQSection />
         
+        {/* Ask Question Section */}
+        <AskQuestionSection />
+        
         <div className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
           <div className="flex flex-col items-start w-full lg:w-auto">
             <div className="flex flex-col items-start mb-12 lg:mb-32 gap-3">
               <div className="flex items-center pr-[9px] gap-3.5">
                 <img
-                  src={
-                    "https://storage.googleapis.com/tagjs-prod.appspot.com/v1/bY5eFE0JJD/0my4fxbr_expires_30_days.png"
-                  }
-                  className="w-[39px] h-[39px] object-fill"
+                  src="/logo.png"
+                  alt="Booking SMK Telkom Malang Logo"
+                  className="w-[39px] h-[39px] object-contain"
                 />
-                <span className="text-[#1F1F1F] text-base font-bold w-[142px]">
-                  {"Booking\nSMK Telkom Malang"}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-[#1F1F1F] text-base font-bold leading-tight">
+                    {"Booking"}
+                  </span>
+                  <span className="text-[#1F1F1F] text-sm font-bold leading-tight">
+                    {"SMK Telkom Malang"}
+                  </span>
+                </div>
               </div>
               <span className="text-[#989898] text-base w-[348px]">
                 {"Platform Penyewaan Fasiltas dan Peralatan SMK Telkom Malang"}
