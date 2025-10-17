@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import knowledgeBase from '@/data/chatbot-knowledge.json';
-
-// Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function POST(request: NextRequest) {
   try {
@@ -42,30 +38,6 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Helper function to get chat history from cookies
-function getChatHistory(request: NextRequest) {
-  const chatHistoryCookie = request.cookies.get('chat_history');
-  
-  if (chatHistoryCookie) {
-    try {
-      return JSON.parse(chatHistoryCookie.value);
-    } catch (error) {
-      console.error('Error parsing chat history:', error);
-    }
-  }
-  
-  return [];
-}
-
-// Helper function to save chat history to cookies
-function saveChatHistory(request: NextRequest, chatHistory: any[]) {
-  // Limit chat history to last 10 messages to avoid cookie size issues
-  const limitedHistory = chatHistory.slice(-10);
-  
-  // This would typically be handled by setting cookies in the response
-  // For now, we'll just return the limited history
-  return limitedHistory;
-}
 
 // Helper function to generate intelligent response based on knowledge base
 function generateIntelligentResponse(message: string): string {
@@ -194,7 +166,3 @@ function generateIntelligentResponse(message: string): string {
          `Ada yang spesifik yang ingin Anda tanyakan?`;
 }
 
-// Helper function to remove think blocks (if any)
-function removeThinkBlock(content: string): string {
-  return content.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-}
