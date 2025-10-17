@@ -5,6 +5,12 @@ const prisma = new PrismaClient()
 
 async function checkAndCreateAdmin() {
   try {
+    // Skip if DATABASE_URL is not provided
+    if (!process.env.DATABASE_URL) {
+      console.log('⏭️  DATABASE_URL not found. Skipping admin check...')
+      return
+    }
+    
     // Skip during Docker build (dummy DATABASE_URL)
     if (process.env.DATABASE_URL?.includes('dummy')) {
       console.log('⏭️  Skipping admin check during Docker build...')

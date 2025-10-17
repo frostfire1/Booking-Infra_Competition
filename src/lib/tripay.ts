@@ -1,12 +1,26 @@
 import { TriPay } from 'tripay-nodejs'
 
-// Initialize Tripay SDK
-const tripay = new TriPay({
-  apiKey: process.env.TRIPAY_API_KEY || '',
-  privateKey: process.env.TRIPAY_PRIVATE_KEY || '',
-  merchantCode: process.env.TRIPAY_MERCHANT_CODE || '',
-  mode: (process.env.TRIPAY_MODE as 'development' | 'production') || 'development',
-})
+// Check if required environment variables are available
+const isTripayConfigured = process.env.TRIPAY_API_KEY && 
+                          process.env.TRIPAY_PRIVATE_KEY && 
+                          process.env.TRIPAY_MERCHANT_CODE
+
+// Initialize Tripay SDK only if environment variables are available
+let tripay: TriPay | null = null
+
+if (isTripayConfigured) {
+  try {
+    tripay = new TriPay({
+      apiKey: process.env.TRIPAY_API_KEY!,
+      privateKey: process.env.TRIPAY_PRIVATE_KEY!,
+      merchantCode: process.env.TRIPAY_MERCHANT_CODE!,
+      mode: (process.env.TRIPAY_MODE as 'development' | 'production') || 'development',
+    })
+  } catch (error) {
+    console.warn('Tripay initialization failed:', error)
+    tripay = null
+  }
+}
 
 // Type definitions for our application
 interface CreateTransactionParams {
@@ -73,11 +87,21 @@ interface TripayTransaction {
 
 class TripayService {
   /**
+   * Check if Tripay is configured
+   */
+  private checkTripayConfigured(): void {
+    if (!tripay) {
+      throw new Error('Tripay is not configured. Please set TRIPAY_API_KEY, TRIPAY_PRIVATE_KEY, and TRIPAY_MERCHANT_CODE environment variables.')
+    }
+  }
+
+  /**
    * Get available payment channels
    */
   async getPaymentChannels(): Promise<PaymentChannel[]> {
     try {
-      const response = await tripay.channel()
+      this.checkTripayConfigured()
+      const response = await tripay!.channel()
       
       if (!response.success) {
         throw new Error(response.message || 'Failed to fetch payment channels')
@@ -111,6 +135,7 @@ class TripayService {
     params: CreateTransactionParams
   ): Promise<TripayTransaction> {
     try {
+      this.checkTripayConfigured()
       const payload = {
         method: params.method,
         merchant_ref: params.merchantRef,
@@ -123,7 +148,7 @@ class TripayService {
         expired_time: params.expiredTime || 24 * 60 * 60, // 24 hours in seconds
       }
 
-      const response = await tripay.transaction(payload)
+      const response = await tripay!.transaction(payload)
 
       if (!response.success) {
         throw new Error(response.message || 'Failed to create transaction')
@@ -141,7 +166,8 @@ class TripayService {
    */
   async getTransactionDetail(reference: string): Promise<TripayTransaction> {
     try {
-      const response = await tripay.detailTransaction(reference)
+      this.checkTripayConfigured()
+      const response = await tripay!.detailTransaction(reference)
 
       if (!response.success) {
         throw new Error(response.message || 'Failed to fetch transaction detail')
@@ -159,7 +185,8 @@ class TripayService {
    */
   async getTransactionList(page: number = 1, perPage: number = 10) {
     try {
-      const response = await tripay.listTransaction(page, perPage)
+      this.checkTripayConfigured()
+      const response = await tripay!.listTransaction(page, perPage)
 
       if (!response.success) {
         throw new Error(response.message || 'Failed to fetch transaction list')
@@ -179,7 +206,8 @@ class TripayService {
     callbackSignature: string,
     json: string
   ): boolean {
-    return tripay.validateSignature(callbackSignature, json)
+    this.checkTripayConfigured()
+    return tripay!.validateSignature(callbackSignature, json)
   }
 
   /**
@@ -187,7 +215,8 @@ class TripayService {
    */
   async calculateFee(amount: number, code: string): Promise<number> {
     try {
-      const response = await tripay.feeCalculator(amount, code)
+      this.checkTripayConfigured()
+      const response = await tripay!.feeCalculator(amount, code)
 
       if (!response.success) {
         throw new Error('Failed to calculate fee')
@@ -205,7 +234,8 @@ class TripayService {
    */
   async getMerchantInfo() {
     try {
-      const response = await tripay.merchant()
+      this.checkTripayConfigured()
+      const response = await tripay!.merchant()
 
       if (!response.success) {
         throw new Error('Failed to fetch merchant info')
@@ -222,7 +252,7 @@ class TripayService {
 // Export singleton instance
 export const tripayService = new TripayService()
 
-// Export Tripay SDK instance
+// Export Tripay SDK instance (can be null if not configured)
 export { tripay }
 
 // Export types
