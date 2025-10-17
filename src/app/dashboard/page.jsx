@@ -68,7 +68,7 @@ export default function DashboardPage() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10 pt-20">
+      <main className="relative z-10 pt-4">
         {/* Welcome Section */}
         <div className="bg-gradient-to-r from-[#E04E4E] to-[#c93e3e] text-white py-12 px-4">
           <div className="max-w-7xl mx-auto">
