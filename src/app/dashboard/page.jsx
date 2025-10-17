@@ -3,7 +3,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import BookingStats from "@/components/dashboard/BookingStats";
-import Navbar from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
