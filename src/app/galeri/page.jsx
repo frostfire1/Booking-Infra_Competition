@@ -49,7 +49,7 @@ const galleryData = [
     id: 5,
     title: "Roblox Competition",
     description: "Kompetisi game development menggunakan platform Roblox Studio",
-    image: "/roblox.png",
+    image: "/Roblox1.png",
     date: "5 April 2024",
     location: "Lab 5",
     category: "Competition",
