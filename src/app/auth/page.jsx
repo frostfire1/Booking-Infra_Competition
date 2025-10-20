@@ -154,7 +154,7 @@ function AuthContent() {
         {/* Logo & Title */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <img src="/logo.svg" alt="Logo" className="w-20 h-20" />
+            <img src="/logo.png" alt="SMK Telkom Malang" className="w-20 h-20 object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-[#1F1F1F] mb-2">
             {isLogin ? "Selamat Datang Kembali" : "Daftar Akun Baru"}
