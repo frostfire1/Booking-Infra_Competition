@@ -94,7 +94,7 @@ export const Navbar = () => {
         {/* Logo sekolah SMK Telkom Malang */}
         <div className="w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center">
           <img 
-            src="/logo.png?v=2" 
+            src="/logo.png" 
             alt="Logo SMK Telkom Malang" 
             className="w-full h-full object-contain"
           />

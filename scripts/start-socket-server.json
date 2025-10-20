@@ -1,0 +1,5 @@
+{
+  "name": "start:socket-server",
+  "description": "Start the standalone Gemini WebSocket server",
+  "script": "bun run server/socket-server.js"
+}

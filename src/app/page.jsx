@@ -7,7 +7,7 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import "./calendar-styles.css";
 import FAQSection from "../components/faq/FAQSection";
-import AskQuestionSection from "../components/chat/AskQuestionSection";
+import ChatbotWidget from "../components/chatbot/ChatbotWidget";
 
 const fasilitasList = [
   "Aula",
@@ -872,7 +872,7 @@ export default (props) => {
         </div>
         
         {/* Ask Question Section */}
-        <AskQuestionSection />
+        <ChatbotWidget />
         
         {/* Footer Images Section */}
         <div className="flex flex-col items-center self-stretch bg-gray-50 py-12 md:py-16 px-4">

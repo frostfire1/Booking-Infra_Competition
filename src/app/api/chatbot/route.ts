@@ -1,33 +1,78 @@
 import { NextRequest, NextResponse } from 'next/server';
+
 import knowledgeBase from '@/data/chatbot-knowledge.json';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { prisma } from '@/lib/prisma';
+import { BookingStatus } from '@prisma/client';
+
 
 export async function POST(request: NextRequest) {
   try {
     const { message } = await request.json();
-    
-    if (!message) {
-      return NextResponse.json(
-        { error: 'No message provided' },
-        { status: 400 }
-      );
+    // Dynamically build context from the knowledgeBase JSON
+    let context = '';
+    for (const [key, value] of Object.entries(knowledgeBase)) {
+      context += `${key}: ${JSON.stringify(value)}\n`;
     }
 
-    // Check if API key is available
-    if (!process.env.GEMINI_API_KEY) {
-      console.error('GEMINI_API_KEY not found in environment variables');
-      return NextResponse.json(
-        { error: 'API key not configured' },
-        { status: 500 }
-      );
+    // Backend function descriptions for AI
+    const functionDescriptions = `Kamu dapat memanggil fungsi backend berikut dengan format <call>...</call> untuk mendapatkan data secara real-time:
+- listKnowledgeKeys: Mendapatkan daftar semua kunci data di knowledge base. Contoh: <call>listKnowledgeKeys</call>
+- getKnowledgeValue(key): Mendapatkan data detail dari knowledge base berdasarkan kunci. Contoh: <call>getKnowledgeValue(facilities)</call>
+- getBookingsInRange(start, end, status): Mendapatkan daftar booking pada rentang waktu dan status tertentu. Contoh: <call>getBookingsInRange('2025-10-20','2025-10-20','APPROVED')</call>
+
+Jika user bertanya tentang fasilitas yang dipinjam hari ini, langsung panggil <call>getBookingsInRange('YYYY-MM-DD','YYYY-MM-DD','APPROVED')</call> dengan tanggal hari ini. Jangan minta tanggal lagi jika sudah jelas maksudnya hari ini.`;
+
+    const prompt = `Kamu adalah Agent Moklet, asisten virtual booking fasilitas di SMK Telkom Malang. Jawab dengan ramah, profesional, dan gunakan bahasa Indonesia yang natural. Jika pertanyaan berkaitan dengan booking, fasilitas, status, atau pembayaran, gunakan data di bawah ini dan panggil fungsi backend jika perlu.
+
+${functionDescriptions}
+
+Jika kamu masih memproses atau membutuhkan data tambahan dari backend, jangan berikan tag <endoutput> pada jawabanmu. Hanya gunakan <endoutput> jika jawaban sudah final dan siap dikirim ke user. Jika masih menunggu data atau sedang berpikir, berikan instruksi atau tag <getinfo>/<call> saja tanpa <endoutput>.
+
+Format output:
+<endoutput>output akan dikirim ke user</endoutput>
+<getinfo>tuliskan fungsi atau langkah untuk mendapatkan informasi yang relevan, atau panggil fungsi backend jika perlu</getinfo>
+
+Data referensi:
+${context}
+
+Pertanyaan pengguna: ${message}
+Jawaban:`;
+
+    try {
+      const genAI = new GoogleGenerativeAI("AIzaSyDfIEXazVqtXwOZ0mM95oSB6yaXJp9ZzII");
+      const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
+      const result = await model.generateContent([prompt]);
+      // Log Gemini AI response for debugging
+      console.log('Gemini AI response:', typeof result?.response?.text === 'function' ? result?.response?.text() : result?.response?.text);
+      // Parse <endoutput> from Gemini AI response and ignore <getinfo> and <call>
+      const aiResponse = typeof result?.response?.text === 'function' ? result?.response?.text() : result?.response?.text;
+      const outputMatch = aiResponse?.match(/<endoutput>([\s\S]*?)<\/endoutput>/);
+      const output = outputMatch ? outputMatch[1].trim() : null;
+      // Only return the output from <endoutput> in the API response
+      if (output && result?.response?.candidates?.[0]?.finishReason === 'STOP') {
+        return NextResponse.json({
+          response: output,
+          timestamp: new Date().toISOString()
+        });
+      } else {
+        // No <endoutput> present, do not respond with output
+        return NextResponse.json({
+          response: '',
+          info: 'AI masih memproses atau menunggu data backend.',
+          timestamp: new Date().toISOString()
+        });
+      }
+    } catch (err) {
+      console.error('MokletAgent error:', err);
+      console.error('GEMINI_API_KEY:', process.env.GEMINI_API_KEY);
+      return NextResponse.json({
+        response: 'Maaf, terjadi kesalahan saat menghubungi MokletAgent.',
+        error: err instanceof Error ? err.message : String(err),
+        timestamp: new Date().toISOString()
+      }, { status: 400 });
     }
 
-    // Process message and generate intelligent response
-    const response = generateIntelligentResponse(message);
-
-    return NextResponse.json({ 
-      response: response,
-      timestamp: new Date().toISOString()
-    });
 
   } catch (error) {
     console.error('Chatbot error:', error);
@@ -38,131 +83,86 @@ export async function POST(request: NextRequest) {
   }
 }
 
+/**
+ * getKnowledgeValue(key: string): any
+ *   - Returns the value for a specific key from the knowledge base JSON (e.g., facilities, booking_statuses).
+ *   - Example: getKnowledgeValue('facilities')
+ *
+ * listKnowledgeKeys(): string[]
+ *   - Returns a list of all available keys in the knowledge base (e.g., facilities, equipment, faq, etc).
+ *   - Example: listKnowledgeKeys()
+ *
+ * getBookingsInRange(start: string, end: string, status?: BookingStatus): Promise<any[]>
+ *   - Returns a list of bookings in a specific time range and status (default: APPROVED).
+ *   - Example: getBookingsInRange('2025-10-01', '2025-10-31', 'APPROVED')
+ *
+ * callFunctionFromAI(callString: string): any | Promise<any>
+ *   - Parses <call>...</call> tags from AI response and calls the corresponding function.
+ *   - Supports: listKnowledgeKeys, getKnowledgeValue(key), getBookingsInRange(start, end, status)
+ *   - Example: <call>getKnowledgeValue(facilities)</call>
+ *             <call>listKnowledgeKeys</call>
+ *             <call>getBookingsInRange('2025-10-01','2025-10-31','APPROVED')</call>
+ */
 
-// Helper function to generate intelligent response based on knowledge base
-function generateIntelligentResponse(message: string): string {
-  const lowerMessage = message.toLowerCase();
-  
-  // Greeting responses
-  if (lowerMessage.includes('halo') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-    return `Halo! Saya Lily, asisten virtual untuk sistem booking ${knowledgeBase.system_info.name}. Ada yang bisa saya bantu?`;
-  }
-  
-  // Specific facility search (check this first)
-  for (const facility of knowledgeBase.facilities) {
-    const facilityName = facility.name.toLowerCase();
-    if (lowerMessage.includes(facilityName) || 
-        (lowerMessage.includes('aula') && facilityName.includes('aula')) ||
-        (lowerMessage.includes('lab 1') && facilityName.includes('lab 1')) ||
-        (lowerMessage.includes('lab 2') && facilityName.includes('lab 2')) ||
-        (lowerMessage.includes('lab 5') && facilityName.includes('lab 5')) ||
-        (lowerMessage.includes('ruang gabungan') && facilityName.includes('ruang gabungan')) ||
-        (lowerMessage.includes('podcast') && facilityName.includes('podcast')) ||
-        (lowerMessage.includes('rapat') && facilityName.includes('rapat')) ||
-        (lowerMessage.includes('robotik') && facilityName.includes('robotik')) ||
-        (lowerMessage.includes('cyber') && facilityName.includes('cyber'))) {
-      return `${facility.name}\n\n` +
-             `📝 Deskripsi: ${facility.description}\n\n` +
-             `👥 Kapasitas: ${facility.capacity} orang\n\n` +
-             `✨ Fitur: ${facility.features.join(', ')}\n\n` +
-             `🎯 Cocok untuk: ${facility.suitable_for.join(', ')}\n\n` +
-             `Untuk booking fasilitas ini, silakan klik tombol "Buat Booking" di dashboard.`;
-    }
-  }
-  
-  // Facility information
-  if (lowerMessage.includes('fasilitas') || lowerMessage.includes('ruang') || lowerMessage.includes('lab') || lowerMessage.includes('aula')) {
-    let response = `Fasilitas yang tersedia di ${knowledgeBase.system_info.name}:\n\n`;
-    knowledgeBase.facilities.forEach((facility, index) => {
-      response += `${index + 1}. ${facility.name}\n`;
-      response += `   - Kapasitas: ${facility.capacity} orang\n`;
-      response += `   - Deskripsi: ${facility.description}\n`;
-      response += `   - Cocok untuk: ${facility.suitable_for.join(', ')}\n\n`;
-    });
-    response += `Untuk booking, silakan klik tombol "Buat Booking" di dashboard.`;
-    return response;
-  }
-  
-  // Equipment information
-  if (lowerMessage.includes('peralatan') || lowerMessage.includes('equipment') || lowerMessage.includes('alat')) {
-    let response = `Peralatan yang tersedia:\n\n`;
-    knowledgeBase.equipment.forEach((item, index) => {
-      response += `${index + 1}. ${item.name}\n`;
-      response += `   - Jumlah: ${item.quantity} unit\n`;
-      response += `   - Tersedia: ${item.available} unit\n`;
-      response += `   - Deskripsi: ${item.description}\n\n`;
-    });
-    return response;
-  }
-  
-  // Booking procedures
-  if (lowerMessage.includes('cara booking') || lowerMessage.includes('prosedur') || lowerMessage.includes('langkah')) {
-    let response = `Cara melakukan booking di ${knowledgeBase.system_info.name}:\n\n`;
-    knowledgeBase.booking_procedures.forEach((step) => {
-      response += `Langkah ${step.step}: ${step.title}\n`;
-      response += `${step.description}\n\n`;
-    });
-    return response;
-  }
-  
-  // Booking status
-  if (lowerMessage.includes('status') || lowerMessage.includes('cek booking')) {
-    let response = `Status booking yang tersedia:\n\n`;
-    knowledgeBase.booking_statuses.forEach((status) => {
-      response += `${status.status}: ${status.description}\n`;
-      response += `Tindakan: ${status.action}\n\n`;
-    });
-    return response;
-  }
-  
-  // Payment information
-  if (lowerMessage.includes('pembayaran') || lowerMessage.includes('bayar') || lowerMessage.includes('payment')) {
-    let response = `Informasi pembayaran:\n\n`;
-    knowledgeBase.payment_statuses.forEach((status) => {
-      response += `${status.status}: ${status.description}\n`;
-      response += `Tindakan: ${status.action}\n\n`;
-    });
-    return response;
-  }
-  
-  // FAQ
-  if (lowerMessage.includes('pertanyaan') || lowerMessage.includes('faq') || lowerMessage.includes('tanya')) {
-    let response = `Pertanyaan yang sering diajukan:\n\n`;
-    knowledgeBase.faq.forEach((faq, index) => {
-      response += `${index + 1}. ${faq.question}\n`;
-      response += `${faq.answer}\n\n`;
-    });
-    return response;
-  }
-  
-  // Contact information
-  if (lowerMessage.includes('kontak') || lowerMessage.includes('hubungi') || lowerMessage.includes('admin')) {
-    return `Informasi kontak ${knowledgeBase.system_info.name}:\n\n` +
-           `📧 Email: ${knowledgeBase.contact_info.email}\n` +
-           `📞 Telepon: ${knowledgeBase.contact_info.phone}\n` +
-           `📍 Alamat: ${knowledgeBase.contact_info.address}\n\n` +
-           `Jam operasional:\n` +
-           `Senin-Jumat: ${knowledgeBase.working_hours.monday_friday}\n` +
-           `Sabtu: ${knowledgeBase.working_hours.saturday}\n` +
-           `Minggu: ${knowledgeBase.working_hours.sunday}`;
-  }
-  
-  // Working hours
-  if (lowerMessage.includes('jam') || lowerMessage.includes('buka') || lowerMessage.includes('tutup')) {
-    return `Jam operasional ${knowledgeBase.system_info.name}:\n\n` +
-           `Senin-Jumat: ${knowledgeBase.working_hours.monday_friday}\n` +
-           `Sabtu: ${knowledgeBase.working_hours.saturday}\n` +
-           `Minggu: ${knowledgeBase.working_hours.sunday}`;
-  }
-  
-  
-  // Default response
-  return `Terima kasih atas pertanyaan Anda! Saya Lily, asisten virtual untuk ${knowledgeBase.system_info.name}.\n\n` +
-         `Saya bisa membantu dengan:\n` +
-         `• Informasi fasilitas dan peralatan\n` +
-         `• Prosedur booking\n` +
-         `• Status booking dan pembayaran\n` +
-         `• FAQ dan informasi kontak\n\n` +
-         `Ada yang spesifik yang ingin Anda tanyakan?`;
+// Utility function to get specific value from knowledgeBase
+export function getKnowledgeValue(key: string) {
+  return (knowledgeBase as Record<string, unknown>)[key];
 }
 
+// Utility function to list all available knowledge keys
+export function listKnowledgeKeys() {
+  return Object.keys(knowledgeBase);
+}
+
+// Utility function to get bookings in a specific time range
+export async function getBookingsInRange(start: string, end: string, status: BookingStatus = 'APPROVED') {
+  const bookings = await prisma.booking.findMany({
+    where: {
+      startDate: { gte: new Date(start) },
+      endDate: { lte: new Date(end) },
+      status,
+    },
+    include: {
+      facility: { select: { id: true, name: true } },
+      user: { select: { name: true, email: true } },
+    },
+    orderBy: { startDate: 'asc' },
+  });
+  return bookings.map((booking) => ({
+    id: booking.id,
+    title: booking.title || `${booking.facility.name} Booking`,
+    startDate: booking.startDate.toISOString(),
+    endDate: booking.endDate.toISOString(),
+    facility: booking.facility.name,
+    facilityId: booking.facility.id,
+    organizer: booking.user.name || booking.user.email,
+    status: booking.status,
+  }));
+}
+
+// Extend callFunctionFromAI to support getBookingsInRange
+export async function callFunctionFromAI(callString: string) {
+  const match = callString.match(/<call>(.*?)<\/call>/);
+  if (!match) return null;
+  const callContent = match[1].trim();
+  if (callContent.startsWith('listKnowledgeKeys')) {
+    return listKnowledgeKeys();
+  }
+  if (callContent.startsWith('getKnowledgeValue(')) {
+    const argMatch = callContent.match(/getKnowledgeValue\((.*?)\)/);
+    if (argMatch) {
+      const key = argMatch[1].replace(/['"`]/g, '').trim();
+      return getKnowledgeValue(key);
+    }
+  }
+  if (callContent.startsWith('getBookingsInRange(')) {
+    // Example: getBookingsInRange('2025-10-01','2025-10-31','APPROVED')
+    const argMatch = callContent.match(/getBookingsInRange\((.*?)\)/);
+    if (argMatch) {
+      const args = argMatch[1].split(',').map(a => a.replace(/['"`]/g, '').trim());
+      const [start, end, status] = args;
+      return await getBookingsInRange(start, end, status as BookingStatus);
+    }
+  }
+  return null;
+}
