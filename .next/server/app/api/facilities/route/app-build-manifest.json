@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "/api/facilities/route": [
+      "static/chunks/81750f6b117e2017.js",
+      "static/chunks/e8013f5ba9ce049f.js",
+      "static/chunks/8d4f9ff4a0c457a2.js",
+      "static/chunks/e2949daa309af4c1.js",
+      "static/chunks/508c27c8d93d53c7.js",
+      "static/chunks/turbopack-622db3cb5efbd47d.js"
+    ]
+  }
+}
