@@ -153,57 +153,73 @@ export default function AdminPanel() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white text-2xl">👥</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-white text-3xl">👥</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-wide">Total Users</p>
+                  <p className="text-5xl font-black text-gray-800 group-hover:text-blue-600 transition-colors duration-500">{stats.totalUsers}</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-gray-500 text-sm font-medium">Total Users</p>
-                <p className="text-4xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">{stats.totalUsers}</p>
-              </div>
+              <div className="h-2 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 rounded-full shadow-lg"></div>
             </div>
-            <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
           </div>
 
-          <div className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-green-200 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white text-2xl">📅</span>
+          <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-green-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-white text-3xl">📅</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-wide">Total Bookings</p>
+                  <p className="text-5xl font-black text-gray-800 group-hover:text-green-600 transition-colors duration-500">{stats.totalBookings}</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-gray-500 text-sm font-medium">Total Bookings</p>
-                <p className="text-4xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">{stats.totalBookings}</p>
-              </div>
+              <div className="h-2 bg-gradient-to-r from-green-500 via-green-400 to-green-600 rounded-full shadow-lg"></div>
             </div>
-            <div className="h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
           </div>
 
-          <div className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-yellow-200 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white text-2xl">⏳</span>
+          <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-yellow-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-white text-3xl">⏳</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-wide">Pending</p>
+                  <p className="text-5xl font-black text-gray-800 group-hover:text-yellow-600 transition-colors duration-500">{stats.pendingBookings}</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-gray-500 text-sm font-medium">Pending</p>
-                <p className="text-4xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors duration-300">{stats.pendingBookings}</p>
-              </div>
+              <div className="h-2 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 rounded-full shadow-lg"></div>
             </div>
-            <div className="h-1 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
           </div>
 
-          <div className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-2">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white text-2xl">✅</span>
+          <div className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-purple-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative">
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <span className="text-white text-3xl">✅</span>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 text-sm font-semibold uppercase tracking-wide">Approved</p>
+                  <p className="text-5xl font-black text-gray-800 group-hover:text-purple-600 transition-colors duration-500">{stats.approvedBookings}</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-gray-500 text-sm font-medium">Approved</p>
-                <p className="text-4xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">{stats.approvedBookings}</p>
-              </div>
+              <div className="h-2 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 rounded-full shadow-lg"></div>
             </div>
-            <div className="h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-purple-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
           </div>
         </div>
 
@@ -213,28 +229,34 @@ export default function AdminPanel() {
             <Link
               key={index}
               href={feature.href}
-              className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-1"
+              className="group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-3 overflow-hidden"
             >
-              <div className="flex items-start gap-6">
-                <div className={`w-20 h-20 ${feature.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                  <span className="text-white text-4xl">{feature.icon}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-[#E04E4E] transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed mb-6">
-                    {feature.description}
-                  </p>
-                  <div className="flex items-center text-[#E04E4E] font-semibold text-base group-hover:translate-x-2 transition-transform duration-300">
-                    <span>Kelola Sekarang</span>
-                    <svg className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative">
+                <div className="flex items-start gap-6 mb-6">
+                  <div className={`w-20 h-20 ${feature.color} rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg`}>
+                    <span className="text-white text-5xl">{feature.icon}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-[#E04E4E] transition-colors duration-500">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-[#E04E4E] font-bold text-lg group-hover:text-[#c93e3e] transition-colors duration-500">
+                    <span className="mr-3">Kelola Sekarang</span>
+                    <svg className="w-6 h-6 transform group-hover:translate-x-3 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                  <div className={`h-3 ${feature.color} rounded-full w-24 group-hover:w-32 transition-all duration-500 shadow-lg`}></div>
+                </div>
               </div>
-              <div className="mt-6 h-1 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full group-hover:from-[#E04E4E] group-hover:to-[#c93e3e] transition-all duration-300"></div>
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gray-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"></div>
             </Link>
           ))}
         </div>
@@ -243,47 +265,47 @@ export default function AdminPanel() {
         <div className="relative overflow-hidden bg-gradient-to-r from-[#E04E4E] to-[#c93e3e] rounded-3xl p-8 text-white shadow-2xl">
           <div className="absolute inset-0 bg-black opacity-10"></div>
           <div className="relative">
-            <h3 className="text-3xl font-bold mb-8 text-center">Quick Actions</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h3 className="text-4xl font-black mb-10 text-center">Quick Actions</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <button
                 onClick={() => router.push("/dashboard/admin/users")}
-                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1"
+                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl">👥</span>
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    <span className="text-4xl">👥</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">User Management</p>
-                    <p className="text-sm opacity-90">Kelola pengguna</p>
+                    <p className="font-black text-xl mb-2">User Management</p>
+                    <p className="text-sm opacity-90">Kelola pengguna sistem</p>
                   </div>
                 </div>
               </button>
               <button
                 onClick={() => router.push("/dashboard/bookings")}
-                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1"
+                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl">📅</span>
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    <span className="text-4xl">📅</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">Booking History</p>
-                    <p className="text-sm opacity-90">Lihat semua booking</p>
+                    <p className="font-black text-xl mb-2">Booking History</p>
+                    <p className="text-sm opacity-90">Lihat riwayat booking</p>
                   </div>
                 </div>
               </button>
               <button
                 onClick={() => router.push("/dashboard/admin/bulk-operations")}
-                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1"
+                className="group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl">🗑️</span>
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    <span className="text-4xl">🗑️</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">Bulk Delete</p>
-                    <p className="text-sm opacity-90">Hapus riwayat</p>
+                    <p className="font-black text-xl mb-2">Bulk Delete</p>
+                    <p className="text-sm opacity-90">Hapus data massal</p>
                   </div>
                 </div>
               </button>

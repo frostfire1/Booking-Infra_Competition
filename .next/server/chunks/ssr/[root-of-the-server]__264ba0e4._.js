@@ -351,44 +351,60 @@ function AdminPanel() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12",
+                    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2",
+                            className: "group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center justify-between mb-4",
+                                    className: "absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 158,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-white text-2xl",
-                                                children: "👥"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 160,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 159,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-right",
+                                            className: "flex items-center justify-between mb-6",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-500 text-sm font-medium",
-                                                    children: "Total Users"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-white text-3xl",
+                                                        children: "👥"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                        lineNumber: 162,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 163,
+                                                    lineNumber: 161,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-4xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300",
-                                                    children: stats.totalUsers
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-right",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-gray-500 text-sm font-semibold uppercase tracking-wide",
+                                                            children: "Total Users"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 165,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-5xl font-black text-gray-800 group-hover:text-blue-600 transition-colors duration-500",
+                                                            children: stats.totalUsers
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 166,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                                                     lineNumber: 164,
                                                     columnNumber: 17
@@ -396,20 +412,27 @@ function AdminPanel() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 162,
+                                            lineNumber: 160,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-2 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 rounded-full shadow-lg"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                            lineNumber: 169,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 158,
+                                    lineNumber: 159,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
+                                    className: "absolute -top-4 -right-4 w-20 h-20 bg-blue-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 167,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -419,198 +442,267 @@ function AdminPanel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-green-200 transition-all duration-300 transform hover:-translate-y-2",
+                            className: "group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-green-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center justify-between mb-4",
+                                    className: "absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 175,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-white text-2xl",
-                                                children: "📅"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 173,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 172,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-right",
+                                            className: "flex items-center justify-between mb-6",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-500 text-sm font-medium",
-                                                    children: "Total Bookings"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-white text-3xl",
+                                                        children: "📅"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                        lineNumber: 179,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 176,
+                                                    lineNumber: 178,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-4xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300",
-                                                    children: stats.totalBookings
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-right",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-gray-500 text-sm font-semibold uppercase tracking-wide",
+                                                            children: "Total Bookings"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 182,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-5xl font-black text-gray-800 group-hover:text-green-600 transition-colors duration-500",
+                                                            children: stats.totalBookings
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 183,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 177,
+                                                    lineNumber: 181,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 175,
+                                            lineNumber: 177,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-2 bg-gradient-to-r from-green-500 via-green-400 to-green-600 rounded-full shadow-lg"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                            lineNumber: 186,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 171,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full"
+                                    className: "absolute -top-4 -right-4 w-20 h-20 bg-green-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 180,
+                                    lineNumber: 188,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 170,
+                            lineNumber: 174,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-yellow-200 transition-all duration-300 transform hover:-translate-y-2",
+                            className: "group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-yellow-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center justify-between mb-4",
+                                    className: "absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 192,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-14 h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-white text-2xl",
-                                                children: "⏳"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 186,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 185,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-right",
+                                            className: "flex items-center justify-between mb-6",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-500 text-sm font-medium",
-                                                    children: "Pending"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-white text-3xl",
+                                                        children: "⏳"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                        lineNumber: 196,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 189,
+                                                    lineNumber: 195,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-4xl font-bold text-gray-800 group-hover:text-yellow-600 transition-colors duration-300",
-                                                    children: stats.pendingBookings
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-right",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-gray-500 text-sm font-semibold uppercase tracking-wide",
+                                                            children: "Pending"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 199,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-5xl font-black text-gray-800 group-hover:text-yellow-600 transition-colors duration-500",
+                                                            children: stats.pendingBookings
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 200,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 190,
+                                                    lineNumber: 198,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 188,
+                                            lineNumber: 194,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-2 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 rounded-full shadow-lg"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                            lineNumber: 203,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
-                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 184,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-1 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full"
-                                }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                                     lineNumber: 193,
                                     columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute -top-4 -right-4 w-20 h-20 bg-yellow-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 205,
+                                    columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 183,
+                            lineNumber: 191,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "group bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 border border-gray-100 hover:border-purple-200 transition-all duration-300 transform hover:-translate-y-2",
+                            className: "group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl p-6 border border-gray-100 hover:border-purple-200 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center justify-between mb-4",
+                                    className: "absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 209,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-white text-2xl",
-                                                children: "✅"
-                                            }, void 0, false, {
-                                                fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 199,
-                                                columnNumber: 17
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 198,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "text-right",
+                                            className: "flex items-center justify-between mb-6",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-500 text-sm font-medium",
-                                                    children: "Approved"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-white text-3xl",
+                                                        children: "✅"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                        lineNumber: 213,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 202,
+                                                    lineNumber: 212,
                                                     columnNumber: 17
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-4xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300",
-                                                    children: stats.approvedBookings
-                                                }, void 0, false, {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "text-right",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-gray-500 text-sm font-semibold uppercase tracking-wide",
+                                                            children: "Approved"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 216,
+                                                            columnNumber: 19
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-5xl font-black text-gray-800 group-hover:text-purple-600 transition-colors duration-500",
+                                                            children: stats.approvedBookings
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 217,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 203,
+                                                    lineNumber: 215,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 201,
+                                            lineNumber: 211,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-2 bg-gradient-to-r from-purple-500 via-purple-400 to-purple-600 rounded-full shadow-lg"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                            lineNumber: 220,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 197,
+                                    lineNumber: 210,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full"
+                                    className: "absolute -top-4 -right-4 w-20 h-20 bg-purple-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 206,
+                                    lineNumber: 222,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 196,
+                            lineNumber: 208,
                             columnNumber: 11
                         }, this)
                     ]
@@ -623,109 +715,142 @@ function AdminPanel() {
                     className: "grid grid-cols-1 md:grid-cols-2 gap-8 mb-12",
                     children: adminFeatures.map((feature, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             href: feature.href,
-                            className: "group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-1",
+                            className: "group relative bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-3 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-start gap-6",
+                                    className: "absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                }, void 0, false, {
+                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                    lineNumber: 234,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `w-20 h-20 ${feature.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg`,
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-white text-4xl",
-                                                children: feature.icon
-                                            }, void 0, false, {
-                                                fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 220,
-                                                columnNumber: 19
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 219,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex-1",
+                                            className: "flex items-start gap-6 mb-6",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-2xl font-bold text-gray-800 mb-3 group-hover:text-[#E04E4E] transition-colors duration-300",
-                                                    children: feature.title
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: `w-20 h-20 ${feature.color} rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg`,
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-white text-5xl",
+                                                        children: feature.icon
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                        lineNumber: 238,
+                                                        columnNumber: 21
+                                                    }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 223,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-600 text-base leading-relaxed mb-6",
-                                                    children: feature.description
-                                                }, void 0, false, {
-                                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 226,
+                                                    lineNumber: 237,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex items-center text-[#E04E4E] font-semibold text-base group-hover:translate-x-2 transition-transform duration-300",
+                                                    className: "flex-1",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "text-3xl font-black text-gray-800 mb-4 group-hover:text-[#E04E4E] transition-colors duration-500",
+                                                            children: feature.title
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 241,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-gray-600 text-lg leading-relaxed mb-8",
+                                                            children: feature.description
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                            lineNumber: 244,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                    lineNumber: 240,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                            lineNumber: 236,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center text-[#E04E4E] font-bold text-lg group-hover:text-[#c93e3e] transition-colors duration-500",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                            className: "mr-3",
                                                             children: "Kelola Sekarang"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                            lineNumber: 230,
+                                                            lineNumber: 251,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                                            className: "w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300",
+                                                            className: "w-6 h-6 transform group-hover:translate-x-3 transition-transform duration-500",
                                                             fill: "none",
                                                             stroke: "currentColor",
                                                             viewBox: "0 0 24 24",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
                                                                 strokeLinecap: "round",
                                                                 strokeLinejoin: "round",
-                                                                strokeWidth: 2,
+                                                                strokeWidth: 3,
                                                                 d: "M9 5l7 7-7 7"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 232,
+                                                                lineNumber: 253,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                            lineNumber: 231,
+                                                            lineNumber: 252,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                    lineNumber: 229,
+                                                    lineNumber: 250,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: `h-3 ${feature.color} rounded-full w-24 group-hover:w-32 transition-all duration-500 shadow-lg`
+                                                }, void 0, false, {
+                                                    fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
+                                                    lineNumber: 256,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 222,
+                                            lineNumber: 249,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 218,
+                                    lineNumber: 235,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "mt-6 h-1 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full group-hover:from-[#E04E4E] group-hover:to-[#c93e3e] transition-all duration-300"
+                                    className: "absolute -top-6 -right-6 w-24 h-24 bg-gray-200 rounded-full opacity-20 group-hover:scale-150 transition-transform duration-500"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 237,
+                                    lineNumber: 259,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, index, true, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 213,
+                            lineNumber: 229,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                    lineNumber: 211,
+                    lineNumber: 227,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -735,221 +860,221 @@ function AdminPanel() {
                             className: "absolute inset-0 bg-black opacity-10"
                         }, void 0, false, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 244,
+                            lineNumber: 266,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "relative",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "text-3xl font-bold mb-8 text-center",
+                                    className: "text-4xl font-black mb-10 text-center",
                                     children: "Quick Actions"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 246,
+                                    lineNumber: 268,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 md:grid-cols-3 gap-6",
+                                    className: "grid grid-cols-1 md:grid-cols-3 gap-8",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>router.push("/dashboard/admin/users"),
-                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1",
+                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center gap-4",
+                                                className: "flex items-center gap-6",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                                                        className: "w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-2xl",
+                                                            className: "text-4xl",
                                                             children: "👥"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                            lineNumber: 254,
+                                                            lineNumber: 276,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 253,
+                                                        lineNumber: 275,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "font-semibold text-lg",
+                                                                className: "font-black text-xl mb-2",
                                                                 children: "User Management"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 257,
+                                                                lineNumber: 279,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm opacity-90",
-                                                                children: "Kelola pengguna"
+                                                                children: "Kelola pengguna sistem"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 258,
+                                                                lineNumber: 280,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 256,
+                                                        lineNumber: 278,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 252,
+                                                lineNumber: 274,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 248,
+                                            lineNumber: 270,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>router.push("/dashboard/bookings"),
-                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1",
+                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center gap-4",
+                                                className: "flex items-center gap-6",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                                                        className: "w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-2xl",
+                                                            className: "text-4xl",
                                                             children: "📅"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                            lineNumber: 268,
+                                                            lineNumber: 290,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 267,
+                                                        lineNumber: 289,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "font-semibold text-lg",
+                                                                className: "font-black text-xl mb-2",
                                                                 children: "Booking History"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 271,
+                                                                lineNumber: 293,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm opacity-90",
-                                                                children: "Lihat semua booking"
+                                                                children: "Lihat riwayat booking"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 272,
+                                                                lineNumber: 294,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 270,
+                                                        lineNumber: 292,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 266,
+                                                lineNumber: 288,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 262,
+                                            lineNumber: 284,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             onClick: ()=>router.push("/dashboard/admin/bulk-operations"),
-                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-2xl p-6 text-left transition-all duration-300 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-1",
+                                            className: "group bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm rounded-3xl p-8 text-left transition-all duration-500 border border-white border-opacity-30 hover:border-opacity-50 transform hover:-translate-y-3 hover:scale-105",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center gap-4",
+                                                className: "flex items-center gap-6",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "w-12 h-12 bg-white bg-opacity-30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                                                        className: "w-16 h-16 bg-white bg-opacity-30 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            className: "text-2xl",
+                                                            className: "text-4xl",
                                                             children: "🗑️"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                            lineNumber: 282,
+                                                            lineNumber: 304,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 281,
+                                                        lineNumber: 303,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                className: "font-semibold text-lg",
+                                                                className: "font-black text-xl mb-2",
                                                                 children: "Bulk Delete"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 285,
+                                                                lineNumber: 307,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-sm opacity-90",
-                                                                children: "Hapus riwayat"
+                                                                children: "Hapus data massal"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                                lineNumber: 286,
+                                                                lineNumber: 308,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 306,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                                lineNumber: 280,
+                                                lineNumber: 302,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                            lineNumber: 276,
+                                            lineNumber: 298,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                                    lineNumber: 247,
+                                    lineNumber: 269,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 245,
+                            lineNumber: 267,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "absolute -top-20 -right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full"
                         }, void 0, false, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 292,
+                            lineNumber: 314,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "absolute -bottom-20 -left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full"
                         }, void 0, false, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                            lineNumber: 293,
+                            lineNumber: 315,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
-                    lineNumber: 243,
+                    lineNumber: 265,
                     columnNumber: 9
                 }, this)
             ]
