@@ -81,7 +81,7 @@ export default function DashboardLayout({ children }) {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="flex items-center gap-3 p-6 border-b border-gray-200">
-            <img src="/logo.svg" alt="Logo" className="w-10 h-10" />
+            <img src="/logo.png" alt="SMK Telkom Malang" className="w-10 h-10 object-contain" />
             <div className="flex flex-col">
               <span className="text-lg font-bold text-[#1F1F1F]">Booking</span>
               <span className="text-xs text-[#7A7A7A]">SMK Telkom MLG</span>

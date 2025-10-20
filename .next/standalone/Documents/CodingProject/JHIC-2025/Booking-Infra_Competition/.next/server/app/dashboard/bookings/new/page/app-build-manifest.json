@@ -1,0 +1,19 @@
+{
+  "pages": {
+    "/dashboard/bookings/new/page": [
+      "static/chunks/950bf2d195d4eeca.js",
+      "static/chunks/17937ba68940ee6a.js",
+      "static/chunks/f515e56e79c90d94.css",
+      "static/chunks/c92f8e090aceedfc.js",
+      "static/chunks/497ab515a74bbf85.js",
+      "static/chunks/dcb908f784beed71.js",
+      "static/chunks/724349b01c1bd562.css",
+      "static/chunks/81750f6b117e2017.js",
+      "static/chunks/e8013f5ba9ce049f.js",
+      "static/chunks/8d4f9ff4a0c457a2.js",
+      "static/chunks/e2949daa309af4c1.js",
+      "static/chunks/508c27c8d93d53c7.js",
+      "static/chunks/turbopack-622db3cb5efbd47d.js"
+    ]
+  }
+}
