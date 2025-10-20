@@ -12,7 +12,6 @@
 
 # testing
 /coverage
-.next
 .dockerignore
 # misc
 .DS_Store

@@ -19,10 +19,7 @@ services:
     #   GOOGLE_CLIENT_ID: ""
     #   GOOGLE_CLIENT_SECRET: ""
     #   NODE_ENV: production
-    
-    # Option 2: Use .env.docker file (RECOMMENDED for easy editing)
-    env_file:
-      - .env.docker
+  
     
     # Use host network mode to access localhost database
     # Or use extra_hosts for custom host mapping
