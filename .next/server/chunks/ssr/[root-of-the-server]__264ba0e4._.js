@@ -326,18 +326,18 @@ function AdminPanel() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "absolute -top-10 -right-10 w-40 h-40 bg-white bg-opacity-10 rounded-full"
+                                className: "absolute -top-6 -right-6 w-24 h-24 bg-white bg-opacity-10 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                                 lineNumber: 150,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "absolute -bottom-10 -left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"
+                                className: "absolute -bottom-6 -left-6 w-20 h-20 bg-white bg-opacity-10 rounded-full"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                                 lineNumber: 151,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
@@ -1058,14 +1058,14 @@ function AdminPanel() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute -top-20 -right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full"
+                            className: "absolute -top-6 -right-6 w-24 h-24 bg-white bg-opacity-10 rounded-full"
                         }, void 0, false, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                             lineNumber: 314,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$CodingProject$2f$JHIC$2d$2025$2f$Booking$2d$Infra_Competition$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute -bottom-20 -left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full"
+                            className: "absolute -bottom-6 -left-6 w-20 h-20 bg-white bg-opacity-10 rounded-full"
                         }, void 0, false, {
                             fileName: "[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/dashboard/admin/page.jsx",
                             lineNumber: 315,

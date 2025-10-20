@@ -893,6 +893,10 @@
     right: calc(var(--spacing) * 6);
   }
 
+  .-bottom-6 {
+    bottom: calc(var(--spacing) * -6);
+  }
+
   .-bottom-10 {
     bottom: calc(var(--spacing) * -10);
   }
@@ -919,6 +923,10 @@
 
   .bottom-24 {
     bottom: calc(var(--spacing) * 24);
+  }
+
+  .-left-6 {
+    left: calc(var(--spacing) * -6);
   }
 
   .-left-10 {

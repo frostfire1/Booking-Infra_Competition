@@ -147,8 +147,8 @@ export default function AdminPanel() {
                 </span>
               </div>
             </div>
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-white bg-opacity-10 rounded-full"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
+          <div className="absolute -top-6 -right-6 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+          <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white bg-opacity-10 rounded-full"></div>
           </div>
         </div>
 
@@ -311,8 +311,8 @@ export default function AdminPanel() {
               </button>
             </div>
           </div>
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-white bg-opacity-10 rounded-full"></div>
-          <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full"></div>
+          <div className="absolute -top-6 -right-6 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+          <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white bg-opacity-10 rounded-full"></div>
         </div>
       </div>
     </div>
