@@ -12,6 +12,11 @@ export default function BookingHistoryPage() {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [loading, setLoading] = useState(true);
   const [bookingLoading, setBookingLoading] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState({
+    status: '',
+    adminNotes: ''
+  });
 
   // Temporary: Skip authentication for testing
   // useEffect(() => {
@@ -56,6 +61,10 @@ export default function BookingHistoryPage() {
       if (response.ok) {
         const data = await response.json();
         setSelectedBooking(data);
+        setEditForm({
+          status: data.status,
+          adminNotes: data.adminNotes || ''
+        });
       } else {
         console.error("Failed to fetch booking details");
         setSelectedBooking(null);
@@ -63,6 +72,36 @@ export default function BookingHistoryPage() {
     } catch (error) {
       console.error("Error fetching booking details:", error);
       setSelectedBooking(null);
+    } finally {
+      setBookingLoading(false);
+    }
+  };
+
+  const updateBooking = async () => {
+    try {
+      setBookingLoading(true);
+      const response = await fetch(`/api/bookings/${selectedBookingId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editForm),
+      });
+
+      if (response.ok) {
+        const updatedBooking = await response.json();
+        setSelectedBooking(updatedBooking);
+        setIsEditing(false);
+        // Refresh bookings list
+        fetchBookings();
+        alert('Booking berhasil diupdate!');
+      } else {
+        const error = await response.json();
+        alert(`Error: ${error.error}`);
+      }
+    } catch (error) {
+      console.error("Error updating booking:", error);
+      alert('Gagal mengupdate booking');
     } finally {
       setBookingLoading(false);
     }
@@ -118,8 +157,20 @@ export default function BookingHistoryPage() {
                   </svg>
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-[#1F1F1F]">Riwayat Booking</h1>
-                  <p className="text-[#7A7A7A] mt-1">Lihat dan kelola semua booking yang telah dibuat</p>
+                  <div className="flex items-center gap-3">
+                    <h1 className="text-3xl font-bold text-[#1F1F1F]">Riwayat Booking</h1>
+                    {session?.user?.role === 'ADMIN' && (
+                      <span className="px-3 py-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-medium rounded-full">
+                        Admin Mode
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[#7A7A7A] mt-1">
+                    {session?.user?.role === 'ADMIN' 
+                      ? "Lihat dan kelola semua booking dari semua user" 
+                      : "Lihat dan kelola booking yang telah Anda buat"
+                    }
+                  </p>
                 </div>
               </div>
             </div>
@@ -281,17 +332,58 @@ export default function BookingHistoryPage() {
                     {/* Status Badge & ID */}
                     <div className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl">
                       <div className="flex items-center gap-3">
-                        <span className={`px-4 py-2 rounded-full text-sm font-medium ${getStatusColor(selectedBooking.status)}`}>
-                          {getStatusText(selectedBooking.status)}
-                        </span>
+                        {isEditing ? (
+                          <select
+                            value={editForm.status}
+                            onChange={(e) => setEditForm({...editForm, status: e.target.value})}
+                            className="px-4 py-2 rounded-full text-sm font-medium border-2 border-blue-300 focus:border-blue-500 outline-none"
+                          >
+                            <option value="PENDING">Menunggu</option>
+                            <option value="APPROVED">Disetujui</option>
+                            <option value="REJECTED">Ditolak</option>
+                          </select>
+                        ) : (
+                          <span className={`px-4 py-2 rounded-full text-sm font-medium ${getStatusColor(selectedBooking.status)}`}>
+                            {getStatusText(selectedBooking.status)}
+                          </span>
+                        )}
                         <div className="h-6 w-px bg-gray-300"></div>
                         <span className="text-sm text-[#7A7A7A] font-mono">
                           ID: {selectedBooking.id}
                         </span>
                       </div>
-                      <div className="text-right">
-                        <p className="text-xs text-[#7A7A7A]">Booking ID</p>
-                        <p className="text-sm font-medium text-[#1F1F1F]">{selectedBooking.id}</p>
+                      <div className="flex items-center gap-3">
+                        <div className="text-right">
+                          <p className="text-xs text-[#7A7A7A]">Booking ID</p>
+                          <p className="text-sm font-medium text-[#1F1F1F]">{selectedBooking.id}</p>
+                        </div>
+                        {session?.user?.role === 'ADMIN' && (
+                          <div className="flex gap-2">
+                            {isEditing ? (
+                              <>
+                                <button
+                                  onClick={updateBooking}
+                                  className="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600 transition-colors"
+                                >
+                                  Simpan
+                                </button>
+                                <button
+                                  onClick={() => setIsEditing(false)}
+                                  className="px-3 py-1 bg-gray-500 text-white text-sm rounded-lg hover:bg-gray-600 transition-colors"
+                                >
+                                  Batal
+                                </button>
+                              </>
+                            ) : (
+                              <button
+                                onClick={() => setIsEditing(true)}
+                                className="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-colors"
+                              >
+                                Edit
+                              </button>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -427,7 +519,7 @@ export default function BookingHistoryPage() {
                         )}
 
                         {/* Admin Notes */}
-                        {selectedBooking.adminNotes && (
+                        {(selectedBooking.adminNotes || (session?.user?.role === 'ADMIN' && isEditing)) && (
                           <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-100">
                             <div className="flex items-center gap-3 mb-3">
                               <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center">
@@ -438,7 +530,17 @@ export default function BookingHistoryPage() {
                               <h3 className="font-semibold text-[#1F1F1F]">Catatan Admin</h3>
                               <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Official</span>
                             </div>
-                            <p className="text-[#1F1F1F] leading-relaxed">{selectedBooking.adminNotes}</p>
+                            {isEditing && session?.user?.role === 'ADMIN' ? (
+                              <textarea
+                                value={editForm.adminNotes}
+                                onChange={(e) => setEditForm({...editForm, adminNotes: e.target.value})}
+                                placeholder="Tambahkan catatan admin..."
+                                className="w-full p-3 border border-indigo-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none"
+                                rows={3}
+                              />
+                            ) : (
+                              <p className="text-[#1F1F1F] leading-relaxed">{selectedBooking.adminNotes}</p>
+                            )}
                           </div>
                         )}
                       </div>

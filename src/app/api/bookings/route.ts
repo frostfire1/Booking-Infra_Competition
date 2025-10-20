@@ -6,6 +6,15 @@ import { authOptions } from '@/lib/auth'
 // GET all bookings
 export async function GET(request: NextRequest) {
   try {
+    const session = await getServerSession(authOptions)
+    
+    if (!session?.user) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
     const { searchParams } = new URL(request.url)
     const facilityId = searchParams.get('facilityId')
     const startDate = searchParams.get('startDate')
@@ -13,11 +22,19 @@ export async function GET(request: NextRequest) {
 
     const where: {
       facilityId?: string
+      userId?: string
       OR?: Array<{
         startDate: { lte: Date }
         endDate: { gte: Date }
       }>
     } = {}
+    
+    // Role-based filtering
+    if (session.user.role !== 'ADMIN') {
+      // Regular users can only see their own bookings
+      where.userId = session.user.id
+    }
+    // Admins can see all bookings (no userId filter)
     
     if (facilityId) {
       where.facilityId = facilityId
