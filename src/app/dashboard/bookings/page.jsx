@@ -98,7 +98,7 @@ export default function BookingHistoryPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <div className="pt-20 pb-8 px-4">
+      <div className="pt-32 pb-8 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">
