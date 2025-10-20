@@ -126,7 +126,7 @@ export default function AdminPanel() {
   ];
 
   return (
-    <div className="pt-32 pb-8 px-4 min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="pt-8 pb-8 px-4 min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
