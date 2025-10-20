@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * ATTENTION: An "eval-source-map" devtool has been used.
  * This devtool is neither made for production nor for readable output files.
@@ -176,11 +175,3 @@ var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next"], () =>
 module.exports = __webpack_exports__;
 
 })();
-=======
-var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/events/route.js")
-R.c("server/chunks/4d566_next_4ea6a53e._.js")
-R.c("server/chunks/[root-of-the-server]__7c843744._.js")
-R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/.next-internal/server/app/api/events/route/actions.js [app-rsc] (server actions loader, ecmascript)")
-R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/api/events/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
-module.exports=R.m("[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/Documents/CodingProject/JHIC-2025/Booking-Infra_Competition/src/app/api/events/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports
->>>>>>> 1dde6f881fd69b639fe102d5a2f9ae31e3f99cf7

@@ -29,43 +29,56 @@ export default function ChatbotWidget() {
   }, [messages]);
 
   useEffect(() => {
-    // Connect to WebSocket on mount
-  const wsHost = process.env.NEXT_PUBLIC_WS_HOST || window.location.hostname;
-  const socket = new window.WebSocket(`ws://${wsHost}`);
-    setWs(socket);
-    socket.onopen = () => {
-      setWsStatus("online");
-      console.log("WebSocket connected");
-    };
-    socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === "status") {
-        if (data.status === "thinking") setIsLoading(true);
-        if (data.status === "done" || data.status === "error") setIsLoading(false);
-        setWsStatus(data.status === "connected" ? "online" : wsStatus);
-      }
-      if (data.type === "answer") {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
+    let reconnectTimeout;
+    let socket;
+    const wsHost = process.env.NEXT_PUBLIC_WS_HOST || window.location.hostname;
+    const connectWebSocket = () => {
+      socket = new window.WebSocket(`ws://${wsHost}`);
+      setWs(socket);
+      socket.onopen = () => {
+        setWsStatus("online");
+        console.log("WebSocket connected");
+      };
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === "status") {
+          if (data.status === "thinking") setIsLoading(true);
+          if (data.status === "done" || data.status === "error") setIsLoading(false);
+          if (data.status === "connected" || data.status === "thinking" || data.status === "done") {
+            setWsStatus("online");
+          } else if (data.status === "error") {
+            setWsStatus("offline");
+          }
+        }
+        if (data.type === "answer") {
+          setMessages((prev) => [...prev, { role: "assistant", content: data.text }]);
+          setIsLoading(false);
+        }
+        if (data.type === "error") {
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: "Maaf, terjadi kesalahan. Silakan coba lagi nanti." },
+          ]);
+          setIsLoading(false);
+        }
+      };
+      socket.onclose = () => {
+        setWs(null);
         setIsLoading(false);
-      }
-      if (data.type === "error") {
-        setMessages((prev) => [
-          ...prev,
-          { role: "assistant", content: "Maaf, terjadi kesalahan. Silakan coba lagi nanti." },
-        ]);
-        setIsLoading(false);
-      }
+        setWsStatus("offline");
+        // Try to reconnect after 2 seconds
+        reconnectTimeout = setTimeout(() => {
+          connectWebSocket();
+        }, 2000);
+      };
+      socket.onerror = () => {
+        setWsStatus("offline");
+      };
     };
-    socket.onclose = () => {
-      setWs(null);
-      setIsLoading(false);
-      setWsStatus("offline");
-    };
-    socket.onerror = () => {
-      setWsStatus("offline");
-    };
+    connectWebSocket();
     return () => {
-      socket.close();
+      if (socket) socket.close();
+      if (reconnectTimeout) clearTimeout(reconnectTimeout);
     };
   }, []);
 
