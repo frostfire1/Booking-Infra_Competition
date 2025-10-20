@@ -18,16 +18,18 @@ export default function BookingHistoryPage() {
     adminNotes: ''
   });
 
-  // Temporary: Skip authentication for testing
-  // useEffect(() => {
-  //   if (status === "unauthenticated") {
-  //     router.push("/auth/signin");
-  //   }
-  // }, [status, router]);
+  // Check authentication
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
 
   useEffect(() => {
-    fetchBookings();
-  }, []);
+    if (status === "authenticated") {
+      fetchBookings();
+    }
+  }, [status]);
 
   useEffect(() => {
     if (selectedBookingId) {
@@ -44,11 +46,16 @@ export default function BookingHistoryPage() {
       if (response.ok) {
         const data = await response.json();
         setBookings(data);
+      } else if (response.status === 401) {
+        console.log("User not authenticated, redirecting to login...");
+        router.push("/auth/signin");
       } else {
-        console.error("Failed to fetch bookings");
+        console.error("Failed to fetch bookings:", response.status, response.statusText);
+        setBookings([]);
       }
     } catch (error) {
       console.error("Error fetching bookings:", error);
+      setBookings([]);
     } finally {
       setLoading(false);
     }
@@ -65,8 +72,11 @@ export default function BookingHistoryPage() {
           status: data.status,
           adminNotes: data.adminNotes || ''
         });
+      } else if (response.status === 401) {
+        console.log("User not authenticated, redirecting to login...");
+        router.push("/auth/signin");
       } else {
-        console.error("Failed to fetch booking details");
+        console.error("Failed to fetch booking details:", response.status, response.statusText);
         setSelectedBooking(null);
       }
     } catch (error) {
@@ -132,6 +142,30 @@ export default function BookingHistoryPage() {
         return status;
     }
   };
+
+  // Show loading while checking authentication
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E04E4E] mx-auto mb-4"></div>
+          <p className="text-gray-600">Memeriksa autentikasi...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show loading if not authenticated
+  if (status === "unauthenticated") {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E04E4E] mx-auto mb-4"></div>
+          <p className="text-gray-600">Mengalihkan ke halaman login...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
