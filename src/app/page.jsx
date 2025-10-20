@@ -8,7 +8,6 @@ import "react-day-picker/dist/style.css";
 import "./calendar-styles.css";
 import FAQSection from "../components/faq/FAQSection";
 import AskQuestionSection from "../components/chat/AskQuestionSection";
-import GalleryCarousel from "../components/gallery/GalleryCarousel";
 
 const fasilitasList = [
   "Aula",
@@ -702,17 +701,175 @@ export default (props) => {
               <div className="w-24 h-1 bg-gradient-to-r from-[#E04E4E] to-[#FF6767] rounded-full animate-fade-in-up animation-delay-400"></div>
         </div>
           </div>
-          
-          {/* Gallery Carousel */}
-          <div className="w-full animate-fade-in-up animation-delay-600">
-            <GalleryCarousel />
+        </div>
+        
+        {/* Gallery Cards with Modern Design */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 self-stretch mb-12 md:mb-24 px-4 md:px-12">
+          {/* Jobfair & Edufair Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/JobFair.png"
+                alt="Jobfair & Edufair"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-[#E04E4E] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  Career
+            </span>
           </div>
             </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Jobfair & Edufair
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Acara pameran kerja dan pendidikan yang menghubungkan siswa dengan perusahaan terkemuka
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>15 Maret 2024</span>
+                <span>Aula</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Kick-Off Cyber Heroes Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-200">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/kickoff.png"
+                alt="Kick-Off Cyber Heroes"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Technology
+              </span>
+            </div>
+          </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Kick-Off Cyber Heroes
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Peluncuran program cyber security untuk membentuk generasi digital yang aman
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>24 Januari 2023</span>
+                <span>Lab 7</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Sosialisasi Kurikulum Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-400">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/kurikulum.png"
+                alt="Sosialisasi Kurikulum"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Education
+              </span>
+            </div>
+          </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Sosialisasi Kurikulum
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Presentasi kurikulum terbaru untuk mempersiapkan siswa menghadapi era digital
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>24 Januari 2023</span>
+                <span>Aula</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Kunjungan Pak Onno Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-600">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/pakonno.png"
+                alt="Kunjungan Pak Onno"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Inspiration
+            </span>
+          </div>
+        </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Kunjungan Pak Onno
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Kunjungan tokoh teknologi Indonesia untuk berbagi inspirasi dan motivasi
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>10 Februari 2023</span>
+                <span>Aula</span>
+            </div>
+              </div>
+              </div>
+
+          {/* Roblox Competition Card */}
+          <div className="group gallery-card bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden animate-fade-in-up animation-delay-800">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src="/Roblox1.png"
+                alt="Roblox Competition"
+                className="gallery-image w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = '/placeholder-event.png';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-3 right-3">
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  Competition
+                  </span>
+                </div>
+              </div>
+            <div className="p-4">
+              <h3 className="text-lg font-bold text-[#1F1F1F] mb-2 group-hover:text-[#E04E4E] transition-colors duration-300">
+                Roblox Competition
+              </h3>
+              <p className="text-sm text-[#7A7A7A] mb-3 line-clamp-2">
+                Kompetisi game development menggunakan platform Roblox Studio
+              </p>
+              <div className="flex items-center justify-between text-xs text-[#7A7A7A]">
+                <span>5 April 2024</span>
+                <span>Lab 5</span>
+            </div>
+          </div>
+        </div>
+              </div>
         
         {/* FAQ Section */}
         <div id="faq">
           <FAQSection />
-          </div>
+        </div>
         
         {/* Ask Question Section */}
         <AskQuestionSection />
@@ -730,7 +887,7 @@ export default (props) => {
                 alt="Footer Sponsor 1"
                 className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
-            </div>
+                  </div>
             
             {/* Footer Image 2 */}
             <div className="flex items-center justify-center">
@@ -739,8 +896,8 @@ export default (props) => {
                 alt="Footer Sponsor 2"
                 className="w-full max-w-[300px] h-auto object-contain rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                   />
-          </div>
-        </div>
+                </div>
+              </div>
             </div>
         
         <div id="kontak" className="flex flex-col lg:flex-row justify-between items-start self-stretch bg-white py-12 md:py-[82px] px-4 md:px-12 lg:px-32 gap-12 lg:gap-0">
